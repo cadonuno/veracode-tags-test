@@ -55,38 +55,16 @@
 			    </style>    
 			  </head>
 			  <body>
-			    <div id="wrapper">
-			      <div id="container">
-			        <div class="row header">
-			          <div class="logo">
-			            <img src="https://community.veracode.com/resource/1544728435000/VeracodeCommunityLogo" alt="Home" width="250">
-			          </div>
-			          <div class="report"><button class="pink"><a href="https://docs.veracode.com/" target="_blank">Need help?</a></button></div>
-			        </div>
-			        <div class="row">
-			          <div class="left column">
-			            <h2>Pipeline Scan Results</h2>
-			            <div id="piechart" style="width: 500px; height: 300px;"></div>
-			          </div>
-			          <div class="middle column"><h2>TOP FLAWS</h2><h6><a href='https://cwe.mitre.org/data/definitions/89.html' target='_blank'>CWE 89</a></h6><p>Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')(2)</p></div>
-			          <div class="right column"><h2>CWE TOP 25 FLAWS</h2><h5>2</h5></div>
-			        </div>
-					<div class="row">
-			          <h3 style='color: #fff;'>Top-level modules:</h3><ul> <li><h3 style='color: #fff;'>verademo.war</h3></li> <li><h3 style='color: #fff;'>JS files within verademo.war</h3></li> </ul>
-			        </div>
-			        <div class="row">
-			          <div id="gridjs"></div>
-			        </div>
-			      </div>
-			    </div>
 			    <script src="https://unpkg.com/gridjs/dist/gridjs.development.js"></script>
 			    <script type="text/javascript">
 			      new gridjs.Grid({
-			        columns: ["CWE", "SEVERITY", "ISSUE TYPE", "LINE", "FILE", "SCOPE"],
+			        columns: ["Name", "Description", "Author", "Tags"],
 			        search: true,
 			        sort: true,
 			        pagination: true,
-			        data: [["89", "High", "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')", "40", "ListenCommand.java", "com.veracode.verademo.commands.ListenCommand"], ["89", "High", "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')", "47", "ListenCommand.java", "com.veracode.verademo.commands.ListenCommand"]]
+			        data: [
+					["[Veracode_Delete_Sandbox](https://github.com/christyson/veracode_delete_sandbox)", "A simple example script to delete a Sandbox if it exists in a Veracode application profile and you have the appropriate permissions.", "[Christyson](https://github.com/christyson/)", "Sandbox Management, Delete, Application Manamgement"], 
+					["[Bulk add teams to workspaces](https://github.com/cadonuno/add-team-to-workspace)", "Allows for adding teams to workspaces in bulk.", "[cadonuno](https://github.com/cadonuno/)", "SCA, Workspace Management, Permissions"]]
 			      }).render(document.getElementById("gridjs"));
 			    </script>
 			  </body>
