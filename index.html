@@ -1,0 +1,94 @@
+<html>
+			<head>
+				<script src="https://unpkg.com/gridjs/dist/gridjs.production.min.js"></script>
+				<link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+				<script type="module">import{Grid,html}from"https://unpkg.com/gridjs/dist/gridjs.production.es.min.js";</script>
+				<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+			    <script type="text/javascript">
+			      google.charts.load('current', {'packages':['corechart']});
+			      google.charts.setOnLoadCallback(drawChart);
+			      function drawChart() {
+			        var data = google.visualization.arrayToDataTable([
+			          ['Severity', 'Count'],
+			          ['Very High',    0],
+			          ['High',    2],
+			          ['Medium',    0],		          
+			          ['Low',     0],
+			          ['Very Low',  0],
+			          ['Informational',  0]
+			        ]);
+			        var options = {
+			          slices: [{color: '#FF0000'}, {color: '#FF8C00'}, {color: '#e2e369'}, {color: '#37a2e4'}, {color: '#6600CC'}, {color: '#dddddd'}],
+			          legend: {textStyle: {color: 'white'}},
+			          backgroundColor: '#000000'
+			        }
+			        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+			        chart.draw(data, options);
+			      }
+			    </script>
+			    <style type="text/css">
+			      html, body{font-family: Arial, Helvetica, sans-serif;}
+			      h2{font-size: 1.5em; text-align: center;}
+			      .header{height: 100px;}
+			      button{border:none;}
+			      .logo{width:300px; float: left;}
+			      .report{max-width:800px; float: right;}
+			      .report button{width:100px; padding:14px; border:none; border-radius: 25px;}
+			      .report button a{color:#fff; text-decoration: none; font-weight: bold;}
+			      .pink{background-color: #d73185;}
+			      .column {float: left;}
+			      .column a{color:#000;}
+			      .column h5{margin: 0 auto; text-align: center; font-weight: bold; font-size:7.5em;}
+			      .column h6{margin: 0 auto; text-align: center; font-variant: small-caps;}
+			      .middle.column h6 {margin: 0 auto; text-align: center; font-variant: small-caps; line-height: 1.2; font-family: monospace; font-size: 1.25em; text-align: center; margin-left: 5px;}
+				  .column p {margin-block-start: .1em;font-size: .75em;text-align: center;font-family: monospace;}
+			      .row:after {content: ""; display: table; clear: both;}
+			      .left{max-width:500px; width:50%;}
+			      .left h2{color: #fff;}
+			      .middle{max-width: 300px; height: 300px; width:25%; background-color:#e2e369;}
+			      .right{max-width: 300px; height: 300px; width:25%; background-color: #37a2e4;}
+			      #wrapper{width:100%; position: absolute;}
+			      #container{max-width:1200px; min-height:1100px; margin: 0 auto;}
+			      .row{width:100%; display: block; min-width:1100px;}
+			      .chartruce{background-color: #e2e369;}
+			      html,body{background-color:#000;}
+			    </style>    
+			  </head>
+			  <body>
+			    <div id="wrapper">
+			      <div id="container">
+			        <div class="row header">
+			          <div class="logo">
+			            <img src="https://community.veracode.com/resource/1544728435000/VeracodeCommunityLogo" alt="Home" width="250">
+			          </div>
+			          <div class="report"><button class="pink"><a href="https://docs.veracode.com/" target="_blank">Need help?</a></button></div>
+			        </div>
+			        <div class="row">
+			          <div class="left column">
+			            <h2>Pipeline Scan Results</h2>
+			            <div id="piechart" style="width: 500px; height: 300px;"></div>
+			          </div>
+			          <div class="middle column"><h2>TOP FLAWS</h2><h6><a href='https://cwe.mitre.org/data/definitions/89.html' target='_blank'>CWE 89</a></h6><p>Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')(2)</p></div>
+			          <div class="right column"><h2>CWE TOP 25 FLAWS</h2><h5>2</h5></div>
+			        </div>
+					<div class="row">
+			          <h3 style='color: #fff;'>Top-level modules:</h3><ul> <li><h3 style='color: #fff;'>verademo.war</h3></li> <li><h3 style='color: #fff;'>JS files within verademo.war</h3></li> </ul>
+			        </div>
+			        <div class="row">
+			          <div id="gridjs"></div>
+			        </div>
+			      </div>
+			    </div>
+			    <script src="https://unpkg.com/gridjs/dist/gridjs.development.js"></script>
+			    <script type="text/javascript">
+			      new gridjs.Grid({
+			        columns: ["CWE", "SEVERITY", "ISSUE TYPE", "LINE", "FILE", "SCOPE"],
+			        search: true,
+			        sort: true,
+			        pagination: true,
+			        data: [["89", "High", "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')", "40", "ListenCommand.java", "com.veracode.verademo.commands.ListenCommand"], ["89", "High", "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')", "47", "ListenCommand.java", "com.veracode.verademo.commands.ListenCommand"]]
+			      }).render(document.getElementById("gridjs"));
+			    </script>
+			  </body>
+			</html>
+			
