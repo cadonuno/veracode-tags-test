@@ -47,7 +47,7 @@
 			    </div>
 			    <script type="text/javascript">
 					var items = []
-					$.get("/veracode-tags-test/database.csv", function(data) {
+					$.get("/veracode-tags-test/database.txt", function(data) {
 						items = data.split("\n");
 						items.shift();
 						while (items[items.length-1] === '') {
@@ -104,7 +104,16 @@
 							{ 
 								name: 'Tags',
 								formatter: (_, row) => {
-									return gridjs.html(`${row.cells[5].data}`)	
+									elements = row.cells[5].data.split(",")
+									html = ''
+									for (element in elements) {
+										var trimmed = element.trim()
+										if (html) {
+											html += ', '
+										}
+										html += "<div onclick='$(\"input\").val('" + trimmed + "'')>" + trimmed + "</div>'>"
+									}
+									return gridjs.html(`${html}`)	
 								}								
 							}],			        
 							data: items
