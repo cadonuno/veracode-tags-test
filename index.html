@@ -106,7 +106,7 @@
 								formatter: (_, row) => {
 									elements = row.cells[5].data.split(",")
 									html = ''
-									elements.foreach((element) => {
+									elements.forEach((element) => {
 										var trimmed = element.trim()
 										if (html) {
 											html += ', '
