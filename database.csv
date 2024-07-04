@@ -1,0 +1,3 @@
+﻿repo-url,repo-name,repo-description,author-name,author-url,repo-tags
+https://github.com/christyson/veracode_delete_sandbox,Veracode Delete Sandbox,A simple example script to delete a Sandbox if it exists in a Veracode application profile and you have the appropriate permissions.,Christyson,https://github.com/christyson,"Sandbox Management, Delete, Application Management"
+https://github.com/cadonuno/add-team-to-workspace,Bulk add teams to workspaces,Allows for adding teams to workspaces in bulk,Cadonuno,https://github.com/cadonuno,"SCA, Workspace Management, Permissions"

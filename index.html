@@ -1,6 +1,7 @@
  <html>
 			<head>
 				<script src="https://unpkg.com/gridjs/dist/gridjs.production.min.js"></script>
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 				<link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
 				<script type="module">import{Grid,html}from"https://unpkg.com/gridjs/dist/gridjs.production.es.min.js";</script>
 				<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -43,61 +44,64 @@
 			          <div id="gridjs"></div>
 			        </div>
 			      </div>
-			    </div>		  
-			    <script src="https://unpkg.com/gridjs/dist/gridjs.development.js"></script>
+			    </div>
 			    <script type="text/javascript">
-			      new gridjs.Grid({
-				search: true,
-			        sort: true,
-			        pagination: true,
-			        columns: [{
-					     name: 'repo-name',
-				             hidden: true
-					  },
-					  {
-					     name: 'repo-url',
-				             hidden: true
-					  },
-					  {
-					     name: 'repo-description',
-				             hidden: true
-					  },
-					  {
-					     name: 'author-name',
-				             hidden: true
-					  },
-					  {
-					     name: 'author-url',
-				             hidden: true
-					  },
-					  {
-					     name: 'repo-tags',
-				             hidden: true
-					  },
-					  { 
-					     name: 'Name',
-					     formatter: (_, row) => gridjs.html(`<a href='${row.cells[0].data}'>${row.cells[1].data}</a>`)
-					  },
-					  { 
-					     name: 'Description',
-					     formatter: (_, row) => gridjs.html(`${row.cells[2].data}`)
-					  },
-					  { 
-					     name: 'Author',
-					     formatter: (_, row) => gridjs.html(`<a href='${row.cells[4].data}'>${row.cells[3].data}</a>`)
-					  },
-					  { 
-					     name: 'Tags',
-					     formatter: (_, row) => gridjs.html(`${row.cells[5].data}`)
-					  }],			        
-			        data: [
-					["https://github.com/christyson/veracode_delete_sandbox", "Veracode Delete Sandbox", 
-					      "A simple example script to delete a Sandbox if it exists in a Veracode application profile and you have the appropriate permissions.", 
-					      "Christyson", "https://github.com/christyson", "Sandbox Management, Delete, Application Manamgement", null, null, null, null], 
-					["https://github.com/cadonuno/add-team-to-workspace", "Bulk add teams to workspaces", 
-					 "Allows for adding teams to workspaces in bulk.", 
-					 "Cadonuno", "https://github.com/cadonuno", "SCA, Workspace Management, Permissions", null, null, null, null]]
-			      }).render(document.getElementById("gridjs"));
+					var items = []
+					$.get("/database.csv", function(data) {
+						items = data.split("\r\n").map(function(element) { 
+							var newLine = element.split(",");
+							newLine.push(null)
+							newLine.push(null)
+							newLine.push(null)
+							newLine.push(null)
+						});
+					});
+					new gridjs.Grid({
+						search: true,
+						sort: true,
+						pagination: true,
+						columns: [{
+							name: 'repo-name',
+							hidden: true
+						},
+						{
+							name: 'repo-url',
+							hidden: true
+						},
+						{
+							name: 'repo-description',
+							hidden: true
+						},
+						{
+							name: 'author-name',
+							hidden: true
+						},
+						{
+							name: 'author-url',
+							hidden: true
+						},
+						{
+							name: 'repo-tags',
+							hidden: true
+						},
+						{ 
+							name: 'Name',
+							formatter: (_, row) => gridjs.html(`<a href='${row.cells[0].data}'>${row.cells[1].data}</a>`)
+						},
+						{ 
+							name: 'Description',
+							formatter: (_, row) => gridjs.html(`${row.cells[2].data}`)
+						},
+						{ 
+							name: 'Author',
+							formatter: (_, row) => gridjs.html(`<a href='${row.cells[4].data}'>${row.cells[3].data}</a>`)
+						},
+						{ 
+							name: 'Tags',
+							formatter: (_, row) => gridjs.html(`${row.cells[5].data}`)
+						}],			        
+						data: items
+					}).render(document.getElementById("gridjs"));
 			    </script>
 			  </body>
 			</html>
