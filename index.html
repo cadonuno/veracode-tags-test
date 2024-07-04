@@ -106,13 +106,13 @@
 								formatter: (_, row) => {
 									elements = row.cells[5].data.split(",")
 									html = ''
-									for (element in elements) {
+									elements.foreach(() => {
 										var trimmed = element.trim()
 										if (html) {
 											html += ', '
 										}
-										html += "<div onclick='$(\"input\").val('" + trimmed + "'')>" + trimmed + "</div>'>"
-									}
+										html += "<div onclick=\"$('input').val('" + trimmed + "')\">" + trimmed + "</div>"
+									});
 									return gridjs.html(`${html}`)	
 								}								
 							}],			        
