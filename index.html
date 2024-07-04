@@ -57,7 +57,7 @@
 					}
 
 					function searchForValue(cell, searchValue) {
-						return cell.contains(searchValue.split('=')[1]) ? searchValue : null;
+						return cell.toLowerCase().includes(searchValue.split('=')[1].toLowerCase()) ? searchValue : null;
 					}
 
 					function escapeHTML(str) {
