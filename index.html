@@ -123,7 +123,7 @@
 										if (html) {
 											html += ', '
 										}
-										html += "<a href=\"#\" onclick=\"triggerSearch('" + encodeURIComponent(trimmed) + "')\">" + encodeURIComponent(trimmed) + "</a>"
+										html += "<a href=\"#\" onclick=\"triggerSearch('" + html_encode(trimmed) + "')\">" + html_encode(trimmed) + "</a>"
 									});
 									return gridjs.html(`${html}`)	
 								}								
