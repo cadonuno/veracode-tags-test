@@ -56,6 +56,10 @@
 						}));
 					}
 
+					function searchForValue(cell, searchValue) {
+						return cell.contains(searchValue.split('=')[1]) ? searchValue : null;
+					}
+
 					function escapeHTML(str) {
 						return str.replace(/[&<>"'\/]/g, (char) => {
 							switch (char) {
@@ -102,15 +106,15 @@
 									}
 									searchValue = searchValue.trim()
 									if (searchValue.startsWith("name=")) {
-										return cellIndex == 0 ? "name= " + cell : null;
+										return cellIndex == 0 ? searchForValue(cell, searchValue) : null;
 									} else if (searchValue.startsWith("url=")) {
-										return cellIndex == 1 ? "url= " + cell : null;
+										return cellIndex == 1 ? searchForValue(cell, searchValue) : null;
 									} else if (searchValue.startsWith("description=")) {
-										return cellIndex == 2 ? "description= " + cell : null;
+										return cellIndex == 2 ? searchForValue(cell, searchValue) : null;
 									} else if (searchValue.startsWith("author=")) {
-										return cellIndex == 3 ? "author= " + cell : null;
+										return cellIndex == 3 ? searchForValue(cell, searchValue) : null;
 									} else if (searchValue.startsWith("tags=")) {
-										return cellIndex == 5 ? "tags= " + cell : null;
+										return cellIndex == 5 ? searchForValue(cell, searchValue) : null;
 									}
 									return cell;
 								}
