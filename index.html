@@ -55,53 +55,53 @@
 							newLine.push(null)
 							newLine.push(null)
 						});
+						new gridjs.Grid({
+							search: true,
+							sort: true,
+							pagination: true,
+							columns: [{
+								name: 'repo-name',
+								hidden: true
+							},
+							{
+								name: 'repo-url',
+								hidden: true
+							},
+							{
+								name: 'repo-description',
+								hidden: true
+							},
+							{
+								name: 'author-name',
+								hidden: true
+							},
+							{
+								name: 'author-url',
+								hidden: true
+							},
+							{
+								name: 'repo-tags',
+								hidden: true
+							},
+							{ 
+								name: 'Name',
+								formatter: (_, row) => gridjs.html(`<a href='${row.cells[0].data}'>${row.cells[1].data}</a>`)
+							},
+							{ 
+								name: 'Description',
+								formatter: (_, row) => gridjs.html(`${row.cells[2].data}`)
+							},
+							{ 
+								name: 'Author',
+								formatter: (_, row) => gridjs.html(`<a href='${row.cells[4].data}'>${row.cells[3].data}</a>`)
+							},
+							{ 
+								name: 'Tags',
+								formatter: (_, row) => gridjs.html(`${row.cells[5].data}`)
+							}],			        
+							data: items
+						}).render(document.getElementById("gridjs"));
 					});
-					new gridjs.Grid({
-						search: true,
-						sort: true,
-						pagination: true,
-						columns: [{
-							name: 'repo-name',
-							hidden: true
-						},
-						{
-							name: 'repo-url',
-							hidden: true
-						},
-						{
-							name: 'repo-description',
-							hidden: true
-						},
-						{
-							name: 'author-name',
-							hidden: true
-						},
-						{
-							name: 'author-url',
-							hidden: true
-						},
-						{
-							name: 'repo-tags',
-							hidden: true
-						},
-						{ 
-							name: 'Name',
-							formatter: (_, row) => gridjs.html(`<a href='${row.cells[0].data}'>${row.cells[1].data}</a>`)
-						},
-						{ 
-							name: 'Description',
-							formatter: (_, row) => gridjs.html(`${row.cells[2].data}`)
-						},
-						{ 
-							name: 'Author',
-							formatter: (_, row) => gridjs.html(`<a href='${row.cells[4].data}'>${row.cells[3].data}</a>`)
-						},
-						{ 
-							name: 'Tags',
-							formatter: (_, row) => gridjs.html(`${row.cells[5].data}`)
-						}],			        
-						data: items
-					}).render(document.getElementById("gridjs"));
 			    </script>
 			  </body>
 			</html>
