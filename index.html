@@ -50,10 +50,11 @@
 					$.get("/veracode-tags-test/database.csv", function(data) {
 						items = data.split("\r\n").map(function(element) { 
 							var newLine = element.split(",");
-							newLine.push(null)
-							newLine.push(null)
-							newLine.push(null)
-							newLine.push(null)
+							newLine.push(null);
+							newLine.push(null);
+							newLine.push(null);
+							newLine.push(null);
+							return newLine;
 						});
 						new gridjs.Grid({
 							search: true,
