@@ -72,7 +72,9 @@
 							return newLine;
 						});					
 						new gridjs.Grid({
-							search: true,
+							search: {
+								ignoreHiddenColumns: false,
+							},
 							sort: true,
 							pagination: true,
 							columns: [{
