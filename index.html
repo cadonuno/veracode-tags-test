@@ -50,12 +50,11 @@
 					$.get("/veracode-tags-test/database.csv", function(data) {
 						items = data.split("\n");
 						items.shift();
-						items.shift();
-						if (items[items.length-1] === '') {
+						while (items[items.length-1] === '') {
 							items.pop();
 						}
 						items = items.map(function(element) { 
-							var newLine = element.split("|");
+							var newLine = element.split("\t");
 							newLine.push(null);
 							newLine.push(null);
 							newLine.push(null);
@@ -104,7 +103,9 @@
 							},
 							{ 
 								name: 'Tags',
-								formatter: (_, row) => gridjs.html(`${row.cells[5].data}`)
+								formatter: (_, row) => {
+									return gridjs.html(`${row.cells[5].data}`)	
+								}								
 							}],			        
 							data: items
 						}).render(document.getElementById("gridjs"));
