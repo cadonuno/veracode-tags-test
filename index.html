@@ -102,13 +102,15 @@
 									}
 									searchValue = searchValue.trim()
 									if (searchValue.startsWith("name=")) {
-										return cellIndex == 6 ? "name=" + cell : null;
-									}else if (searchValue.startsWith("description=")) {
-										return cellIndex == 7 ? "description=" + cell : null;
+										return cellIndex == 0 ? "name=" + cell : null;
+									} else if (searchValue.startsWith("url=")) {
+										return cellIndex == 1 ? "url=" + cell : null;
+									} else if (searchValue.startsWith("description=")) {
+										return cellIndex == 2 ? "description=" + cell : null;
 									} else if (searchValue.startsWith("author=")) {
-										return cellIndex == 8 ? "author=" + cell : null;
+										return cellIndex == 3 ? "author=" + cell : null;
 									} else if (searchValue.startsWith("tags=")) {
-										return cellIndex == 9 ? "tags=" + cell : null;
+										return cellIndex == 5 ? "tags=" + cell : null;
 									}
 									return cell;
 								}
