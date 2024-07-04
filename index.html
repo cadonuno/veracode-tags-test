@@ -46,6 +46,16 @@
 			      </div>
 			    </div>
 			    <script type="text/javascript">
+					function triggerSearch(value) {
+						var inputField = document.querySelector('.gridjs-search-input');
+						inputField.value = value;
+
+						inputField.dispatchEvent(new Event('input', {
+							bubbles: true,
+							cancelable: true,
+						}));
+					}
+
 					var items = []
 					$.get("/veracode-tags-test/database.txt", function(data) {
 						items = data.split("\n");
@@ -111,7 +121,7 @@
 										if (html) {
 											html += ', '
 										}
-										html += "<div onclick=\"$('input').val('" + trimmed + "')\">" + trimmed + "</div>"
+										html += "<a href=\"#\" onclick=\"triggerSearch('" + trimmed + "')\">" + trimmed + "</a>"
 									});
 									return gridjs.html(`${html}`)	
 								}								
