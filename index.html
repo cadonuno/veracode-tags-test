@@ -103,7 +103,7 @@
 							},
 							{ 
 								name: 'Name',
-								formatter: (_, row) => gridjs.html(`<a href='${row.cells[0].data}'>${row.cells[1].data}</a>`)
+								formatter: (_, row) => gridjs.html(`<a target="_blank" href='${row.cells[0].data}'>${row.cells[1].data}</a>`)
 							},
 							{ 
 								name: 'Description',
@@ -111,7 +111,7 @@
 							},
 							{ 
 								name: 'Author',
-								formatter: (_, row) => gridjs.html(`<a href='${row.cells[4].data}'>${row.cells[3].data}</a>`)
+								formatter: (_, row) => gridjs.html(`<a target="_blank" href='${row.cells[4].data}'>${row.cells[3].data}</a>`)
 							},
 							{ 
 								name: 'Tags',
