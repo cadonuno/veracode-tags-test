@@ -47,7 +47,7 @@
 			    </div>
 			    <script type="text/javascript">
 					var items = []
-					$.get("/database.csv", function(data) {
+					$.get("/veracode-tags-test/database.csv", function(data) {
 						items = data.split("\r\n").map(function(element) { 
 							var newLine = element.split(",");
 							newLine.push(null)
