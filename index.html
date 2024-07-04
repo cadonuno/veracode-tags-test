@@ -56,6 +56,27 @@
 						}));
 					}
 
+					function escapeHTML(str) {
+						return str.replace(/[&<>"'\/]/g, (char) => {
+							switch (char) {
+								case '&':
+									return '&amp;';
+								case '<':
+									return '&lt;';
+								case '>':
+									return '&gt;';
+								case '"':
+									return '&quot;';
+								case '\\':
+									return '&#39;';
+								case '/':
+									return '&#x2F;';
+								default:
+									return char;
+								}
+							});
+						}
+
 					var items = []
 					$.get("/veracode-tags-test/database.txt", function(data) {
 						items = data.split("\n");
@@ -123,7 +144,7 @@
 										if (html) {
 											html += ', '
 										}
-										html += "<a href=\"#\" onclick=\"triggerSearch('" + html_encode(trimmed) + "')\">" + html_encode(trimmed) + "</a>"
+										html += "<a href=\"#\" onclick=\"triggerSearch('" + escapeHTML(trimmed) + "')\">" + escapeHTML(trimmed) + "</a>"
 									});
 									return gridjs.html(`${html}`)	
 								}								
