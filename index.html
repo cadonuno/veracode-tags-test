@@ -48,14 +48,20 @@
 			    <script type="text/javascript">
 					var items = []
 					$.get("/veracode-tags-test/database.csv", function(data) {
-						items = data.split("\n").shift().map(function(element) { 
+						items = data.split("\n");
+						items.shift();
+						items.shift();
+						if (items[items.length-1] === '') {
+							items.pop();
+						}
+						items = items.map(function(element) { 
 							var newLine = element.split("|");
 							newLine.push(null);
 							newLine.push(null);
 							newLine.push(null);
 							newLine.push(null);
 							return newLine;
-						});
+						});					
 						new gridjs.Grid({
 							search: true,
 							sort: true,
