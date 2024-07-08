@@ -1,4 +1,4 @@
-function search_selection(cell, rowIndex, cellIndex) {
+function searchSelection(cell, rowIndex, cellIndex) {
     var searchValue = $("input").val()
     if (searchValue === null) {
         return null;
@@ -42,19 +42,23 @@ function searchForValue(cell, searchValue) {
     return searchValue;
 }
 
-function build_description_html(data) {
+function buildLinkHtml(linkUrl, linkDescription) {
+    return "<a target='_blank' href='" + linkUrl + "'>" + linkDescription + "</a>";
+}
+
+function buildDescriptionHtml(data) {
     var description = data.cells[2].data;
     if (!description.includes("[")) {
         return description;
     }						
     var splitDescription = description.split("[");
     var newDescription = splitDescription[0];
-    var currentLink = 1;
-    while (currentLink < splitDescription.length) {
-        linkEndSplit = splitDescription[currentLink].split("]")
-        linkAndDescriptionSplit = linkEndSplit[0].split("|")
-        newDescription+="<a target='_blank' href='" + linkAndDescriptionSplit[1] + "'>" + linkAndDescriptionSplit[0] + "</a>"+linkEndSplit[1];
-        currentLink++;
+    var currentLinkIndex = 1;
+    while (currentLinkIndex < splitDescription.length) {
+        linkTagEndSplit = splitDescription[currentLinkIndex].split("]")
+        linkTagUrlAndDescriptionSplit = linkTagEndSplit[0].split("|")
+        newDescription+=buildLinkHtml(linkTagUrlAndDescriptionSplit[1], linkTagUrlAndDescriptionSplit[0]) + linkTagEndSplit[1];
+        currentLinkIndex++;
     }
 
     return newDescription;
@@ -81,7 +85,7 @@ function escapeHTML(str) {
         });
 }
 
-function populate_grid(grid_id) {
+function populateGrid(grid_id) {
     var items = []
     $.get("/veracode-tags-test/database.txt", function(data) {
         items = data.split("\n");
@@ -100,7 +104,7 @@ function populate_grid(grid_id) {
         new gridjs.Grid({
             search: {
                 ignoreHiddenColumns: false,
-                selector: (cell, rowIndex, cellIndex) => search_selection(cell, rowIndex, cellIndex)
+                selector: (cell, rowIndex, cellIndex) => searchSelection(cell, rowIndex, cellIndex)
             },
             sort: true,
             pagination: true,
@@ -130,15 +134,15 @@ function populate_grid(grid_id) {
             },
             { 
                 name: 'Name',
-                formatter: (_, row) => gridjs.html(`<a target="_blank" href='${row.cells[0].data}'>${row.cells[1].data}</a>`)
+                formatter: (_, row) => gridjs.html(`${buildLink(row.cells[0].data, row.cells[1].data)}`)
             },
             { 
                 name: 'Description',
-                formatter: (_, row) => gridjs.html(`${build_description_html(row)}`)
+                formatter: (_, row) => gridjs.html(`${buildDescriptionHtml(row)}`)
             },
             { 
                 name: 'Author',
-                formatter: (_, row) => gridjs.html(`<a target="_blank" href='${row.cells[4].data}'>${row.cells[3].data}</a>`)
+                formatter: (_, row) => gridjs.html(`${buildLink(row.cells[4].data, row.cells[3].data)}`)
             },
             { 
                 name: 'Tags',
