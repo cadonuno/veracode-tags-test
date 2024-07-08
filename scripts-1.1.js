@@ -134,7 +134,7 @@ function populateGrid(grid_id) {
             },
             { 
                 name: 'Name',
-                formatter: (_, row) => gridjs.html(`${buildLink(row.cells[0].data, row.cells[1].data)}`)
+                formatter: (_, row) => gridjs.html(`${buildLinkHtml(row.cells[0].data, row.cells[1].data)}`)
             },
             { 
                 name: 'Description',
@@ -142,7 +142,7 @@ function populateGrid(grid_id) {
             },
             { 
                 name: 'Author',
-                formatter: (_, row) => gridjs.html(`${buildLink(row.cells[4].data, row.cells[3].data)}`)
+                formatter: (_, row) => gridjs.html(`${buildLinkHtml(row.cells[4].data, row.cells[3].data)}`)
             },
             { 
                 name: 'Tags',
