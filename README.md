@@ -8,4 +8,6 @@ This project generates a [webpage](https://cadonuno.github.io/veracode-tags-test
     * You can add or modify lines (tags are comma-delimited).
         * You can add links to the project description by using a combination of `[` and `|`.
             * Example: `[LINK DESCRIPTION|LINK URL]`
+        * Avoid using double quotes as Excel adds them to the tags field in [database.txt](https://github.com/cadonuno/veracode-tags-test/blob/main/database.txt).
+    * After modifying the [database.txt](https://github.com/cadonuno/veracode-tags-test/blob/main/database.txt) file, it is recommended to perform a find-and-replace to remove all double quotes.
 * Once your changes are done, open a Pull Request. Once the PR is merged, the [webpage](https://cadonuno.github.io/veracode-tags-test) will be updated automatically.
