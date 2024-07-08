@@ -79,7 +79,7 @@
 						var searchValueList = searchValueLower.split(",");
 						var searchIndex = 0;
 						while (searchIndex < searchValueList.length) {
-							if (!toCompare.contains(searchValueList[searchIndex].trim())) {
+							if (!toCompare.includes(searchValueList[searchIndex].trim())) {
 								return null;
 							}
 							searchIndex++;
