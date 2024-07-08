@@ -88,7 +88,7 @@
 					}
 
 					function build_description_html(description) {
-						if (!build_description_html.includes("[")) {
+						if (!description.includes("[")) {
 							return description;
 						}						
 						var splitDescription = description.split("[");
