@@ -1,225 +1,70 @@
  <html>
-			<head>
-				<script src="https://unpkg.com/gridjs/dist/gridjs.production.min.js"></script>
-				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-				<link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
-				<script type="module">import{Grid,html}from"https://unpkg.com/gridjs/dist/gridjs.production.es.min.js";</script>
-				<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-			    <style type="text/css">
-			      html, body{font-family: Arial, Helvetica, sans-serif;}
-			      h2{font-size: 1.5em; text-align: center;}
-			      .header{height: 100px;}
-			      button{border:none;}
-			      .logo{width:300px; float: left;}
-			      .report{max-width:800px; float: right;}
-			      .report button{width:100px; padding:14px; border:none; border-radius: 25px;}
-			      .report button a{color:#fff; text-decoration: none; font-weight: bold;}
-			      .pink{background-color: #d73185;}
-			      .column {float: left;}
-			      .column a{color:#000;}
-			      .column h5{margin: 0 auto; text-align: center; font-weight: bold; font-size:7.5em;}
-			      .column h6{margin: 0 auto; text-align: center; font-variant: small-caps;}
-			      .middle.column h6 {margin: 0 auto; text-align: center; font-variant: small-caps; line-height: 1.2; font-family: monospace; font-size: 1.25em; text-align: center; margin-left: 5px;}
-				  .column p {margin-block-start: .1em;font-size: .75em;text-align: center;font-family: monospace;}
-			      .row:after {content: ""; display: table; clear: both;}
-			      .left{max-width:500px; width:50%;}
-			      .left h2{color: #fff;}
-			      .middle{max-width: 300px; height: 300px; width:25%; background-color:#e2e369;}
-			      .right{max-width: 300px; height: 300px; width:25%; background-color: #37a2e4;}
-			      #wrapper{width:100%; position: absolute;}
-			      #container{min-height:1100px; margin: 0 auto;}
-			      .row{width:100%; display: block; min-width:1100px;}
-			      .chartruce{background-color: #e2e369;}
-			      html,body{background-color:#000;}
-			    </style>    
-			  </head>
-			  <body>
-			    <div id="wrapper">
-			      <div id="container">
+	<head>
+		<script src="https://unpkg.com/gridjs/dist/gridjs.production.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+		<script type="module">import{Grid,html}from"https://unpkg.com/gridjs/dist/gridjs.production.es.min.js";</script>
+		<link href="/veracode-tags-test/scripts-1.0.js"/>
+		<style type="text/css">
+			html, body{font-family: Arial, Helvetica, sans-serif;}
+			h2{font-size: 1.5em; text-align: center;}
+			.header{height: 100px;}
+			button{border:none;}
+			.logo{width:300px; float: left;}
+			.report{max-width:800px; float: right;}
+			.report button{width:100px; padding:14px; border:none; border-radius: 25px;}
+			.report button a{color:#fff; text-decoration: none; font-weight: bold;}
+			.pink{background-color: #d73185;}
+			.column {float: left;}
+			.column a{color:#000;}
+			.column h5{margin: 0 auto; text-align: center; font-weight: bold; font-size:7.5em;}
+			.column h6{margin: 0 auto; text-align: center; font-variant: small-caps;}
+			.middle.column h6 {margin: 0 auto; text-align: center; font-variant: small-caps; line-height: 1.2; font-family: monospace; font-size: 1.25em; text-align: center; margin-left: 5px;}
+			.column p {margin-block-start: .1em;font-size: .75em;text-align: center;font-family: monospace;}
+			.row:after {content: ""; display: table; clear: both;}
+			.left{max-width:500px; width:50%;}
+			.left h2{color: #fff;}
+			.middle{max-width: 300px; height: 300px; width:25%; background-color:#e2e369;}
+			.right{max-width: 300px; height: 300px; width:25%; background-color: #37a2e4;}
+			#wrapper{width:100%; position: absolute;}
+			#container{min-height:1100px; margin: 0 auto;}
+			.row{width:100%; display: block; min-width:1100px;}
+			.chartruce{background-color: #e2e369;}
+			html,body{background-color:#000;}
+		</style>    
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="container">
 				<div class="row">
-			          	<span style='color: #fff;'>A collection of useful open source projects that integrate with the Veracode APIs to automate scanning, results retrieval and other tasks. </br>
-							These projects are community contributed and not supported by Veracode. For a list of supported projects, please see the listing of projects on <a href="https://www.veracode.com/integrations">https://www.veracode.com/integrations</a>. </br>
-							List can be filtered:
+					<span style='color: #fff;'>A collection of useful open source projects that integrate with the Veracode APIs to automate scanning, results retrieval and other tasks. </br>
+						These projects are community contributed and not supported by Veracode. For a list of supported projects, please see the listing of projects on <a href="https://www.veracode.com/integrations">https://www.veracode.com/integrations</a>. </br>
+						List can be filtered:
+						<ul>
+							<li>Searching is <b>not</b> case-sensitive.</li>
+							<li>By default, the entire query string needs to match to the item.</li>
+							<li>You can search by any string which, by default, will be checked against all fields.</li>
+							<li>
+							Searching by specific fields:
 							<ul>
-								<li>Searching is <b>not</b> case-sensitive.</li>
-								<li>By default, the entire query string needs to match to the item.</li>
-								<li>You can search by any string which, by default, will be checked against all fields.</li>
-								<li>
-									Searching by specific fields:
-									<ul>
-										<li>Starting a search query with 'name=' will limit the search to the 'Name' column.</li>
-										<li>Starting a search query with 'description=' will limit the search to the 'Description' column.</li>
-										<li>Starting a search query with 'author=' will limit the search to the 'Author' column.</li>
-										<li>Starting a search query with 'tags=' will limit the search to the 'Tags' column.</li>
-									</ul>
-									When searching for specific fields, you can send a comma-delimited list of values to search for separate words or sentences.
-								</li>
+								<li>Starting a search query with 'name=' will limit the search to the 'Name' column.</li>
+								<li>Starting a search query with 'description=' will limit the search to the 'Description' column.</li>
+								<li>Starting a search query with 'author=' will limit the search to the 'Author' column.</li>
+								<li>Starting a search query with 'tags=' will limit the search to the 'Tags' column.</li>
 							</ul>
-						</span>
-			        </div>
-			        <div class="row">
-			          <div id="gridjs"></div>
-			        </div>
-			      </div>
-			    </div>
-			    <script type="text/javascript">
-					function triggerSearch(value) {
-						var inputField = document.querySelector('.gridjs-search-input');
-						inputField.value = "tags=" + value;
-
-						inputField.dispatchEvent(new Event('input', {
-							bubbles: true,
-							cancelable: true,
-						}));
-					}
-
-					function searchForValue(cell, searchValue) {
-						var searchValueLower = searchValue.split('=')[1].toLowerCase();
-						var toCompare = cell.toLowerCase();
-						var searchValueList = searchValueLower.split(",");
-						var searchIndex = 0;
-						while (searchIndex < searchValueList.length) {
-							if (!toCompare.includes(searchValueList[searchIndex].trim())) {
-								return null;
-							}
-							searchIndex++;
-						}
-						return searchValue;
-					}
-
-					function build_description_html(description) {
-						if (!description.includes("[")) {
-							return description;
-						}						
-						var splitDescription = description.split("[");
-						var newDescription = splitDescription[0];
-						var currentLink = 1;
-						while (currentLink < splitDescription.length) {
-							linkEndSplit = splitDescription[currentLink].split("]")
-							linkAndDescriptionSplit = linkEndSplit[0].split("|")
-							newDescription+="<a target='_blank' href='" + linkAndDescriptionSplit[1] + "'>" + linkAndDescriptionSplit[0] + "</a>"+linkEndSplit[1];
-							currentLink++;
-						}
-
-						return newDescription;
-					}
-
-					function escapeHTML(str) {
-						return str.replace(/[&<>"'\/]/g, (char) => {
-							switch (char) {
-								case '&':
-									return '&amp;';
-								case '<':
-									return '&lt;';
-								case '>':
-									return '&gt;';
-								case '"':
-									return '&quot;';
-								case '\\':
-									return '&#39;';
-								case '/':
-									return '&#x2F;';
-								default:
-									return char;
-								}
-							});
-						}
-
-					var items = []
-					$.get("/veracode-tags-test/database.txt", function(data) {
-						items = data.split("\n");
-						items.shift();
-						while (items[items.length-1] === '') {
-							items.pop();
-						}
-						items = items.map(function(element) { 
-							var newLine = element.split("\t");
-							newLine.push(null);
-							newLine.push(null);
-							newLine.push(null);
-							newLine.push(null);
-							return newLine;
-						});					
-						new gridjs.Grid({
-							search: {
-								ignoreHiddenColumns: false,
-								selector: (cell, rowIndex, cellIndex) => {
-									var searchValue = $("input").val()
-									if (searchValue === null) {
-										return null;
-									}
-									searchValue = searchValue.trim().toLowerCase()
-									if (searchValue.startsWith("name=")) {
-										return cellIndex == 0 ? searchForValue(cell, searchValue) : null;
-									} else if (searchValue.startsWith("url=")) {
-										return cellIndex == 1 ? searchForValue(cell, searchValue) : null;
-									} else if (searchValue.startsWith("description=")) {
-										return cellIndex == 2 ? searchForValue(cell, searchValue) : null;
-									} else if (searchValue.startsWith("author=")) {
-										return cellIndex == 3 ? searchForValue(cell, searchValue) : null;
-									} else if (searchValue.startsWith("tags=")) {
-										return cellIndex == 5 ? searchForValue(cell, searchValue) : null;
-									}
-									return cell;
-								}
-							},
-							sort: true,
-							pagination: true,
-							columns: [{
-								name: 'repo-name',
-								hidden: true
-							},
-							{
-								name: 'repo-url',
-								hidden: true
-							},
-							{
-								name: 'repo-description',
-								hidden: true
-							},
-							{
-								name: 'author-name',
-								hidden: true
-							},
-							{
-								name: 'author-url',
-								hidden: true
-							},
-							{
-								name: 'repo-tags',
-								hidden: true
-							},
-							{ 
-								name: 'Name',
-								formatter: (_, row) => gridjs.html(`<a target="_blank" href='${row.cells[0].data}'>${row.cells[1].data}</a>`)
-							},
-							{ 
-								name: 'Description',
-								formatter: (_, row) => gridjs.html(`${build_description_html(row.cells[2].data)}`)
-							},
-							{ 
-								name: 'Author',
-								formatter: (_, row) => gridjs.html(`<a target="_blank" href='${row.cells[4].data}'>${row.cells[3].data}</a>`)
-							},
-							{ 
-								name: 'Tags',
-								formatter: (_, row) => {
-									elements = row.cells[5].data.split(",")
-									html = ''
-									elements.forEach((element) => {
-										var trimmed = element.trim()
-										if (html) {
-											html += ', '
-										}
-										html += "<a href=\"#\" onclick=\"triggerSearch('" + escapeHTML(trimmed) + "')\">" + escapeHTML(trimmed) + "</a>"
-									});
-									return gridjs.html(`${html}`)	
-								}								
-							}],			        
-							data: items
-						}).render(document.getElementById("gridjs"));
-					});
-			    </script>
-			  </body>
-			</html>
+							When searching for specific fields, you can send a comma-delimited list of values to search for separate words or sentences.
+							</li>
+						</ul>
+					</span>
+				</div>
+				<div class="row">
+					<div id="gridjs"></div>
+				</div>
+			</div>
+		</div>	
+	</body>
+	<script type="text/javascript">
+		populate_grid("gridjs")
+	</script>
+</html>
 			
