@@ -87,6 +87,23 @@
 						return searchValue;
 					}
 
+					function build_description_html(description) {
+						if (!build_description_html.includes("[")) {
+							return description;
+						}						
+						var splitDescription = description.split("[");
+						var newDescription = splitDescription[0];
+						var currentLink = 1;
+						while (currentLink < splitDescription.length) {
+							linkEndSplit = splitDescription[currentLink].split("]")
+							linkAndDescriptionSplit = linkEndSplit[0].split("|")
+							newDescription+="<a target='_blank' href='" + linkAndDescriptionSplit[1] + "'>" + linkAndDescriptionSplit[0] + "</a>"+linkEndSplit[1];
+							currentLink++;
+						}
+
+						return newDescription;
+					}
+
 					function escapeHTML(str) {
 						return str.replace(/[&<>"'\/]/g, (char) => {
 							switch (char) {
@@ -131,7 +148,7 @@
 									if (searchValue === null) {
 										return null;
 									}
-									searchValue = searchValue.trim()
+									searchValue = searchValue.trim().toLowerCase()
 									if (searchValue.startsWith("name=")) {
 										return cellIndex == 0 ? searchForValue(cell, searchValue) : null;
 									} else if (searchValue.startsWith("url=")) {
@@ -178,7 +195,7 @@
 							},
 							{ 
 								name: 'Description',
-								formatter: (_, row) => gridjs.html(`${row.cells[2].data}`)
+								formatter: (_, row) => gridjs.html(`${build_description_html(row.cells[2].data)}`)
 							},
 							{ 
 								name: 'Author',
