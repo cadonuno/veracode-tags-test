@@ -27,7 +27,7 @@
 			      .middle{max-width: 300px; height: 300px; width:25%; background-color:#e2e369;}
 			      .right{max-width: 300px; height: 300px; width:25%; background-color: #37a2e4;}
 			      #wrapper{width:100%; position: absolute;}
-			      #container{max-width:1200px; min-height:1100px; margin: 0 auto;}
+			      #container{min-height:1100px; margin: 0 auto;}
 			      .row{width:100%; display: block; min-width:1100px;}
 			      .chartruce{background-color: #e2e369;}
 			      html,body{background-color:#000;}
@@ -37,8 +37,25 @@
 			    <div id="wrapper">
 			      <div id="container">
 				<div class="row">
-			          <span style='color: #fff;'>A collection of useful open source projects that integrate with the Veracode APIs to automate scanning, results retrieval and other tasks. </br>
-				  These projects are community contributed and not supported by Veracode. For a list of supported projects, please see the listing of projects on <a href="https://www.veracode.com/integrations">https://www.veracode.com/integrations</a>.</span>
+			          	<span style='color: #fff;'>A collection of useful open source projects that integrate with the Veracode APIs to automate scanning, results retrieval and other tasks. </br>
+							These projects are community contributed and not supported by Veracode. For a list of supported projects, please see the listing of projects on <a href="https://www.veracode.com/integrations">https://www.veracode.com/integrations</a>. </br>
+							List can be filtered:
+							<ul>
+								<li>Searching is <b>not</b> case-sensitive.</li>
+								<li>By default, the entire query string needs to match to the item.</li>
+								<li>You can search by any string which, by default, will be checked against all fields.</li>
+								<li>
+									Searching by specific fields:
+									<ul>
+										<li>Starting a search query with 'name=' will limit the search to the 'Name' column.</li>
+										<li>Starting a search query with 'description=' will limit the search to the 'Description' column.</li>
+										<li>Starting a search query with 'author=' will limit the search to the 'Author' column.</li>
+										<li>Starting a search query with 'tags=' will limit the search to the 'Tags' column.</li>
+									</ul>
+									When searching for specific fields, you can send a comma-delimited list of values to search for separate words or sentences.
+								</li>
+							</ul>
+						</span>
 			        </div>
 			        <div class="row">
 			          <div id="gridjs"></div>
@@ -57,7 +74,17 @@
 					}
 
 					function searchForValue(cell, searchValue) {
-						return cell.toLowerCase().includes(searchValue.split('=')[1].toLowerCase()) ? searchValue : null;
+						var searchValueLower = searchValue.split('=')[1].toLowerCase();
+						var toCompare = cell.toLowerCase();
+						var searchValueList = searchValueLower.split(",");
+						var searchIndex = 0;
+						while (searchIndex < searchValueList.length) {
+							if (!toCompare.contains(searchValueList[searchIndex].trim())) {
+								return null;
+							}
+							searchIndex++;
+						}
+						return searchValue;
 					}
 
 					function escapeHTML(str) {
