@@ -5,15 +5,15 @@ function searchSelection(cell, rowIndex, cellIndex) {
     }
     searchValue = searchValue.trim().toLowerCase()
     if (searchValue.startsWith("name=")) {
-        return cellIndex == 0 ? searchForValue(cell, searchValue) : null;
+        return cellIndex == 0 ? searchForValue(cell, searchValue) : "";
     } else if (searchValue.startsWith("url=")) {
-        return cellIndex == 1 ? searchForValue(cell, searchValue) : null;
+        return cellIndex == 1 ? searchForValue(cell, searchValue) : "";
     } else if (searchValue.startsWith("description=")) {
-        return cellIndex == 2 ? searchForValue(cell, searchValue) : null;
+        return cellIndex == 2 ? searchForValue(cell, searchValue) : "";
     } else if (searchValue.startsWith("author=")) {
-        return cellIndex == 3 ? searchForValue(cell, searchValue) : null;
+        return cellIndex == 3 ? searchForValue(cell, searchValue) : "";
     } else if (searchValue.startsWith("tags=")) {
-        return cellIndex == 5 ? searchForValue(cell, searchValue) : null;
+        return cellIndex == 5 ? searchForValue(cell, searchValue) : "";
     }
     return cell;
 }
