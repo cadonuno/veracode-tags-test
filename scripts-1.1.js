@@ -1,7 +1,7 @@
 function searchSelection(cell, rowIndex, cellIndex) {
     var searchValue = $("input").val()
-    if (searchValue === null) {
-        return null;
+    if (searchValue === null || searchForValue === "") {
+        return "";
     }
     searchValue = searchValue.trim().toLowerCase()
     if (searchValue.startsWith("name=")) {
@@ -35,7 +35,7 @@ function searchForValue(cell, searchValue) {
     var searchIndex = 0;
     while (searchIndex < searchValueList.length) {
         if (!toCompare.includes(searchValueList[searchIndex].trim())) {
-            return null;
+            return "";
         }
         searchIndex++;
     }
