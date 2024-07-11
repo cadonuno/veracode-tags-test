@@ -48,6 +48,9 @@ function buildLinkHtml(linkUrl, linkDescription) {
 
 function buildDescriptionHtml(data) {
     var description = data.cells[2].data;
+    if (description == null) {
+        return "";
+    }
     if (!description.includes("[")) {
         return description;
     }						
