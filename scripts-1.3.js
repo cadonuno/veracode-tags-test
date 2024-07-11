@@ -15,7 +15,7 @@ function searchSelection(cell, rowIndex, cellIndex) {
     } else if (searchValue.startsWith("tags=")) {
         return cellIndex == 5 ? searchForValue(cell, searchValue) : "";
     }
-    return cell;
+    return cell == null ? "" : cell;
 }
 
 function triggerSearch(value) {
