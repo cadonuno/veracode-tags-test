@@ -1,6 +1,6 @@
 function searchSelection(cell, rowIndex, cellIndex) {
     var searchValue = $("input").val()
-    if (searchValue === null || searchForValue === "") {
+    if (searchValue == null || searchForValue == "") {
         return "";
     }
     searchValue = searchValue.trim().toLowerCase()
@@ -98,10 +98,10 @@ function populateGrid(grid_id) {
         }
         items = items.map(function(element) { 
             var newLine = element.split("\t");
-            newLine.push(null);
-            newLine.push(null);
-            newLine.push(null);
-            newLine.push(null);
+            newLine.push("");
+            newLine.push("");
+            newLine.push("");
+            newLine.push("");
             return newLine;
         });					
         new gridjs.Grid({
