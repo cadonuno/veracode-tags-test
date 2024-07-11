@@ -29,6 +29,9 @@ function triggerSearch(value) {
 }
 
 function searchForValue(cell, searchValue) {
+    if (cell == null) {
+        return "";
+    }
     var searchValueLower = searchValue.split('=')[1].toLowerCase();
     var toCompare = cell.toLowerCase();
     var searchValueList = searchValueLower.split(",");
