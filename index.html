@@ -33,69 +33,52 @@
 			.chartruce{background-color: #e2e369;}
 			html,body{background-color:#000;}
 			td{word-break: break-word}
-			.active, .accordion:hover {
-		    	background-color: #ccc;
-			}
-			.accordion {
-				background-color: #eee;
-				color: #444;
-				cursor: pointer;
-				padding: 18px;
-				width: 100%;
-				text-align: left;
-				border: none;
-				outline: none;
-				transition: 0.4s;
-			}
-			.panel {
-				padding: 0 18px;
-				background-color: white;
-				max-height: 0;
-				overflow: hidden;
-				transition: max-height 0.2s ease-out;
-			}
 		</style>    
 	</head>
 	<body>
 		<div id="wrapper">
-			<details class="container">
-				<summary>Usage Instructions:</summary>
-				<div class="row description">
-					<span>A collection of useful open source projects that integrate with the Veracode APIs to automate scanning, results retrieval and other tasks. </br>
-						These projects are community contributed and not supported by Veracode. For a list of supported projects, please see the listing of projects on <a href="https://www.veracode.com/integrations">https://www.veracode.com/integrations</a>. </br> </br>
-						On filters:
-						<ul>
-							<li>Searching is <b>not</b> case-sensitive.</li>
-							<li>By default, the entire query string needs to match to an item.</li>
-							<li>You can search by any string which, by default, will be checked against all fields.</li>
-							<li>You can click on a tag to filter for it.</li>
-							<li>Searching by specific fields:
+			<div class="container">
+				<details>
+					<summary>Usage Instructions:</summary>
+					<div class="row description">
+						<span>A collection of useful open source projects that integrate with the Veracode APIs to automate scanning, results retrieval and other tasks. </br>
+							These projects are community contributed and not supported by Veracode. For a list of supported projects, please see the listing of projects on <a href="https://www.veracode.com/integrations">https://www.veracode.com/integrations</a>. </br> </br>
+							On filters:
 							<ul>
-								<li>Starting a search query with 'name=' will limit the search to the 'Name' column.</li>
-								<li>Starting a search query with 'description=' will limit the search to the 'Description' column.</li>
-								<li>Starting a search query with 'author=' will limit the search to the 'Author' column.</li>
-								<li>Starting a search query with 'tags=' will limit the search to the 'Tags' column.</li>
-								<li>When searching for specific fields, you can send a comma-delimited list of values to search for separate words or sentences.</li>
-							</ul>							
-							</li>
-						</ul></br>
-						All plugins belong to one of these categories:
-						<ul>
-							<li><a href="#" onclick="triggerTagSearch('Automation Script')">Automation Script</a></li>
-							<li><a href="#" onclick="triggerTagSearch('Automation Example')">Automation Example</a></li>
-							<li><a href="#" onclick="triggerTagSearch('Container')">Container</a></li>
-							<li><a href="#" onclick="triggerTagSearch('Insecure Application')">Insecure Application</a></li>
-							<li><a href="#" onclick="triggerTagSearch('Library')">Library</a></li>
-							<li><a href="#" onclick="triggerTagSearch('One-of run')">One-of run</a></li>
-							<li><a href="#" onclick="triggerTagSearch('Plugin')">Plugin</a></li>
-							<li><a href="#" onclick="triggerTagSearch('Security Example')">Security Example</a></li>
-						</ul> <br />
-						Most of the content is in English, content in other languages is tagged with the language (i.e. <a href="#" onclick="triggerTagSearch('Portuguese')">Portuguese</a>). </br>
-					</span>
+								<li>Searching is <b>not</b> case-sensitive.</li>
+								<li>By default, the entire query string needs to match to an item.</li>
+								<li>You can search by any string which, by default, will be checked against all fields.</li>
+								<li>You can click on a tag to filter for it.</li>
+								<li>Searching by specific fields:
+								<ul>
+									<li>Starting a search query with 'name=' will limit the search to the 'Name' column.</li>
+									<li>Starting a search query with 'description=' will limit the search to the 'Description' column.</li>
+									<li>Starting a search query with 'author=' will limit the search to the 'Author' column.</li>
+									<li>Starting a search query with 'tags=' will limit the search to the 'Tags' column.</li>
+									<li>When searching for specific fields, you can send a comma-delimited list of values to search for separate words or sentences.</li>
+								</ul>							
+								</li>
+							</ul></br>
+							All plugins belong to one of these categories:
+							<ul>
+								<li><a href="#" onclick="triggerTagSearch('Automation Script')">Automation Script</a></li>
+								<li><a href="#" onclick="triggerTagSearch('Automation Example')">Automation Example</a></li>
+								<li><a href="#" onclick="triggerTagSearch('Container')">Container</a></li>
+								<li><a href="#" onclick="triggerTagSearch('Insecure Application')">Insecure Application</a></li>
+								<li><a href="#" onclick="triggerTagSearch('Library')">Library</a></li>
+								<li><a href="#" onclick="triggerTagSearch('One-of run')">One-of run</a></li>
+								<li><a href="#" onclick="triggerTagSearch('Plugin')">Plugin</a></li>
+								<li><a href="#" onclick="triggerTagSearch('Security Example')">Security Example</a></li>
+							</ul> <br />
+							Most of the content is in English, content in other languages is tagged with the language (i.e. <a href="#" onclick="triggerTagSearch('Portuguese')">Portuguese</a>). </br>
+						</span>
+					</details>
 				</div>
-				<details open class="row">
-					<summary>Scripts:</summary>
-					<div class="panel" id="gridjs"></div>
+				<div class="row">
+					<details open>
+						<summary>Scripts:</summary>
+						<div class="panel" id="gridjs"></div>
+					</details>
 				</div>
 			</div>
 		</div>	
