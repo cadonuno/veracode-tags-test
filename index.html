@@ -58,9 +58,9 @@
 	</head>
 	<body>
 		<div id="wrapper">
-			<div id="container">
-				<button class="accordion">Usage Instructions:</button>
-				<div class="row description panel">
+			<details class="container">
+				<summary>Usage Instructions:</summary>
+				<div class="row description">
 					<span>A collection of useful open source projects that integrate with the Veracode APIs to automate scanning, results retrieval and other tasks. </br>
 						These projects are community contributed and not supported by Veracode. For a list of supported projects, please see the listing of projects on <a href="https://www.veracode.com/integrations">https://www.veracode.com/integrations</a>. </br> </br>
 						On filters:
@@ -93,8 +93,8 @@
 						Most of the content is in English, content in other languages is tagged with the language (i.e. <a href="#" onclick="triggerTagSearch('Portuguese')">Portuguese</a>). </br>
 					</span>
 				</div>
-				<div class="row">
-					<button class="accordion active">Scripts:</button>
+				<details open class="row">
+					<summary>Scripts:</summary>
 					<div class="panel" id="gridjs"></div>
 				</div>
 			</div>
@@ -102,23 +102,6 @@
 	</body>
 	<script type="text/javascript">
 		populateGrid("gridjs")
-
-		function toggleAccordion(panel) {
-			if (panel.style.maxHeight) {
-				panel.style.maxHeight = null;
-			} else {
-				panel.style.maxHeight = panel.scrollHeight + "px";
-			}
-		}
-
-		var acc = document.getElementsByClassName("accordion");
-		toggleAccordion(acc[1].nextElementSibling);
-		for (var i = 0; i < acc.length; i++) {
-			acc[i].addEventListener("click", function() {
-				this.classList.toggle("active");
-				toggleAccordion(this.nextElementSibling);				
-			});
-		}
 	</script>
 </html>
 			
