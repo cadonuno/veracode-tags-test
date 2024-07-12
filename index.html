@@ -48,9 +48,11 @@
 				transition: 0.4s;
 			}
 			.panel {
-		       overflow: hidden;
-			   transition: max-height 0.2s ease-out;
-			   max-height: 0;
+				padding: 0 18px;
+				background-color: white;
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.2s ease-out;
 			}
 		</style>    
 	</head>
@@ -100,6 +102,23 @@
 	</body>
 	<script type="text/javascript">
 		populateGrid("gridjs")
+
+		function toggleAccordion(panel) {
+			if (panel.style.maxHeight) {
+				panel.style.maxHeight = null;
+			} else {
+				panel.style.maxHeight = panel.scrollHeight + "px";
+			}
+		}
+
+		var acc = document.getElementsByClassName("accordion");
+		toggleAccordion(acc[1].nextElementSibling);
+		for (var i = 0; i < acc.length; i++) {
+			acc[i].addEventListener("click", function() {
+				this.classList.toggle("active");
+				toggleAccordion(this.nextElementSibling);				
+			});
+		}
 	</script>
 </html>
 			
