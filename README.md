@@ -12,11 +12,12 @@ This project generates a [webpage](https://cadonuno.github.io/veracode-tags-test
         * Add descriptive tags to make searching easy, I recommend tagging all repositories with at least one of the following:
             * Automation Script
             * Automation Example
-            * Plugin
-            * One-of run
-            * Insecure Application
             * Container
+            * Insecure Application
             * Library
+            * One-of run
+            * Plugin
             * Security Example
+        * Any content not in English must be tagged with its language.
     * After modifying the [database.txt](https://github.com/cadonuno/veracode-tags-test/blob/main/database.txt) file, it is recommended to perform a find-and-replace to remove all double quotes.
 * Once your changes are done, open a Pull Request. Once the PR is merged, the [webpage](https://cadonuno.github.io/veracode-tags-test) will be updated automatically.
