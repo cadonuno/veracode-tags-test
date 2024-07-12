@@ -33,11 +33,26 @@
 			.chartruce{background-color: #e2e369;}
 			html,body{background-color:#000;}
 			td{word-break: break-word}
+			.active, .accordion:hover {
+		    	background-color: #ccc;
+			}
+			.accordion {
+				background-color: #eee;
+				color: #444;
+				cursor: pointer;
+				padding: 18px;
+				width: 100%;
+				text-align: left;
+				border: none;
+				outline: none;
+				transition: 0.4s;
+			}
 		</style>    
 	</head>
 	<body>
 		<div id="wrapper">
 			<div id="container">
+				<button class="accordion">Usage Instructions:</button>
 				<div class="row description">
 					<span>A collection of useful open source projects that integrate with the Veracode APIs to automate scanning, results retrieval and other tasks. </br>
 						These projects are community contributed and not supported by Veracode. For a list of supported projects, please see the listing of projects on <a href="https://www.veracode.com/integrations">https://www.veracode.com/integrations</a>. </br> </br>
@@ -68,7 +83,7 @@
 							<li><a href="#" onclick="triggerTagSearch('Plugin')">Plugin</a></li>
 							<li><a href="#" onclick="triggerTagSearch('Security Example')">Security Example</a></li>
 						</ul> <br />
-						Most of the content is in English, content in other languages is tagged with the language (i.e. <a href="#" onclick="triggerTagSearch('Portuguese')">Portuguese</a>).
+						Most of the content is in English, content in other languages is tagged with the language (i.e. <a href="#" onclick="triggerTagSearch('Portuguese')">Portuguese</a>). </br>
 					</span>
 				</div>
 				<div class="row">
