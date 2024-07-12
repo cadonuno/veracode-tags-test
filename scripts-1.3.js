@@ -153,7 +153,7 @@ function populateGrid(grid_id) {
             { 
                 name: 'Tags',
                 formatter: (_, row) => {
-                    elements = (row == null || row.cells[5] == null) ? [] : row.cells[5].data.split(",")
+                    elements = (row == null || row.cells[5] == null || row.cells[5].data == null) ? [] : row.cells[5].data.split(",")
                     html = ''
                     elements.forEach((element) => {
                         var trimmed = element.trim()
