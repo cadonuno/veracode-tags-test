@@ -47,13 +47,18 @@
 				outline: none;
 				transition: 0.4s;
 			}
+			.panel {
+		       overflow: hidden;
+			   transition: max-height 0.2s ease-out;
+			   max-height: 0;
+			}
 		</style>    
 	</head>
 	<body>
 		<div id="wrapper">
 			<div id="container">
 				<button class="accordion">Usage Instructions:</button>
-				<div class="row description">
+				<div class="row description panel">
 					<span>A collection of useful open source projects that integrate with the Veracode APIs to automate scanning, results retrieval and other tasks. </br>
 						These projects are community contributed and not supported by Veracode. For a list of supported projects, please see the listing of projects on <a href="https://www.veracode.com/integrations">https://www.veracode.com/integrations</a>. </br> </br>
 						On filters:
@@ -87,7 +92,8 @@
 					</span>
 				</div>
 				<div class="row">
-					<div id="gridjs"></div>
+					<button class="accordion active">Scripts:</button>
+					<div class="panel" id="gridjs"></div>
 				</div>
 			</div>
 		</div>	
