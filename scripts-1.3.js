@@ -18,7 +18,7 @@ function searchSelection(cell, rowIndex, cellIndex) {
     return cell == null ? "" : cell;
 }
 
-function triggerSearch(value) {
+function triggerTagSearch(value) {
     var inputField = document.querySelector('.gridjs-search-input');
     inputField.value = "tags=" + value;
 
@@ -160,7 +160,7 @@ function populateGrid(grid_id) {
                         if (html) {
                             html += ', '
                         }
-                        html += "<a href=\"#\" onclick=\"triggerSearch('" + escapeHTML(trimmed) + "')\">" + escapeHTML(trimmed) + "</a>"
+                        html += "<a href=\"#\" onclick=\"triggerTagSearch('" + escapeHTML(trimmed) + "')\">" + escapeHTML(trimmed) + "</a>"
                     });
                     return gridjs.html(`${html}`)	
                 }								
