@@ -5,15 +5,15 @@ function searchSelection(cell, rowIndex, cellIndex) {
     }
     searchValue = searchValue.trim().toLowerCase()
     if (searchValue.startsWith("name=")) {
-        return cellIndex == 0 ? searchForValue(cell, searchValue) : "";
+        return cellIndex == 4 ? searchForValue(cell, searchValue) : "";
     } else if (searchValue.startsWith("url=")) {
-        return cellIndex == 1 ? searchForValue(cell, searchValue) : "";
-    } else if (searchValue.startsWith("description=")) {
-        return cellIndex == 2 ? searchForValue(cell, searchValue) : "";
-    } else if (searchValue.startsWith("author=")) {
-        return cellIndex == 3 ? searchForValue(cell, searchValue) : "";
-    } else if (searchValue.startsWith("tags=")) {
         return cellIndex == 5 ? searchForValue(cell, searchValue) : "";
+    } else if (searchValue.startsWith("description=")) {
+        return cellIndex == 6 ? searchForValue(cell, searchValue) : "";
+    } else if (searchValue.startsWith("author=")) {
+        return cellIndex == 7 ? searchForValue(cell, searchValue) : "";
+    } else if (searchValue.startsWith("tags=")) {
+        return cellIndex == 8 ? searchForValue(cell, searchValue) : "";
     }
     return cell == null ? "" : cell;
 }
@@ -119,7 +119,7 @@ function populateGrid(grid_id) {
             newLine.unshift("");
             return newLine;
         });			
-        items.sort((a,b) => (a[1] > b[1]) ? 1 : ((b[1] > a[1]) ? -1 : 0))
+        items.sort((a,b) => (a[5] > b[5]) ? 1 : ((b[5] > a[5]) ? -1 : 0))
         new gridjs.Grid({
             search: {
                 ignoreHiddenColumns: false,
