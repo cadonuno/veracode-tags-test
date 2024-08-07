@@ -28,18 +28,6 @@ function triggerTagSearch(value) {
     }));
 }
 
-function runSort(a, b, column) {
-    const code = (x) => x.split(' ').slice(-1)[0];
-    
-    if (code(a) > code(b)) {
-        return 1;
-    } else if (code(b) > code(a)) {
-        return -1;
-    } else {
-        return 0;
-    }
-}
-
 function searchForValue(cell, searchValue) {
     if (cell == null) {
         return "";
@@ -125,15 +113,11 @@ function populateGrid(grid_id) {
                 ignoreHiddenColumns: false,
                 selector: (cell, rowIndex, cellIndex) => searchSelection(cell, rowIndex, cellIndex)
             },
-            sort: true,
+            sort: false,
             pagination: true,
             columns: [
             { 
                 name: 'Name',
-                sort: {
-                    compare: (a, b) => runSort(a, b, 0),
-
-                },
                 formatter: (_, row) => gridjs.html(`${buildLinkHtml(row.cells[4].data, row.cells[5].data)}`)
             },
             { 
