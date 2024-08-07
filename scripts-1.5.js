@@ -130,10 +130,10 @@ function populateGrid(grid_id) {
             columns: [
             { 
                 name: 'Name',
-                /*sort: {
+                sort: {
                     compare: (a, b) => runSort(a, b, 0),
 
-                },*/
+                },
                 formatter: (_, row) => gridjs.html(`${buildLinkHtml(row.cells[4].data, row.cells[5].data)}`)
             },
             { 
