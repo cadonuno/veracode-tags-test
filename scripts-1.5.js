@@ -62,7 +62,7 @@ function buildLinkHtml(linkUrl, linkDescription) {
 }
 
 function buildDescriptionHtml(data) {
-    var description = data.cells[2].data;
+    var description = data.cells[6].data;
     if (description == null) {
         return "";
     }
@@ -134,7 +134,7 @@ function populateGrid(grid_id) {
                     compare: (a, b) => runSort(a, b, 0),
 
                 },*/
-                formatter: (_, row) => gridjs.html(`${buildLinkHtml(row.cells[0].data, row.cells[1].data)}`)
+                formatter: (_, row) => gridjs.html(`${buildLinkHtml(row.cells[4].data, row.cells[5].data)}`)
             },
             { 
                 name: 'Description',
@@ -142,12 +142,12 @@ function populateGrid(grid_id) {
             },
             { 
                 name: 'Author',
-                formatter: (_, row) => gridjs.html(`${buildLinkHtml(row.cells[4].data, row.cells[3].data)}`)
+                formatter: (_, row) => gridjs.html(`${buildLinkHtml(row.cells[8].data, row.cells[7].data)}`)
             },
             { 
                 name: 'Tags',
                 formatter: (_, row) => {
-                    elements = (row == null || row.cells[5] == null || row.cells[5].data == null) ? [] : row.cells[5].data.split(",")
+                    elements = (row == null || row.cells[9] == null || row.cells[9].data == null) ? [] : row.cells[9].data.split(",")
                     html = ''
                     elements.forEach((element) => {
                         var trimmed = element.trim()
@@ -158,6 +158,30 @@ function populateGrid(grid_id) {
                     });
                     return gridjs.html(`${html}`)	
                 }								
+            },
+            {
+                name: 'repo-name',
+                hidden: true
+            },
+            {
+                name: 'repo-url',
+                hidden: true
+            },
+            {
+                name: 'repo-description',
+                hidden: true
+            },
+            {
+                name: 'author-name',
+                hidden: true
+            },
+            {
+                name: 'author-url',
+                hidden: true
+            },
+            {
+                name: 'repo-tags',
+                hidden: true
             }],			        
             resizable: true,
             data: items
