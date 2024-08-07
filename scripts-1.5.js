@@ -28,6 +28,18 @@ function triggerTagSearch(value) {
     }));
 }
 
+function runSort(a, b, column) {
+    const code = (x) => x.split(' ').slice(-1)[0];
+    
+    if (code(a) > code(b)) {
+        return 1;
+    } else if (code(b) > code(a)) {
+        return -1;
+    } else {
+        return 0;
+    }
+}
+
 function searchForValue(cell, searchValue) {
     if (cell == null) {
         return "";
@@ -141,6 +153,9 @@ function populateGrid(grid_id) {
             },
             { 
                 name: 'Name',
+                sort: {
+                    compare: (a, b) => runSort(a, b, 0)
+                },
                 formatter: (_, row) => gridjs.html(`${buildLinkHtml(row.cells[0].data, row.cells[1].data)}`)
             },
             { 
@@ -166,6 +181,7 @@ function populateGrid(grid_id) {
                     return gridjs.html(`${html}`)	
                 }								
             }],			        
+            resizable: true,
             data: items
         }).render(document.getElementById(grid_id));
     });
