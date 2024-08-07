@@ -106,7 +106,8 @@ function populateGrid(grid_id) {
             newLine.push("");
             newLine.push("");
             return newLine;
-        });					
+        });			
+        items.sort((a,b) => (a[0] > b[0]) ? 1 : ((b[0] > a[0]) ? -1 : 0))
         new gridjs.Grid({
             search: {
                 ignoreHiddenColumns: false,
