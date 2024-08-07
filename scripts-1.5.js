@@ -127,35 +127,13 @@ function populateGrid(grid_id) {
             },
             sort: true,
             pagination: true,
-            columns: [{
-                name: 'repo-name',
-                hidden: true
-            },
-            {
-                name: 'repo-url',
-                hidden: true
-            },
-            {
-                name: 'repo-description',
-                hidden: true
-            },
-            {
-                name: 'author-name',
-                hidden: true
-            },
-            {
-                name: 'author-url',
-                hidden: true
-            },
-            {
-                name: 'repo-tags',
-                hidden: true
-            },
+            columns: [
             { 
                 name: 'Name',
-                sort: {
-                    compare: (a, b) => runSort(a, b, 0)
-                },
+                /*sort: {
+                    compare: (a, b) => runSort(a, b, 0),
+
+                },*/
                 formatter: (_, row) => gridjs.html(`${buildLinkHtml(row.cells[0].data, row.cells[1].data)}`)
             },
             { 
