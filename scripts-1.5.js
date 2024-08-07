@@ -113,10 +113,10 @@ function populateGrid(grid_id) {
         }
         items = items.map(function(element) { 
             var newLine = element.split("\t");
-            newLine.push("");
-            newLine.push("");
-            newLine.push("");
-            newLine.push("");
+            newLine.unshift("");
+            newLine.unshift("");
+            newLine.unshift("");
+            newLine.unshift("");
             return newLine;
         });			
         items.sort((a,b) => (a[1] > b[1]) ? 1 : ((b[1] > a[1]) ? -1 : 0))
