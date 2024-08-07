@@ -5,15 +5,15 @@ function searchSelection(cell, rowIndex, cellIndex) {
     }
     searchValue = searchValue.trim().toLowerCase()
     if (searchValue.startsWith("name=")) {
-        return cellIndex == 4 ? searchForValue(cell, searchValue) : "";
+        return cellIndex == 0 ? searchForValue(cell, searchValue) : "";
     } else if (searchValue.startsWith("url=")) {
-        return cellIndex == 5 ? searchForValue(cell, searchValue) : "";
+        return cellIndex == 1 ? searchForValue(cell, searchValue) : "";
     } else if (searchValue.startsWith("description=")) {
-        return cellIndex == 6 ? searchForValue(cell, searchValue) : "";
+        return cellIndex == 2 ? searchForValue(cell, searchValue) : "";
     } else if (searchValue.startsWith("author=")) {
-        return cellIndex == 7 ? searchForValue(cell, searchValue) : "";
+        return cellIndex == 3 ? searchForValue(cell, searchValue) : "";
     } else if (searchValue.startsWith("tags=")) {
-        return cellIndex == 8 ? searchForValue(cell, searchValue) : "";
+        return cellIndex == 5 ? searchForValue(cell, searchValue) : "";
     }
     return cell == null ? "" : cell;
 }
@@ -26,6 +26,18 @@ function triggerTagSearch(value) {
         bubbles: true,
         cancelable: true,
     }));
+}
+
+function runSort(a, b, column) {
+    const code = (x) => x.split(' ').slice(-1)[0];
+    
+    if (code(a) > code(b)) {
+        return 1;
+    } else if (code(b) > code(a)) {
+        return -1;
+    } else {
+        return 0;
+    }
 }
 
 function searchForValue(cell, searchValue) {
@@ -50,7 +62,7 @@ function buildLinkHtml(linkUrl, linkDescription) {
 }
 
 function buildDescriptionHtml(data) {
-    var description = data.cells[6].data;
+    var description = data.cells[2].data;
     if (description == null) {
         return "";
     }
@@ -101,13 +113,13 @@ function populateGrid(grid_id) {
         }
         items = items.map(function(element) { 
             var newLine = element.split("\t");
-            newLine.unshift("");
-            newLine.unshift("");
-            newLine.unshift("");
-            newLine.unshift("");
+            newLine.push("");
+            newLine.push("");
+            newLine.push("");
+            newLine.push("");
             return newLine;
         });			
-        items.sort((a,b) => (a[5] > b[5]) ? 1 : ((b[5] > a[5]) ? -1 : 0))
+        items.sort((a,b) => (a[1] > b[1]) ? 1 : ((b[1] > a[1]) ? -1 : 0))
         new gridjs.Grid({
             search: {
                 ignoreHiddenColumns: false,
@@ -115,35 +127,7 @@ function populateGrid(grid_id) {
             },
             sort: false,
             pagination: true,
-            columns: [
-            { 
-                name: 'Name',
-                formatter: (_, row) => gridjs.html(`${buildLinkHtml(row.cells[4].data, row.cells[5].data)}`)
-            },
-            { 
-                name: 'Description',
-                formatter: (_, row) => gridjs.html(`${buildDescriptionHtml(row)}`)
-            },
-            { 
-                name: 'Author',
-                formatter: (_, row) => gridjs.html(`${buildLinkHtml(row.cells[8].data, row.cells[7].data)}`)
-            },
-            { 
-                name: 'Tags',
-                formatter: (_, row) => {
-                    elements = (row == null || row.cells[9] == null || row.cells[9].data == null) ? [] : row.cells[9].data.split(",")
-                    html = ''
-                    elements.forEach((element) => {
-                        var trimmed = element.trim()
-                        if (html) {
-                            html += ', '
-                        }
-                        html += "<a href=\"#\" onclick=\"triggerTagSearch('" + escapeHTML(trimmed) + "')\">" + escapeHTML(trimmed) + "</a>"
-                    });
-                    return gridjs.html(`${html}`)	
-                }								
-            },
-            {
+            columns: [{
                 name: 'repo-name',
                 hidden: true
             },
@@ -166,6 +150,33 @@ function populateGrid(grid_id) {
             {
                 name: 'repo-tags',
                 hidden: true
+            },
+            { 
+                name: 'Name',
+                formatter: (_, row) => gridjs.html(`${buildLinkHtml(row.cells[0].data, row.cells[1].data)}`)
+            },
+            { 
+                name: 'Description',
+                formatter: (_, row) => gridjs.html(`${buildDescriptionHtml(row)}`)
+            },
+            { 
+                name: 'Author',
+                formatter: (_, row) => gridjs.html(`${buildLinkHtml(row.cells[4].data, row.cells[3].data)}`)
+            },
+            { 
+                name: 'Tags',
+                formatter: (_, row) => {
+                    elements = (row == null || row.cells[5] == null || row.cells[5].data == null) ? [] : row.cells[5].data.split(",")
+                    html = ''
+                    elements.forEach((element) => {
+                        var trimmed = element.trim()
+                        if (html) {
+                            html += ', '
+                        }
+                        html += "<a href=\"#\" onclick=\"triggerTagSearch('" + escapeHTML(trimmed) + "')\">" + escapeHTML(trimmed) + "</a>"
+                    });
+                    return gridjs.html(`${html}`)	
+                }								
             }],			        
             resizable: true,
             data: items
