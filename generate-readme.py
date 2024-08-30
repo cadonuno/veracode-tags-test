@@ -74,17 +74,29 @@ def parse_database(database : list[DatabaseItem]) -> tuple[list[str], dict[str, 
     return categories_in_order, categories_to_items_dict, categories_to_subcategories_dict
 
 
-def write_category_to_file(category : str, readme_file, categories_to_items_dict : dict[str, list[str]], categories_to_subcategories_dict : dict[str, set[str]], level):
+def write_category_to_file(category : str, readme_file, categories_to_items_dict : dict[str, list[str]], categories_to_subcategories_dict : dict[str, set[str]], level, level: int):
     readme_file.write(f"{level*"#"} {category}\n\n")
     for item in categories_to_items_dict.get(category, []):
         readme_file.write(f"{item}\n\n")
     for sub_category in categories_to_subcategories_dict.get(category, []):
         write_category_to_file(sub_category, readme_file, categories_to_items_dict, categories_to_subcategories_dict, level + 1)
 
+def write_category_to_table_of_contents(category: str, readme_file, categories_to_subcategories_dict : dict[str, set[str]], level: int):
+    readme_file.write(f"{level*"  "}- [{category}](#{category.lower().replace(" ", "-")})\n")
+    for sub_category in categories_to_subcategories_dict.get(category, []):
+        write_category_to_table_of_contents(sub_category, readme_file, categories_to_subcategories_dict, level + 1)
+
+def write_table_of_contents(readme_file, categories_in_order : list[str], categories_to_subcategories_dict : dict[str, set[str]]):
+    level = 0
+    for category in categories_in_order:
+        write_category_to_table_of_contents(category, readme_file, categories_to_subcategories_dict, level)
+    readme_file.write("\n\n<!-- END doctoc generated TOC please keep comment here to allow auto update -->\n")
+
 def save_as_markdown(categories_in_order : list[str], categories_to_items_dict : dict[str, list[str]], categories_to_subcategories_dict : dict[str, set[str]]):
     with open('README.md', 'w') as readme_file:
         with open('header.md', 'r') as header:
             readme_file.write(header.read())
+        write_table_of_contents(readme_file, categories_in_order, categories_to_subcategories_dict)
         level = 2
         for category in categories_in_order:
             write_category_to_file(category, readme_file, categories_to_items_dict, categories_to_subcategories_dict, level)
