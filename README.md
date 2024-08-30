@@ -143,7 +143,7 @@ These projects are community contributed and not supported by Veracode. For a li
 - [easy_sast](https://github.com/seisollc/easy_sast) ([docker container](https://hub.docker.com/r/seiso/easy_sast)) - A docker container for use in CI pipelines which integrates with Veracode's static analysis tool.
 
 
-- [Exemplos Veracode](https://github.com/M3Corp-Community/Veracode) ([Ivo Dias](https://github.com/IGDEXE)) - In this repository you will find several examples for Veracode implementations created by the [https://github.com/M3Corp-Community](M3Corp) team. In the [https://github.com/M3Corp-Community/Veracode/tree/main/Pipelines](Pipelines) folder you can find how to implement in the most diverse CI/CD tools, such as [https://github.com/M3Corp-Community/Veracode/tree/main/Pipelines/Az%20DevOps](Azure), [https://github.com/M3Corp-Community/Veracode/tree/main/Pipelines/GitLab](GitLab), [https://github.com/M3Corp-Community/Veracode/tree/main/Pipelines/GitHub%20Actions](GitHub Actions), and [https://github.com/M3Corp-Community/Veracode/tree/main/Pipelines/Jenkins](Jenkins). Other implementation examples such as [https://github.com/M3Corp-Community/Veracode/tree/main/SOs](running in a terminal) and [https://github.com/M3Corp-Community/Veracode/tree/main/FreeStyle](translating the results) are also available. We normally publish in Portuguese, but the examples are completely understandable in other languages.
+- [Exemplos Veracode](https://github.com/M3Corp-Community/Veracode) ([Ivo Dias](https://github.com/IGDEXE)) - In this repository you will find several examples for Veracode implementations created by the [M3Corp](https://github.com/M3Corp-Community) team. In the [Pipelines](https://github.com/M3Corp-Community/Veracode/tree/main/Pipelines) folder you can find how to implement in the most diverse CI/CD tools, such as [Azure](https://github.com/M3Corp-Community/Veracode/tree/main/Pipelines/Az%20DevOps), [GitLab](https://github.com/M3Corp-Community/Veracode/tree/main/Pipelines/GitLab), [GitHub Actions](https://github.com/M3Corp-Community/Veracode/tree/main/Pipelines/GitHub%20Actions), and [Jenkins](https://github.com/M3Corp-Community/Veracode/tree/main/Pipelines/Jenkins). Other implementation examples such as [running in a terminal](https://github.com/M3Corp-Community/Veracode/tree/main/SOs) and [translating the results](https://github.com/M3Corp-Community/Veracode/tree/main/FreeStyle) are also available. We normally publish in Portuguese, but the examples are completely understandable in other languages.
 
 
 - [Jenkins (Jenkins Shell)](https://github.com/ian-c-leonard/veracode_jenkins_shell) ([Ian C Leonard](https://github.com/ian-c-leonard/)) - Unofficial Veracode shell integration for Jenkins Freestyle projects.
@@ -196,7 +196,7 @@ These projects are community contributed and not supported by Veracode. For a li
 - [Veracode Flaw Importer Postprocessing](https://github.com/cadonuno/ADOWorkItemsPostProcess) ([Cadonuno](https://github.com/cadonuno/)) - Plugin made to run after the regular import to update the work items with an assigned user and a linked Work Item.
 
 
-- [Veracode for Azure DevOps Pipelines](https://github.com/zoekdestep/veracode-ado-pipelines) ([zoekdestep](https://github.com/zoekdestep/)) - Yaml files to get started with Veracode on Azure DevOps. Accompanies this [https://community.veracode.com/s/blog/user-story-how-we-set-up-veracode-in-a-large-azure-project-MCT4HNONEE55CIFA6O3ULXNUW2BI](post).
+- [Veracode for Azure DevOps Pipelines](https://github.com/zoekdestep/veracode-ado-pipelines) ([zoekdestep](https://github.com/zoekdestep/)) - Yaml files to get started with Veracode on Azure DevOps. Accompanies this [post](https://community.veracode.com/s/blog/user-story-how-we-set-up-veracode-in-a-large-azure-project-MCT4HNONEE55CIFA6O3ULXNUW2BI).
 
 
 - [Azure DevOps Pipeline-Scan plugin](https://github.com/julz0815/ADO-Veracode-Pipeline-Scan-Plugin) ([Julz0815](https://github.com/julz0815/)) - This plugin should make it easier to run the Veracode pipeline scan on Azure DevOps pipelines. The full scan jar is included within the plugin and don't need to be downloaded each time when the pipeline runs. In addition it will populate an additional tab on your pipeline run to display results in a more convinient way. The plugin will automatically update itself every night if a new version of the piepline scan jar is published.
@@ -229,10 +229,10 @@ These projects are community contributed and not supported by Veracode. For a li
 - [vsccode-veracode-sca](https://github.com/Lerer/vscode-veracode-sca) ([Lerer](https://github.com/Lerer/)) - A very simple plugin for Veracode SCA to get agent-base SCA results into VSCode IDE.
 
 
-- [unofficial-vs-code-veracode-pipeline-scan](https://github.com/ctcampbell/unofficial-vs-code-veracode-pipeline-scan) ([Ctcampbell](https://github.com/ctcampbell/)) - Scan an app with Veracode Pipeline Scan, and load results from a Veracode Pipeline Scan.  - [https://marketplace.visualstudio.com/items?itemName=ctcampbell-com.unofficial-vs-code-veracode](Link to the plugin in VSCode marketplace).
+- [unofficial-vs-code-veracode-pipeline-scan](https://github.com/ctcampbell/unofficial-vs-code-veracode-pipeline-scan) ([Ctcampbell](https://github.com/ctcampbell/)) - Scan an app with Veracode Pipeline Scan, and load results from a Veracode Pipeline Scan.  - [Link to the plugin in VSCode marketplace](https://marketplace.visualstudio.com/items?itemName=ctcampbell-com.unofficial-vs-code-veracode).
 
 
-- [Veracode Unified Plugin Unofficial Version](https://github.com/Lerer/VSCode-Veracode-Unified) ([Lerer](https://github.com/Lerer/)) - VSCode plugin which integrate with the Veracode platform and enables downloading of scan results - findings - for both Static and Upload-and-Scan SCA, run pipeline scan, and submit mitigations - [https://marketplace.visualstudio.com/items?itemName=YaakovLerer.veracode](Link to the plugin in VSCode marketplace).
+- [Veracode Unified Plugin Unofficial Version](https://github.com/Lerer/VSCode-Veracode-Unified) ([Lerer](https://github.com/Lerer/)) - VSCode plugin which integrate with the Veracode platform and enables downloading of scan results - findings - for both Static and Upload-and-Scan SCA, run pipeline scan, and submit mitigations - [Link to the plugin in VSCode marketplace](https://marketplace.visualstudio.com/items?itemName=YaakovLerer.veracode).
 
 
 - [Jetbrains family plugin](https://github.com/geraldtancl/veracode.plugin) ([GeraldTanCL](https://github.com/geraldtancl)) - Compliments Veracode's official IntelliJ IDE integration with support for other Jetbrains IDE products. It enables you to download the SAST result from Veracode Platform into your Jetbrains IDE.
@@ -334,7 +334,7 @@ These projects are community contributed and not supported by Veracode. For a li
 - [Generate SBOM](https://github.com/christyson/GenerateSBOMPS) ([Chris Tyson](https://github.com/christyson)) - PowerShell to generate a Software Bill of Materials (SBOM) for an application in either CycloneDX or SPDX format.
 
 
-- [Hygieia](https://github.com/mickfeech/hygieia_veracode_collector) ([Mickfeech](https://github.com/mickfeech/)) - Veracode scan collector and parser for the [https://github.com/Hygieia/ExecDashboard](Hygieia dashboard).
+- [Hygieia](https://github.com/mickfeech/hygieia_veracode_collector) ([Mickfeech](https://github.com/mickfeech/)) - Veracode scan collector and parser for the [Hygieia dashboard](https://github.com/Hygieia/ExecDashboard).
 
 
 - [JupiterOne Graph Veracode](https://github.com/JupiterOne/graph-veracode) ([JupiterOne](https://github.com/JupiterOne/)) - A graph conversion tool for Veracode.
@@ -385,7 +385,7 @@ These projects are community contributed and not supported by Veracode. For a li
 - [Veracode Container Security Display (Unofficial)](https://relaxnow.github.io/vcsd/) ([relaxnow](https://relaxnow.github.io/vcsd/)) - Display, sort and filter Container Security JSON results.
 
 
-- [TopDesk](https://github.com/daniel-marchi/Veracode.Integration.TopDesk) ([Daniel-Marchi](https://github.com/daniel-marchi)) - Integration with ITSM/CSC/ESM tool called [https://www.topdesk.com/](TopDesk).
+- [TopDesk](https://github.com/daniel-marchi/Veracode.Integration.TopDesk) ([Daniel-Marchi](https://github.com/daniel-marchi)) - Integration with ITSM/CSC/ESM tool called [TopDesk](https://www.topdesk.com/).
 
 
 - [Extract All Findings](https://github.com/cadonuno/extract-veracode-findings) ([Cadonuno](https://github.com/cadonuno)) - Gets count of ALL findings for all available application profiles. Also includes latest scan names and dates.
@@ -394,7 +394,7 @@ These projects are community contributed and not supported by Veracode. For a li
 - [Veracode Collections](https://github.com/tjarrettveracode/veracode-collections-report) ([Tjarrettveracode](https://github.com/tjarrettveracode)) - Report Produces a report summarizing the security state of a Collection in the Veracode Platform.
 
 
-- [Extract Findings](https://github.com/cadonuno/extractallfindings) ([Cadonuno](https://github.com/cadonuno)) - This is a fork of [https://github.com/cadonuno/extract-veracode-findings](Extract All Findings) modified to save individual finding information instead of totals
+- [Extract Findings](https://github.com/cadonuno/extractallfindings) ([Cadonuno](https://github.com/cadonuno)) - This is a fork of [Extract All Findings](https://github.com/cadonuno/extract-veracode-findings) modified to save individual finding information instead of totals
 
 
 ## User provisioning, management and deprovisioning
@@ -414,7 +414,7 @@ These projects are community contributed and not supported by Veracode. For a li
 - [Veracode User Bulk Role Assign](https://github.com/tjarrettveracode/veracode-user-bulk-role-assign) ([Tjarrettveracode](https://github.com/tjarrettveracode/)) - Uses the Veracode Identity API to add roles (Security Labs User, Greenlight IDE User, or eLearning) to existing users.
 
 
-- [Veracode UM Powershell Tool](https://github.com/IGDEXE/Veracode-UM-Tool) ([IGD753](https://github.com/IGDEXE)) - A completed User management tool write in Powershell using the Veracode APIs. You can use to create, block, delete and update users, in Windows, Linux or Mac terminal. This a simplified and translated version from the [https://github.com/IGDEXE/Veracode-UM](original in Portuguese).
+- [Veracode UM Powershell Tool](https://github.com/IGDEXE/Veracode-UM-Tool) ([IGD753](https://github.com/IGDEXE)) - A completed User management tool write in Powershell using the Veracode APIs. You can use to create, block, delete and update users, in Windows, Linux or Mac terminal. This a simplified and translated version from the [original in Portuguese](https://github.com/IGDEXE/Veracode-UM).
 
 
 - [Veracode UM Powershell Tool in Portuguese](https://github.com/IGDEXE/Veracode-UM) ([IGD753](https://github.com/IGDEXE)) - A completed User management tool write in Powershell using the Veracode APIs. This version is completed in Portuguese, and you can use to create, block, delete and update users, in Windows, Linux or Mac terminal.
@@ -445,7 +445,7 @@ These projects are community contributed and not supported by Veracode. For a li
 - [vcodeHMAC-CLI](https://github.com/brian1917/vcodeHMAC-CLI) ([Brian1917](https://github.com/brian1917/)) - CLI tool to generate an authorization header for Veracode APIs using API ID and Key. Given an HTTP method and URL, and the location of your Veracode API credentials file, you will get the value of an Authorization header printed out for piping into curl, httpie, or other scripting uses.
 
 
-- [veracode-go-HMAC-authentication](https://github.com/antfie/veracode-go-HMAC-authentication) ([antfie](https://github.com/antfie/)) - A simple Go package that follows the format of the existing HMAC Authentication Examples found in the [https://docs.veracode.com/r/c_HMAC, Veracode APIs_signing_example_c_sharp](Veracode Help Center).
+- [veracode-go-HMAC-authentication](https://github.com/antfie/veracode-go-HMAC-authentication) ([antfie](https://github.com/antfie/)) - A simple Go package that follows the format of the existing HMAC Authentication Examples found in the [Veracode Help Center](https://docs.veracode.com/r/c_HMAC, Veracode APIs_signing_example_c_sharp).
 
 
 - [Veracode_HMAC_Auth](https://github.com/rafaelzm2000/Veracode_HMAC_Auth) ([rafaelzm2000](https://github.com/rafaelzm2000/)) - A PowerShell example for doing HMAC authentication to the Veracode APIs.
@@ -496,7 +496,7 @@ These projects are community contributed and not supported by Veracode. For a li
 
 ## Secure coding examples
 
-- [Secure cryptography examples for Java](https://github.com/1MansiS/java_crypto) ([1MansiS](https://github.com/1MansiS/)) - Code samples showing how to use the Java Crypto API securely. Accompanying code for the [https://www.veracode.com/blog/research/how-get-started-using-java-cryptography-securely](Java Crypto blog series).
+- [Secure cryptography examples for Java](https://github.com/1MansiS/java_crypto) ([1MansiS](https://github.com/1MansiS/)) - Code samples showing how to use the Java Crypto API securely. Accompanying code for the [Java Crypto blog series](https://www.veracode.com/blog/research/how-get-started-using-java-cryptography-securely).
 
 
 ## Insecure applications
