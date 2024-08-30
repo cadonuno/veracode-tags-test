@@ -18,11 +18,11 @@ class DatabaseItem:
 
 
 def load_database() -> list[DatabaseItem]:
-    worksheet = load_workbook('database.xls', data_only=True)['database']
+    worksheet = load_workbook('database.xlsx', data_only=True)['database']
 
     database : list[DatabaseItem] = [] 
     # Pull information from specific cells.
-    for row in list(worksheet.rows):
+    for row in list(worksheet.rows) [1:]:
         line_data = DatabaseItem()
         line_data.repo_url = row[0].value
         line_data.repo_name = row[1].value
@@ -44,43 +44,44 @@ def get_database_lines(database : list[DatabaseItem]) -> list[str]:
 def save_as_txt_database(database : list[DatabaseItem]):
     with open('database.txt', 'w') as database_file:
         database_file.write("repo-url	repo-name	repo-description	author-name	author-url	repo-tags\n")
-        database_file.writelines(get_database_lines(database))
+        database_file.writelines(f"{database_line}\n" for database_line in get_database_lines(database))
 
-def parse_database(database : list[DatabaseItem]) -> tuple[list[str], dict[str, list[str]], dict[str, list[str]]]:
+def parse_database(database : list[DatabaseItem]) -> tuple[list[str], dict[str, set[str]], dict[str, list[str]]]:
     categories_in_order : list[str] = []
     categories_to_items_dict : dict[str, list[str]] = dict()
-    categories_to_subcategories_dict : dict[str, list[str]] = dict()
+    categories_to_subcategories_dict : dict[str, set[str]] = dict()
 
     for database_item in database:
         previous_category = ''
         for current_category in database_item.categories:
             if previous_category:
                 subcategories = categories_to_subcategories_dict.get(previous_category, [])
-                subcategories.append(current_category)
-                categories_to_subcategories_dict.update(previous_category, current_category)
+                if not current_category in subcategories:
+                    subcategories.append(current_category)
+                    categories_to_subcategories_dict[previous_category] = subcategories
 
-            items_for_category = categories_to_items_dict.get(current_category, [])
-
-            if not current_category in categories_to_items_dict and not previous_category:
+            if not current_category in categories_in_order and not previous_category:
                 categories_in_order.append(current_category)
 
-            items_for_category.append(database_item.build_for_readme())
-
-            categories_to_items_dict.update(current_category, items_for_category)
-
             previous_category = current_category
+
+        items_for_category = categories_to_items_dict.get(current_category, [])        
+
+        items_for_category.append(database_item.build_for_readme())
+
+        categories_to_items_dict[current_category] = items_for_category
 
     return categories_in_order, categories_to_items_dict, categories_to_subcategories_dict
 
 
-def write_category_to_file(category : str, readme_file, categories_to_items_dict : dict[str, list[str]], categories_to_subcategories_dict : dict[str, list[str]], level):
+def write_category_to_file(category : str, readme_file, categories_to_items_dict : dict[str, list[str]], categories_to_subcategories_dict : dict[str, set[str]], level):
     readme_file.write(f"{level*"#"} {category}\n\n")
-    for item in categories_to_items_dict.get(category):
-        readme_file.write(f"- {item}\n\n")
+    for item in categories_to_items_dict.get(category, []):
+        readme_file.write(f"{item}\n\n")
     for sub_category in categories_to_subcategories_dict.get(category, []):
         write_category_to_file(sub_category, readme_file, categories_to_items_dict, categories_to_subcategories_dict, level + 1)
 
-def save_as_markdown(categories_in_order : list[str], categories_to_items_dict : dict[str, list[str]], categories_to_subcategories_dict : dict[str, list[str]]):
+def save_as_markdown(categories_in_order : list[str], categories_to_items_dict : dict[str, list[str]], categories_to_subcategories_dict : dict[str, set[str]]):
     with open('README.md', 'w') as readme_file:
         with open('header.md', 'r') as header:
             readme_file.write(header.read())
@@ -91,7 +92,7 @@ def save_as_markdown(categories_in_order : list[str], categories_to_items_dict :
 def main():
     database = load_database()
     save_as_txt_database(database)
-    save_as_markdown(parse_database(database))
+    save_as_markdown(*parse_database(database))
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    main()

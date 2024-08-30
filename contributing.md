@@ -1,10 +1,10 @@
 # Veracode Community Projects
 
-This project generates a [webpage](https://cadonuno.github.io/veracode-tags-test) and a markdown file ([README.md](https://github.com/cadonuno/veracode-tags-test/blob/main/README.md)) which lists all plugins found in [database.xls](https://github.com/cadonuno/veracode-tags-test/blob/main/database.xls).
+This project generates a [webpage](https://cadonuno.github.io/veracode-tags-test) and a markdown file ([README.md](https://github.com/cadonuno/veracode-tags-test/blob/main/README.md)) which lists all plugins found in [database.xlsx](https://github.com/cadonuno/veracode-tags-test/blob/main/database.xlsx).
 
 ## How to contribute:
 * Fork this repository, make your changes:
-    * To add a project, open the [database.xls](https://github.com/cadonuno/veracode-tags-test/blob/main/database.xls).
+    * To add a project, open the [database.xlsx](https://github.com/cadonuno/veracode-tags-test/blob/main/database.xlsx).
     * You can add or modify lines (tags are comma-delimited).
         * You can add links to the project description by using a combination of `[` and `|`.
             * Example: `[LINK DESCRIPTION|LINK URL]`
