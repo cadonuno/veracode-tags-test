@@ -16,11 +16,9 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.12.4
-          run: |
-            python -m pip install --upgrade pip
-            python -m pip install openpyxl
       - name: execute py script # run file
         run: |
+          pip install openpyxl
           python generate-readme.py
 
       - name: Commit back to GitHub
