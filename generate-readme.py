@@ -10,6 +10,13 @@ class DatabaseItem:
     repo_tags = ''
     categories = []
 
+    def build_for_readme(self):
+        return f"- [{self.repo_name}]({self.repo_url}) ([{self.author_name}]({self.author_url})) - {self.repo_description}\n"
+    
+    def build_for_database(self):
+        return f"{self.repo_url}\t{self.repo_name}\t{self.repo_description}\t{self.author_name}\t{self.author_url}\t{self.repo_tags}"
+
+
 def load_database() -> list[DatabaseItem]:
     worksheet = load_workbook('database.xls', data_only=True)['database']
 
@@ -31,7 +38,7 @@ def load_database() -> list[DatabaseItem]:
 def get_database_lines(database : list[DatabaseItem]) -> list[str]:
     lines : list[str] = []
     for database_item in database:
-        lines.append(f"{database_item.repo_url}\t{database_item.repo_name}\t{database_item.repo_description}\t{database_item.author_name}\t{database_item.author_url}\t{database_item.repo_tags}")
+        lines.append(database_item.build_for_database())
     return lines
 
 def save_as_txt_database(database : list[DatabaseItem]):
@@ -39,33 +46,52 @@ def save_as_txt_database(database : list[DatabaseItem]):
         database_file.write("repo-url	repo-name	repo-description	author-name	author-url	repo-tags\n")
         database_file.writelines(get_database_lines(database))
 
-def save_as_markdown(database : list[DatabaseItem]):
-    categories_in_order : dict[str, list[str]] = dict()
-    categories_to_items_dict : dict[str, list[DatabaseItem]] = dict()
+def parse_database(database : list[DatabaseItem]) -> tuple[list[str], dict[str, list[str]], dict[str, list[str]]]:
+    categories_in_order : list[str] = []
+    categories_to_items_dict : dict[str, list[str]] = dict()
     categories_to_subcategories_dict : dict[str, list[str]] = dict()
 
     for database_item in database:
         previous_category = ''
         for current_category in database_item.categories:
-            items_to_assign = categories_to_items_dict.get(current_category, [])
-            if not current_category in categories_to_items_dict:
+            if previous_category:
+                subcategories = categories_to_subcategories_dict.get(previous_category, [])
+                subcategories.append(current_category)
+                categories_to_subcategories_dict.update(previous_category, current_category)
+
+            items_for_category = categories_to_items_dict.get(current_category, [])
+
+            if not current_category in categories_to_items_dict and not previous_category:
                 categories_in_order.append(current_category)
-            items_to_assign
+
+            items_for_category.append(database_item.build_for_readme())
+
+            categories_to_items_dict.update(current_category, items_for_category)
 
             previous_category = current_category
-        
 
-    with open('header.md', 'r') as header:
-        with open('README.md', 'w') as readme_file:
+    return categories_in_order, categories_to_items_dict, categories_to_subcategories_dict
+
+
+def write_category_to_file(category : str, readme_file, categories_to_items_dict : dict[str, list[str]], categories_to_subcategories_dict : dict[str, list[str]], level):
+    readme_file.write(f"{level*"#"} {category}\n\n")
+    for item in categories_to_items_dict.get(category):
+        readme_file.write(f"- {item}\n\n")
+    for sub_category in categories_to_subcategories_dict.get(category, []):
+        write_category_to_file(sub_category, readme_file, categories_to_items_dict, categories_to_subcategories_dict, level + 1)
+
+def save_as_markdown(categories_in_order : list[str], categories_to_items_dict : dict[str, list[str]], categories_to_subcategories_dict : dict[str, list[str]]):
+    with open('README.md', 'w') as readme_file:
+        with open('header.md', 'r') as header:
             readme_file.write(header.read())
-            
-
-
+        level = 2
+        for category in categories_in_order:
+            write_category_to_file(category, readme_file, categories_to_items_dict, categories_to_subcategories_dict, level)
 
 def main():
     database = load_database()
     save_as_txt_database(database)
-    save_as_markdown(database)
+    save_as_markdown(parse_database(database))
 
 if __name__ == "__main__":
     main(sys.argv[1:])
