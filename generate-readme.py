@@ -74,7 +74,7 @@ def parse_database(database : list[DatabaseItem]) -> tuple[list[str], dict[str, 
     return categories_in_order, categories_to_items_dict, categories_to_subcategories_dict
 
 
-def write_category_to_file(category : str, readme_file, categories_to_items_dict : dict[str, list[str]], categories_to_subcategories_dict : dict[str, set[str]], level, level: int):
+def write_category_to_file(category : str, readme_file, categories_to_items_dict : dict[str, list[str]], categories_to_subcategories_dict : dict[str, set[str]], level: int):
     readme_file.write(f"{level*"#"} {category}\n\n")
     for item in categories_to_items_dict.get(category, []):
         readme_file.write(f"{item}\n\n")
