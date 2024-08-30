@@ -8,6 +8,31 @@ These projects are community contributed and not supported by Veracode. For a li
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Contents**
 
+- [Automating common Veracode Platform tasks](#automating-common-veracode-platform-tasks)
+- [Developer tools](#developer-tools)
+  - [Auto Packagers (for SAST)](#auto-packagers-(for-sast))
+  - [CI/CD](#ci/cd)
+    - [Azure DevOps](#azure-devops)
+    - [GitHub](#github)
+  - [Build tools](#build-tools)
+  - [IDEs](#ides)
+  - [API testing tools](#api-testing-tools)
+  - [Other](#other)
+- [Pipeline Scan projets](#pipeline-scan-projets)
+- [Dynamic Analysis projets](#dynamic-analysis-projets)
+- [SCA related projects](#sca-related-projects)
+- [Results collection and display](#results-collection-and-display)
+- [User provisioning, management and deprovisioning](#user-provisioning,-management-and-deprovisioning)
+- [Application vulnerability correlation](#application-vulnerability-correlation)
+- [HMAC Signing libraries](#hmac-signing-libraries)
+- [API wrappers](#api-wrappers)
+- [Other integrations](#other-integrations)
+- [Secure coding examples](#secure-coding-examples)
+- [Insecure applications](#insecure-applications)
+- [Automating Security Labs tasks](#automating-security-labs-tasks)
+
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 ## Automating common Veracode Platform tasks
 
 - [Veracode_Delete_Sandbox](https://github.com/christyson/veracode_delete_sandbox) ([Christyson](https://github.com/christyson/)) - A simple example script to delete a Sandbox if it exists in a Veracode application profile and you have the appropriate permissions.
