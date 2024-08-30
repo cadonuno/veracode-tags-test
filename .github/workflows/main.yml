@@ -1,4 +1,4 @@
-name: Build and run SCA Scan
+name: Update database and README files
 
 on: 
   push:
