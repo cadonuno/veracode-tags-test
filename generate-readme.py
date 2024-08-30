@@ -9,7 +9,7 @@ class DatabaseItem:
     author_url = ''
     repo_tags = ''
     categories = []
-
+    
     def build_for_readme(self):
         return f"- [{self.repo_name}]({self.repo_url}) ([{self.author_name}]({self.author_url})) - {self.repo_description}\n"
     
