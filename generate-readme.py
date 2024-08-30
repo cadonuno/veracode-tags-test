@@ -1,4 +1,3 @@
-import sys
 from openpyxl import load_workbook
 
 class DatabaseItem:
@@ -37,8 +36,7 @@ class DatabaseItem:
 def load_database() -> list[DatabaseItem]:
     worksheet = load_workbook('database.xlsx', data_only=True)['database']
 
-    database : list[DatabaseItem] = [] 
-    # Pull information from specific cells.
+    database : list[DatabaseItem] = []
     for row in list(worksheet.rows) [1:]:
         line_data = DatabaseItem()
         line_data.repo_url = row[0].value
