@@ -21,7 +21,7 @@ class DatabaseItem:
         while currentLinkIndex < len(splitDescription):
             linkTagEndSplit = splitDescription[currentLinkIndex].split("]")
             linkTagUrlAndDescriptionSplit = linkTagEndSplit[0].split("|")
-            newDescription+=f"[{linkTagUrlAndDescriptionSplit[1]}]({linkTagUrlAndDescriptionSplit[0]}){linkTagEndSplit[1]}"
+            newDescription+=f"[{linkTagUrlAndDescriptionSplit[0]}]({linkTagUrlAndDescriptionSplit[1]}){linkTagEndSplit[1]}"
             currentLinkIndex+=1
 
         return newDescription

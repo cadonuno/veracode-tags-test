@@ -19,4 +19,5 @@ This project generates a [webpage](https://cadonuno.github.io/veracode-tags-test
             * Security Example
         * Categories will be parsed to create the [README.md](https://github.com/cadonuno/veracode-tags-test/blob/main/README.md) file.
         * Any content not in English must be tagged with its language.
+    * NEVER submit any changes to [database.xls](https://github.com/cadonuno/veracode-tags-test/blob/main/database.xls) or [README.md](https://github.com/cadonuno/veracode-tags-test/blob/main/README.md), these files are automatically updated on push and will be overriden.
 * Once your changes are done, open a Pull Request. Once the PR is merged, the [webpage](https://cadonuno.github.io/veracode-tags-test) will be updated automatically.
