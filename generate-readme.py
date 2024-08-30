@@ -10,8 +10,25 @@ class DatabaseItem:
     repo_tags = ''
     categories = []
     
+    def get_description_for_readme(self):
+        base_description = self.repo_description
+        if not "[" in base_description:
+            return base_description
+        				
+        splitDescription = base_description.split("[")
+        newDescription = splitDescription[0]
+        currentLinkIndex = 1
+        while currentLinkIndex < len(splitDescription):
+            linkTagEndSplit = splitDescription[currentLinkIndex].split("]")
+            linkTagUrlAndDescriptionSplit = linkTagEndSplit[0].split("|")
+            newDescription+=f"[{linkTagUrlAndDescriptionSplit[1]}]({linkTagUrlAndDescriptionSplit[0]}){linkTagEndSplit[1]}"
+            currentLinkIndex+=1
+
+        return newDescription
+
+
     def build_for_readme(self):
-        return f"- [{self.repo_name}]({self.repo_url}) ([{self.author_name}]({self.author_url})) - {self.repo_description}\n"
+        return f"- [{self.repo_name}]({self.repo_url}) ([{self.author_name}]({self.author_url})) - {self.get_description_for_readme()}\n"
     
     def build_for_database(self):
         return f"{self.repo_url}\t{self.repo_name}\t{self.repo_description}\t{self.author_name}\t{self.author_url}\t{self.repo_tags}"
