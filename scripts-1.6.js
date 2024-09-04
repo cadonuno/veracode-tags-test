@@ -92,6 +92,7 @@ function buildTagsHtml(tagsField) {
         }
         html += "<a href=\"#\" onclick=\"triggerTagSearch('" + escapeHTML(trimmed) + "')\">" + escapeHTML(trimmed) + "</a>";
     });
+    return html;
 }
 
 function populateGrid() {
@@ -120,7 +121,9 @@ function populateGrid() {
                 {  headerName: "Tags", field: "tags", filter: true, flex: 1 }
             ],
             rowData: gridData,
-            pagination: true
+            pagination: true,
+            paginationPageSize: 10,
+            paginationPageSizeSelector: [5, 10, 25, 50, 100]
         }
         agGrid.createGrid(document.getElementById(GRID_ID), gridOptions)
     });
