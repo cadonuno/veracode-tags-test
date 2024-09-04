@@ -26,6 +26,6 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "action@github.com"
   
-          git add -A
-          git commit -m "Updating some file [skip ci]"
-          git push
+          git add -A || true
+          git commit -m "Updating some file [skip ci]" || true
+          git push || true

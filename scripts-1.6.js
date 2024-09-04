@@ -10,7 +10,11 @@ var api = null;
 var lastFilteredTag = ""
 
 function getIsDarkModeFromCookie() {
-    
+    let decodedCookie = decodeURIComponent(document.cookie);
+    if (!decodedCookie || decodedCookie.indexOf("=") <= 0) {
+        return false;
+    }
+    return (decodedCookie.split(';')[0].split("=")[1]).toLowerCase() == "true";
 }
 
 function setDarkMode(isDarkMode) {
