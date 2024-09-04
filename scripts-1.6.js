@@ -23,7 +23,7 @@ function buildLinkHtml(linkUrl, linkDescription) {
 }
 
 function buildDescriptionHtml(data) {
-    var description = data.cells[1].data;
+    var description = data;
     if (description == null) {
         return "";
     }
