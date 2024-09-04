@@ -16,7 +16,7 @@ var lastFilteredTag = ""
 
 function getIsDarkModeFromCookie() {
     let decodedCookie = decodeURIComponent(document.cookie);
-    if (!decodedCookie || decodedCookie.indexOf("=") <= 0) {
+    if (!decodedCookie || !decodedCookie.includes("=")) {
         return false;
     }
     return (decodedCookie.split(';')[0].split("=")[1]).toLowerCase() == "true";
@@ -163,7 +163,11 @@ function sortGrid(event, field, sortDir) {
   }
 
 function customComparator(valueA, valueB) {
-    return valueA.toLowerCase().localeCompare(valueB.toLowerCase());
+    let indexOfA = valueA.indexOf(">");
+    let toCompareA = indexOfA > 0 ? valueA.substring(indexOfA) : valueA;
+    let indexOfB = valueB.indexOf(">");
+    let toCompareB = indexOfB > 0 ? valueA.substring(indexOfB) : valueB;
+    return toCompareA.toLowerCase().localeCompare(toCompareB.toLowerCase());
 }
 
 function populateGrid() {
