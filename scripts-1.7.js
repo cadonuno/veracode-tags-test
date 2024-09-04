@@ -122,6 +122,27 @@ function escapeHTML(str) {
         });
 }
 
+function unescapeHTML(str) {
+    return str.replace(/[&<>"'\/]/g, (char) => {
+        switch (char) {
+            case '&amp;':
+                return '&';
+            case '&lt;':
+                return '<';
+            case '&gt;':
+                return '>';
+            case '&quot;':
+                return '"';
+            case '&#39;':
+                return '\\';
+            case '&#x2F;':
+                return '/';
+            default:
+                return char;
+            }
+        });
+}
+
 function renderCell(cell) {
     return cell.value;
 }
@@ -182,17 +203,18 @@ function sortGrid(event, field, sortDir) {
     api.applyColumnState(columnState);
   }
 
-function customFilter(value) {
+function trimLinkFromString(value) {
     if (value == null) {
         return value;
     }
+    value = unescapeHTML(value);
     let endOfLink = value.indexOf(">");
     return endOfLink > 0 ? value.substring(endOfLink) : value;
 }
 
 function customComparator(valueA, valueB) {
-    let toCompareA = customFilter(valueA);
-    let toCompareB = customFilter(valueB);
+    let toCompareA = trimLinkFromString(valueA);
+    let toCompareB = trimLinkFromString(valueB);
     return toCompareA.toLowerCase().localeCompare(toCompareB.toLowerCase());
 }
 
@@ -218,7 +240,7 @@ function populateGrid() {
             defaultColDef: {
                 filterParams: {
                     filterOptions: ["contains", "equals", "startsWith"],
-                    textFormatter: customFilter
+                    textFormatter: trimLinkFromString
                 },
                 filter: true,
                 cellRenderer: renderCell,
