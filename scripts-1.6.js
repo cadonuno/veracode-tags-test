@@ -2,7 +2,7 @@ const GRID_ID = "gridjs";
 const DATABASE_FILE = "/veracode-tags-test/database.txt";
 
 const TOGGLE_CONTAINER = "dark-mode-toggle-container"
-const START_CONTAINER = "start-container"
+const INSTRUCTIONS_CONTAINER = "instructions-container"
 
 const DARK_MODE_COOKIE = "IsDarkMode";
 const DARK_MODE_GRID_CLASS = "ag-theme-quartz-dark";
@@ -24,7 +24,7 @@ function getIsDarkModeFromCookie() {
 
 function setDarkMode(isDarkMode) {
     document.getElementById(GRID_ID).setAttribute("class", isDarkMode ? DARK_MODE_GRID_CLASS : LIGHT_MODE_GRID_CLASS);
-    document.getElementById(TOGGLE_CONTAINER).classList.remove(isDarkMode ? LIGHT_MODE_HEADERS_CLASS : DARK_MODE_HEADERS_CLASS)
+    document.getElementById(INSTRUCTIONS_CONTAINER).classList.remove(isDarkMode ? LIGHT_MODE_HEADERS_CLASS : DARK_MODE_HEADERS_CLASS)
     document.getElementById(TOGGLE_CONTAINER).classList.add(isDarkMode ? DARK_MODE_HEADERS_CLASS : LIGHT_MODE_HEADERS_CLASS)
 }
 
@@ -113,6 +113,12 @@ async function triggerSearch(field, value, isAdditive) {
             filterType: 'text',
             operator: 'AND',
             conditions: []
+        };
+    } else if (!newFilterModel.conditions) {
+        newFilterModel = {
+            filterType: 'text',
+            operator: 'AND',
+            conditions: [newFilterModel]
         };
     }
     newFilterModel.conditions.push({
