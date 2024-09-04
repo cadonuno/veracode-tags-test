@@ -102,7 +102,7 @@ async function triggerSearch(field, value, isAdditive) {
     if (!newFilterModel) {
         newFilterModel = [];
     }
-    if (!Arrays.isArray(newFilterModel)) {
+    if (!Array.isArray(newFilterModel)) {
         newFilterModel = [newFilterModel];
     }
     newFilterModel.push({
