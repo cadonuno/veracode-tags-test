@@ -30,10 +30,7 @@ function setDarkModeCookie(isDarkMode) {
 function toggleDarkMode() {
     var isDarkMode = document.getElementById("darkSwitch").checked
     setDarkMode(isDarkMode);
-    if (shouldChangeCookie) {
-        setDarkModeCookie(isDarkMode)
-    }
-    shouldChangeCookie = true;
+    setDarkModeCookie(isDarkMode);
 }
 
 function loadDarkMode() {
