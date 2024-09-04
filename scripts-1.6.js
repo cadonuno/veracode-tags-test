@@ -104,7 +104,7 @@ function sortGrid(event, field, sortDir) {
         }
       ]
     }
-    event.columnApi.applyColumnState(columnState);
+    event.api.applyColumnState(columnState);
   }
 
 function populateGrid() {
