@@ -64,6 +64,10 @@ function escapeHTML(str) {
         });
 }
 
+function renderCell(cell) {
+    return cell.value;
+}
+
 async function triggerSearch(field, value) {
     await api.setColumnFilterModel(field, {
         filterType: 'customFilter',
@@ -102,17 +106,17 @@ function populateGrid() {
         gridData = items.map(function(element) { 
             var newLine = element.split("\t");
             return {
-                "name": buildLinkHtml(newLine[4].data, newLine[0].data),
+                "name": buildLinkHtml(newLine[4], newLine[0]),
                 "description": buildDescriptionHtml(newLine),
-                "author": buildLinkHtml(newLine[5].data, newLine[2].data),
+                "author": buildLinkHtml(newLine[5], newLine[2]),
                 "tags": buildTagsHtml(newLine[3]),
             };
         });
         var gridOptions = {
             columnDefs: [
-                {  headerName: "Name", field: "name", filter: true, flex: 2 },
-                {  headerName: "Description", field: "description", filter: true, flex: 3 },
-                {  headerName: "Author", field: "author", filter: true, flex: 1 },
+                {  headerName: "Name", field: "name", filter: true, flex: 2, cellRenderer: renderCell },
+                {  headerName: "Description", field: "description", filter: true, flex: 3, cellRenderer: renderCell },
+                {  headerName: "Author", field: "author", filter: true, flex: 1, cellRenderer: renderCell },
                 {  headerName: "Tags", field: "tags", filter: true, flex: 1 }
             ],
             rowData: gridData
