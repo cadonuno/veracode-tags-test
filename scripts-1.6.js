@@ -98,18 +98,18 @@ function renderCell(cell) {
 }
 
 async function triggerSearch(field, value, isAdditive) {
-    newFilterModel = isAdditive ? await api.getColumnFilterModel(field) : [];
+    newFilterModel = isAdditive ? await api.getColumnFilterModel(field) : null;
     if (!newFilterModel) {
-        newFilterModel = [];
+        newFilterModel = {
+            filterType: 'text',
+            operator: 'AND',
+            conditions: []
+        };
     }
-    if (!Array.isArray(newFilterModel)) {
-        newFilterModel = [newFilterModel];
-    }
-    newFilterModel.push({
+    newFilterModel.conditions.push({
         filterType: 'text',
         type: 'contains',
-        filter: value,
-        caseSensitive: false 
+        filter: value
     });
     await api.setColumnFilterModel(field, newFilterModel);
     api.onFilterChanged();
