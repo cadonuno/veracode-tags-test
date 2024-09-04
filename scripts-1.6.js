@@ -23,7 +23,7 @@ function buildLinkHtml(linkUrl, linkDescription) {
 }
 
 function buildDescriptionHtml(data) {
-    var description = data;
+    var description = data[1];
     if (description == null) {
         return "";
     }
@@ -119,7 +119,8 @@ function populateGrid() {
                 {  headerName: "Author", field: "author", filter: true, flex: 1, cellRenderer: renderCell },
                 {  headerName: "Tags", field: "tags", filter: true, flex: 1 }
             ],
-            rowData: gridData
+            rowData: gridData,
+            pagination: true
         }
         agGrid.createGrid(document.getElementById(GRID_ID), gridOptions)
     });
