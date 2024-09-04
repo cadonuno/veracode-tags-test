@@ -14,8 +14,8 @@ const DARK_MODE_GRID_CLASS = "ag-theme-quartz-dark";
 const LIGHT_MODE_GRID_CLASS = "ag-theme-quartz";
 const DARK_MODE_HEADERS_CLASS = "container-dark";
 const LIGHT_MODE_HEADERS_CLASS = "container-light";
-const DARK_MODE_BUTTON_CLASS = "btn btn-dark";
-const LIGHT_MODE_BUTTON_CLASS = "btn btn-light";
+const DARK_MODE_BUTTON_CLASS = "btn btn-dark btn-sm";
+const LIGHT_MODE_BUTTON_CLASS = "btn btn-light btn-sm";
 
 
 var api = null;
@@ -39,7 +39,7 @@ function setDarkMode(isDarkMode) {
     document.getElementById(BUTTON_CONTAINER).classList.remove(isDarkMode ? LIGHT_MODE_HEADERS_CLASS : DARK_MODE_HEADERS_CLASS);
     document.getElementById(BUTTON_CONTAINER).classList.add(isDarkMode ? DARK_MODE_HEADERS_CLASS : LIGHT_MODE_HEADERS_CLASS);
 
-    document.getElementById(BUTTON).setAttribute("class", isDarkMode ? DARK_MODE_BUTTON_CLASS : LIGHT_MODE_GRID_CLASS);
+    document.getElementById(BUTTON).setAttribute("class", isDarkMode ? DARK_MODE_GRID_CLASS : LIGHT_MODE_GRID_CLASS);
     document.getElementById(GRID_ID).setAttribute("class", isDarkMode ? DARK_MODE_GRID_CLASS : LIGHT_MODE_GRID_CLASS);
 }
 
