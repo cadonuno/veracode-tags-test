@@ -1,22 +1,8 @@
 const GRID_ID = "gridjs";
 const DATABASE_FILE = "/veracode-tags-test/database.txt";
 
-function searchForValue(cell, searchValue) {
-    if (cell == null) {
-        return "";
-    }
-    var searchValueLower = searchValue.split('=')[1].toLowerCase();
-    var toCompare = cell.toLowerCase();
-    var searchValueList = searchValueLower.split(",");
-    var searchIndex = 0;
-    while (searchIndex < searchValueList.length) {
-        if (!toCompare.includes(searchValueList[searchIndex].trim())) {
-            return "";
-        }
-        searchIndex++;
-    }
-    return searchValue;
-}
+var api = null;
+var lastFilteredTag = ""
 
 function buildLinkHtml(linkUrl, linkDescription) {
     return "<a target='_blank' href='" + linkUrl + "'>" + linkDescription + "</a>";
@@ -41,6 +27,16 @@ function buildDescriptionHtml(data) {
     }
 
     return newDescription;
+}
+
+function getIsAdditiveForTags(value) {
+    if (lastFilteredTag !== value) {
+        lastFilteredTag = value;
+        return true;
+    } else {
+        lastFilteredTag = "";
+        return false;
+    }    
 }
 
 function escapeHTML(str) {
@@ -68,10 +64,11 @@ function renderCell(cell) {
     return cell.value;
 }
 
-async function triggerSearch(field, value) {
+async function triggerSearch(field, value, isAdditive) {
+    baseFilterModel = isAdditive ? await api.getColumnFilterModel() : {};
     await api.setColumnFilterModel(field, {
-        filterType: 'customFilter',
-        type: 'contains',
+        filterType: 'string',
+        type: 'equals',
         filter: value,
      });
 
@@ -79,7 +76,7 @@ async function triggerSearch(field, value) {
 }
 
 async function triggerTagSearch(value) {
-    triggerSearch("tags", value);
+    triggerSearch("tags", value, getIsAdditiveForTags(value));
 }
 
 function buildTagsHtml(tagsField) {
@@ -90,7 +87,7 @@ function buildTagsHtml(tagsField) {
         if (html) {
             html += ', ';
         }
-        html += "<a href=\"#\" onclick=\"triggerTagSearch('" + escapeHTML(trimmed) + "')\">" + escapeHTML(trimmed) + "</a>";
+        html += "<a href=\"#\" onclick=\"triggerSearch('tags', '" + escapeHTML(trimmed) + "', true)\">" + escapeHTML(trimmed) + "</a>";
     });
     return html;
 }
@@ -104,7 +101,8 @@ function sortGrid(event, field, sortDir) {
         }
       ]
     }
-    event.api.applyColumnState(columnState);
+    api = event.api
+    api.applyColumnState(columnState);
   }
 
 function populateGrid() {
