@@ -115,15 +115,16 @@ function populateGrid() {
         });
         var gridOptions = {
             columnDefs: [
-                {  headerName: "Name", field: "name", filter: true, flex: 2, cellRenderer: renderCell },
-                {  headerName: "Description", field: "description", filter: true, flex: 3, cellRenderer: renderCell },
+                {  headerName: "Name", field: "name", filter: true, flex: 1, cellRenderer: renderCell },
+                {  headerName: "Description", field: "description", filter: true, flex: 4, cellRenderer: renderCell },
                 {  headerName: "Author", field: "author", filter: true, flex: 1, cellRenderer: renderCell },
-                {  headerName: "Tags", field: "tags", filter: true, flex: 1 }
+                {  headerName: "Tags", field: "tags", filter: true, flex: 1, cellRenderer: renderCell }
             ],
             rowData: gridData,
             pagination: true,
             paginationPageSize: 10,
-            paginationPageSizeSelector: [5, 10, 25, 50, 100]
+            paginationPageSizeSelector: [5, 10, 25, 50, 100],
+            domLayout: autoHeight
         }
         agGrid.createGrid(document.getElementById(GRID_ID), gridOptions)
     });
