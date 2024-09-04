@@ -189,9 +189,9 @@ function populateGrid() {
             },
             columnDefs: [
                 {  headerName: "Name", field: "name"},
-                {  headerName: "Description", field: "description", flex: 4},
+                {  headerName: "Description", field: "description", wrapText: true, autoHeight: true, flex: 4 },
                 {  headerName: "Author", field: "author" },
-                {  headerName: "Tags", field: "tags" }
+                {  headerName: "Tags", field: "tags", wrapText: true, autoHeight: true }
             ],
             rowData: gridData,
             pagination: true,
