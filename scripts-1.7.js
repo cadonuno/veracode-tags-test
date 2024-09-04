@@ -5,12 +5,17 @@ const MAX_FILTER_CONDITIONS = 10;
 
 const TOGGLE_CONTAINER = "dark-mode-toggle-container"
 const INSTRUCTIONS_CONTAINER = "instructions-container"
+const BUTTON_CONTAINER = "reset-filters-container"
+const BUTTON = "button-reset-filters"
 
 const DARK_MODE_COOKIE = "IsDarkMode";
+
 const DARK_MODE_GRID_CLASS = "ag-theme-quartz-dark";
 const LIGHT_MODE_GRID_CLASS = "ag-theme-quartz";
 const DARK_MODE_HEADERS_CLASS = "container-dark";
 const LIGHT_MODE_HEADERS_CLASS = "container-light";
+const DARK_MODE_BUTTON_CLASS = "btn btn-dark";
+const LIGHT_MODE_BUTTON_CLASS = "btn btn-light";
 
 
 var api = null;
@@ -25,11 +30,17 @@ function getIsDarkModeFromCookie() {
 }
 
 function setDarkMode(isDarkMode) {
-    document.getElementById(GRID_ID).setAttribute("class", isDarkMode ? DARK_MODE_GRID_CLASS : LIGHT_MODE_GRID_CLASS);
     document.getElementById(TOGGLE_CONTAINER).classList.remove(isDarkMode ? LIGHT_MODE_HEADERS_CLASS : DARK_MODE_HEADERS_CLASS);
     document.getElementById(TOGGLE_CONTAINER).classList.add(isDarkMode ? DARK_MODE_HEADERS_CLASS : LIGHT_MODE_HEADERS_CLASS);
+
     document.getElementById(INSTRUCTIONS_CONTAINER).classList.remove(isDarkMode ? LIGHT_MODE_HEADERS_CLASS : DARK_MODE_HEADERS_CLASS);
     document.getElementById(INSTRUCTIONS_CONTAINER).classList.add(isDarkMode ? DARK_MODE_HEADERS_CLASS : LIGHT_MODE_HEADERS_CLASS);
+
+    document.getElementById(BUTTON_CONTAINER).classList.remove(isDarkMode ? LIGHT_MODE_HEADERS_CLASS : DARK_MODE_HEADERS_CLASS);
+    document.getElementById(BUTTON_CONTAINER).classList.add(isDarkMode ? DARK_MODE_HEADERS_CLASS : LIGHT_MODE_HEADERS_CLASS);
+
+    document.getElementById(BUTTON).setAttribute("class", isDarkMode ? DARK_MODE_BUTTON_CLASS : LIGHT_MODE_GRID_CLASS);
+    document.getElementById(GRID_ID).setAttribute("class", isDarkMode ? DARK_MODE_GRID_CLASS : LIGHT_MODE_GRID_CLASS);
 }
 
 function setDarkModeCookie(isDarkMode) {
@@ -48,6 +59,11 @@ function loadDarkMode() {
     isDarkMode = getIsDarkModeFromCookie();  
     document.getElementById("darkSwitch").checked = isDarkMode;
     setDarkMode(isDarkMode);  
+}
+
+function resetFilters() {
+    api.setColumnFilterModel(null);
+    gridOptions.api.onFilterChanged();
 }
 
 function buildLinkHtml(linkUrl, linkDescription) {
@@ -163,7 +179,6 @@ function sortGrid(event, field, sortDir) {
         }
       ]
     }
-    api = event.api
     api.applyColumnState(columnState);
   }
 
@@ -216,7 +231,8 @@ function populateGrid() {
             paginationPageSizeSelector: [5, 10, 25, 50, 100, items.length],
             domLayout: 'autoHeight',
             onGridReady: function (event) {
-                sortGrid(event, 'name', 'asc')
+                api = gridOptions.api;
+                sortGrid(event, 'name', 'asc');
             },
         }
         agGrid.createGrid(document.getElementById(GRID_ID), gridOptions)
