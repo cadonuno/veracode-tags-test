@@ -1,3 +1,9 @@
+const GRID_ID = "gridjs";
+const DATABASE_FILE = "/veracode-tags-test/database.txt";
+
+var items = [];
+var grid = null;
+
 function searchSelection(cell, rowIndex, cellIndex) {
     var searchValue = $("input").val()
     if (searchValue == null || searchForValue == "") {
@@ -26,18 +32,6 @@ function triggerTagSearch(value) {
         bubbles: true,
         cancelable: true,
     }));
-}
-
-function runSort(a, b, column) {
-    const code = (x) => x.split(' ').slice(-1)[0];
-    
-    if (code(a) > code(b)) {
-        return 1;
-    } else if (code(b) > code(a)) {
-        return -1;
-    } else {
-        return 0;
-    }
 }
 
 function searchForValue(cell, searchValue) {
@@ -103,9 +97,17 @@ function escapeHTML(str) {
         });
 }
 
-function populateGrid(grid_id) {
-    var items = []
-    $.get("/veracode-tags-test/database.txt", function(data) {
+function reorderGrid(orderColumn) {
+    items.sort((a,b) => (a[orderColumn] > b[orderColumn]) ? 1 : ((b[orderColumn] > a[orderColumn]) ? -1 : 0));
+    renderGrid(GRID_ID);
+}
+
+function renderGrid() {
+    grid.render(document.getElementById(GRID_ID))
+}
+
+function populateGrid() {
+    $.get(DATABASE_FILE, function(data) {
         items = data.split("\n");
         items.shift();
         while (items[items.length-1] === '') {
@@ -120,12 +122,16 @@ function populateGrid(grid_id) {
             return newLine;
         });			
         items.sort((a,b) => (a[1] > b[1]) ? 1 : ((b[1] > a[1]) ? -1 : 0))
-        new gridjs.Grid({
+        grid = new gridjs.Grid({
             search: {
                 ignoreHiddenColumns: false,
                 selector: (cell, rowIndex, cellIndex) => searchSelection(cell, rowIndex, cellIndex)
             },
-            sort: false,
+            sort: {
+                compare: (a, b) => {
+                  return -1;
+                }
+              },
             pagination: true,
             columns: [{
                 name: 'repo-name',
@@ -180,6 +186,8 @@ function populateGrid(grid_id) {
             }],			        
             resizable: true,
             data: items
-        }).render(document.getElementById(grid_id));
+        });
+        renderGrid()
     });
+    
 }

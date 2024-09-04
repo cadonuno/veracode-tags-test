@@ -25,7 +25,6 @@ class DatabaseItem:
 
         return newDescription
 
-
     def build_for_readme(self):
         return f"- [{self.repo_name}]({self.repo_url}) ([{self.author_name}]({self.author_url})) - {self.get_description_for_readme()}\n"
     
