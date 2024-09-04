@@ -63,7 +63,7 @@ function loadDarkMode() {
 
 function resetFilters() {
     api.setColumnFilterModel(null);
-    gridOptions.api.onFilterChanged();
+    api.onFilterChanged();
 }
 
 function buildLinkHtml(linkUrl, linkDescription) {
@@ -231,7 +231,7 @@ function populateGrid() {
             paginationPageSizeSelector: [5, 10, 25, 50, 100, items.length],
             domLayout: 'autoHeight',
             onGridReady: function (event) {
-                api = gridOptions.api;
+                api = event.api;
                 sortGrid(event, 'name', 'asc');
             },
         }
