@@ -129,31 +129,7 @@ function populateGrid() {
             },
             sort: true,
             pagination: true,
-            columns: [{
-                name: 'repo-name',
-                hidden: true
-            },
-            {
-                name: 'repo-url',
-                hidden: true
-            },
-            {
-                name: 'repo-description',
-                hidden: true
-            },
-            {
-                name: 'author-name',
-                hidden: true
-            },
-            {
-                name: 'author-url',
-                hidden: true
-            },
-            {
-                name: 'repo-tags',
-                hidden: true
-            },
-            { 
+            columns: [{ 
                 name: 'Name',
                 formatter: (_, row) => gridjs.html(`${buildLinkHtml(row.cells[0].data, row.cells[1].data)}`),
                 sort: {
@@ -199,6 +175,30 @@ function populateGrid() {
                     });
                     return gridjs.html(`${html}`)	
                 }								
+            },
+            {
+                name: 'repo-name',
+                hidden: true
+            },
+            {
+                name: 'repo-url',
+                hidden: true
+            },
+            {
+                name: 'repo-description',
+                hidden: true
+            },
+            {
+                name: 'author-name',
+                hidden: true
+            },
+            {
+                name: 'author-url',
+                hidden: true
+            },
+            {
+                name: 'repo-tags',
+                hidden: true
             }],			        
             resizable: true,
             data: items
