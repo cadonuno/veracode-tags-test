@@ -1,6 +1,8 @@
 const GRID_ID = "gridjs";
 const DATABASE_FILE = "/veracode-tags-test/database.txt";
 
+const MAX_FILTER_CONDITIONS = 10;
+
 const TOGGLE_CONTAINER = "dark-mode-toggle-container"
 const INSTRUCTIONS_CONTAINER = "instructions-container"
 
@@ -123,6 +125,9 @@ async function triggerSearch(field, value, isAdditive) {
             conditions: [newFilterModel]
         };
     }
+    if (newFilterModel.conditions.length == MAX_FILTER_CONDITIONS) {
+        newFilterModel.conditions.shift();
+    }
     newFilterModel.conditions.push({
         filterType: 'text',
         type: 'contains',
@@ -194,7 +199,10 @@ function populateGrid() {
                 filter: true,
                 cellRenderer: renderCell,
                 comparator: customComparator, 
-                flex: 1
+                flex: 1,
+                filterParams: {
+                  maxNumConditions: MAX_FILTER_CONDITIONS,
+                },
             },
             columnDefs: [
                 {  headerName: "Name", field: "name", wrapText: true},
