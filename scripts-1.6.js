@@ -124,7 +124,7 @@ function populateGrid() {
             pagination: true,
             paginationPageSize: 10,
             paginationPageSizeSelector: [5, 10, 25, 50, 100],
-            domLayout: autoHeight
+            domLayout: 'autoHeight'
         }
         agGrid.createGrid(document.getElementById(GRID_ID), gridOptions)
     });
