@@ -66,6 +66,9 @@ function renderCell(cell) {
 
 async function triggerSearch(field, value, isAdditive) {
     baseFilterModel = isAdditive ? await api.getColumnFilterModel(field) : [];
+    if (!baseFilterModel) {
+        baseFilterModel = [];
+    }
     await api.setColumnFilterModel(field, baseFilterModel.push({
         filterType: 'string',
         type: 'equals',
