@@ -56,7 +56,7 @@ function buildLinkHtml(linkUrl, linkDescription) {
 }
 
 function buildDescriptionHtml(data) {
-    var description = data.cells[2].data;
+    var description = data.cells[1].data;
     if (description == null) {
         return "";
     }
@@ -115,13 +115,9 @@ function populateGrid() {
         }
         items = items.map(function(element) { 
             var newLine = element.split("\t");
-            newLine.push("");
-            newLine.push("");
-            newLine.push("");
-            newLine.push("");
             return newLine;
         });			
-        items.sort((a,b) => (a[1] > b[1]) ? 1 : ((b[1] > a[1]) ? -1 : 0))
+        items.sort((a,b) => (a[0] > b[0]) ? 1 : ((b[0] > a[0]) ? -1 : 0))
         grid = new gridjs.Grid({
             search: {
                 ignoreHiddenColumns: false,
@@ -131,7 +127,7 @@ function populateGrid() {
             pagination: true,
             columns: [{ 
                 name: 'Name',
-                formatter: (_, row) => gridjs.html(`${buildLinkHtml(row.cells[0].data, row.cells[1].data)}`),
+                formatter: (_, row) => gridjs.html(`${buildLinkHtml(row.cells[4].data, row.cells[0].data)}`),
                 sort: {
                     compare: (a, b) => {
                       return -1;
@@ -149,7 +145,7 @@ function populateGrid() {
             },
             { 
                 name: 'Author',
-                formatter: (_, row) => gridjs.html(`${buildLinkHtml(row.cells[4].data, row.cells[3].data)}`),
+                formatter: (_, row) => gridjs.html(`${buildLinkHtml(row.cells[5].data, row.cells[2].data)}`),
                 sort: {
                     compare: (a, b) => {
                       return -1;
@@ -164,7 +160,7 @@ function populateGrid() {
                     }
                   },
                 formatter: (_, row) => {
-                    elements = (row == null || row.cells[5] == null || row.cells[5].data == null) ? [] : row.cells[5].data.split(",")
+                    elements = (row == null || row.cells[5] == null || row.cells[3].data == null) ? [] : row.cells[3].data.split(",")
                     html = ''
                     elements.forEach((element) => {
                         var trimmed = element.trim()

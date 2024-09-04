@@ -29,7 +29,7 @@ class DatabaseItem:
         return f"- [{self.repo_name}]({self.repo_url}) ([{self.author_name}]({self.author_url})) - {self.get_description_for_readme()}\n"
     
     def build_for_database(self):
-        return f"{self.repo_url}\t{self.repo_name}\t{self.repo_description}\t{self.author_name}\t{self.author_url}\t{self.repo_tags}"
+        return f"{self.repo_name}\t{self.repo_description}\t{self.author_name}\t{self.repo_tags}\t{self.repo_url}\t{self.author_url}"
 
 
 def load_database() -> list[DatabaseItem]:
