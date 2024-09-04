@@ -62,7 +62,7 @@ function loadDarkMode() {
 }
 
 async function resetFilters() {
-    await api.setColumnFilterModel(null);
+    await api.setFilterModel(null);
     api.onFilterChanged();
 }
 
