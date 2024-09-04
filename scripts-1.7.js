@@ -122,6 +122,47 @@ function escapeHTML(str) {
         });
 }
 
+function unescapeHTML(str) {
+    return str.replace(/[&<>"'\/]/g, (char) => {
+        switch (char) {
+            case '&amp;':
+                return '&';
+            case '&lt;':
+                return '<';
+            case '&gt;':
+                return '>';
+            case '&quot;':
+                return '"';
+            case '&#39;':
+                return '\\';
+            case '&#x2F;':
+                return '/';
+            default:
+                return char;
+            }
+        });
+}
+
+function filterForElement(filterOption, value, filterText) {
+    if (filterText == null) {
+        return false;
+    }
+    escapedFilterText = unescapeHTML(filterText);
+    escapedValue = unescapeHTML(value);
+    switch (filterOption) {
+        case 'contains':
+            return escapedValue.indexOf(escapedFilterText) >= 0;
+        case 'equals':
+            return escapedValue === escapedFilterText;
+        case 'startsWith':
+            return escapedValue.indexOf(escapedFilterText) === 0;
+        default:
+            // should never happen
+            console.warn('invalid filter type ' + filterOption);
+            return false;
+    }
+}
+
 function renderCell(cell) {
     return cell.value;
 }
@@ -219,15 +260,14 @@ function populateGrid() {
             defaultColDef: {
                 filterParams: {
                     filterOptions: ["contains", "equals", "startsWith"],
-                    textFormatter: trimLinkFromString
+                    textFormatter: trimLinkFromString,
+                    maxNumConditions: MAX_FILTER_CONDITIONS,
+                    textMatcher: filterForElement
                 },
                 filter: true,
                 cellRenderer: renderCell,
                 comparator: customComparator, 
                 flex: 1,
-                filterParams: {
-                  maxNumConditions: MAX_FILTER_CONDITIONS,
-                },
             },
             columnDefs: [
                 {  headerName: "Name", field: "name", wrapText: true},
