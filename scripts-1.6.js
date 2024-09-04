@@ -34,7 +34,9 @@ function toggleDarkMode() {
 }
 
 function loadDarkMode() {
-    document.getElementById("darkSwitch").checked = getIsDarkModeFromCookie();    
+    isDarkMode = getIsDarkModeFromCookie();  
+    document.getElementById("darkSwitch").checked = isDarkMode;
+    setDarkMode(isDarkMode);  
 }
 
 function buildLinkHtml(linkUrl, linkDescription) {
