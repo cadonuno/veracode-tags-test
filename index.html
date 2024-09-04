@@ -32,23 +32,24 @@
 			.chartruce{background-color: #e2e369;}
 			html,body{background-color:#000;}
 			td{word-break: break-word}
-			.start{background-color: white; border-top-left-radius: 10px; border-top-right-radius: 10px;}
-			details{background-color: white;}
+			.start{border-top-left-radius: 10px; border-top-right-radius: 10px;}
+			.container-light{background-color: white; }
+			.container-dark{color: white; background-color: #28313E; }
 			grid{padding-bottom: 10px;}
 		</style>    
 	</head>
 	<body>
 		<div id="wrapper">
-			<div class="row description start">
+			<div class="row start container-light" id="dark-mode-toggle-container">
 				<div class="form-check form-switch">
 					<input type="checkbox" class="form-check-input" id="darkSwitch" onchange="toggleDarkMode()"/>
 					<label class="custom-control-label" for="darkSwitch">Dark Mode</label>
 				</div>
 			</div>
-			<div>
+			<div id="start-container" class="container-light">
 				<details>
 					<summary>Usage Instructions:</summary>
-					<div class="row description">
+					<div class="row">
 						<span>A collection of useful open source projects that integrate with the Veracode APIs to automate scanning, results retrieval and other tasks. </br>
 							These projects are community contributed and not supported by Veracode. For a list of supported projects, please see the listing of projects on <a href="https://www.veracode.com/integrations">https://www.veracode.com/integrations</a>. </br> </br>
 							On filters:
