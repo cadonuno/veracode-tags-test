@@ -29,3 +29,5 @@ td{word-break: break-word}
 .container-light{background-color: white; }
 .container-dark{color: white; background-color: #28313E; }
 .form-switch{margin-left: 5px}
+.btn-light{ background-color: #DFE0E0; border-color: #DFE0E0;}
+.btn-dark{ background-color: #0b0c0e; border-color: #0b0c0e; }
