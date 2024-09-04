@@ -162,6 +162,10 @@ function sortGrid(event, field, sortDir) {
     api.applyColumnState(columnState);
   }
 
+function customComparator(valueA, valueB) {
+    return valueA.toLowerCase().localeCompare(valueB.toLowerCase());
+}
+
 function populateGrid() {
     var items = []
     
@@ -184,7 +188,8 @@ function populateGrid() {
             defaultColDef: {
                 filterOptions: ["contains", "equals", "startsWith"],
                 filter: true,
-                cellRenderer: renderCell, 
+                cellRenderer: renderCell,
+                comparator: customComparator, 
                 flex: 1
             },
             columnDefs: [
@@ -199,7 +204,7 @@ function populateGrid() {
             paginationPageSizeSelector: [5, 10, 25, 50, 100, items.length],
             domLayout: 'autoHeight',
             onGridReady: function (event) {
-              sortGrid(event, 'name', 'asc')
+                sortGrid(event, 'name', 'asc')
             },
         }
         agGrid.createGrid(document.getElementById(GRID_ID), gridOptions)
