@@ -127,49 +127,29 @@ function populateGrid() {
             pagination: true,
             columns: [{ 
                 name: 'Name',
-                formatter: (_, row) => gridjs.html(`${buildLinkHtml(row.cells[4].data, row.cells[0].data)}`),
-                sort: {
-                    compare: (a, b) => {
-                      return -1;
-                    }
-                  }
+                formatter: (_, row) => gridjs.html(`${buildLinkHtml(row.cells[4].data, row.cells[0].data)}`);
             },
             { 
                 name: 'Description',
-                formatter: (_, row) => gridjs.html(`${buildDescriptionHtml(row)}`),
-                sort: {
-                    compare: (a, b) => {
-                      return -1;
-                    }
-                  }
+                formatter: (_, row) => gridjs.html(`${buildDescriptionHtml(row)}`);
             },
             { 
                 name: 'Author',
-                formatter: (_, row) => gridjs.html(`${buildLinkHtml(row.cells[5].data, row.cells[2].data)}`),
-                sort: {
-                    compare: (a, b) => {
-                      return -1;
-                    }
-                  }
+                formatter: (_, row) => gridjs.html(`${buildLinkHtml(row.cells[5].data, row.cells[2].data)}`);
             },
             { 
                 name: 'Tags',
-                sort: {
-                    compare: (a, b) => {
-                      return -1;
-                    }
-                  },
                 formatter: (_, row) => {
-                    elements = (row == null || row.cells[5] == null || row.cells[3].data == null) ? [] : row.cells[3].data.split(",")
-                    html = ''
+                    elements = (row == null || row.cells[5] == null || row.cells[3].data == null) ? [] : row.cells[3].data.split(",");
+                    html = '';
                     elements.forEach((element) => {
-                        var trimmed = element.trim()
+                        var trimmed = element.trim();
                         if (html) {
-                            html += ', '
+                            html += ', ';
                         }
-                        html += "<a href=\"#\" onclick=\"triggerTagSearch('" + escapeHTML(trimmed) + "')\">" + escapeHTML(trimmed) + "</a>"
+                        html += "<a href=\"#\" onclick=\"triggerTagSearch('" + escapeHTML(trimmed) + "')\">" + escapeHTML(trimmed) + "</a>";
                     });
-                    return gridjs.html(`${html}`)	
+                    return gridjs.html(`${html}`);
                 }								
             },
             {
