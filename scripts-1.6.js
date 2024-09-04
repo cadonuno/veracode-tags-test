@@ -95,6 +95,18 @@ function buildTagsHtml(tagsField) {
     return html;
 }
 
+function sortGrid(event, field, sortDir) {
+    const columnState = {
+      state: [
+        {
+          colId: field,
+          sort: sortDir
+        }
+      ]
+    }
+    event.columnApi.applyColumnState(columnState);
+  }
+
 function populateGrid() {
     var items = []
     
@@ -123,8 +135,11 @@ function populateGrid() {
             rowData: gridData,
             pagination: true,
             paginationPageSize: 10,
-            paginationPageSizeSelector: [5, 10, 25, 50, 100],
-            domLayout: 'autoHeight'
+            paginationPageSizeSelector: [5, 10, 25, 50, 100, items.length],
+            domLayout: 'autoHeight',
+            onGridReady: function (event) {
+              sortGrid(event, 'name', 'asc')
+            },
         }
         agGrid.createGrid(document.getElementById(GRID_ID), gridOptions)
     });
