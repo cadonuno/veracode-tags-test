@@ -182,11 +182,17 @@ function sortGrid(event, field, sortDir) {
     api.applyColumnState(columnState);
   }
 
+function customFilter(value) {
+    if (value == null) {
+        return value;
+    }
+    let endOfLink = value.indexOf(">");
+    return endOfLink > 0 ? value.substring(endOfLink) : value;
+}
+
 function customComparator(valueA, valueB) {
-    let indexOfA = valueA.indexOf(">");
-    let toCompareA = indexOfA > 0 ? valueA.substring(indexOfA) : valueA;
-    let indexOfB = valueB.indexOf(">");
-    let toCompareB = indexOfB > 0 ? valueB.substring(indexOfB) : valueB;
+    let toCompareA = customFilter(valueA);
+    let toCompareB = customFilter(valueB);
     return toCompareA.toLowerCase().localeCompare(toCompareB.toLowerCase());
 }
 
@@ -210,7 +216,10 @@ function populateGrid() {
         });
         var gridOptions = {
             defaultColDef: {
-                filterOptions: ["contains", "equals", "startsWith"],
+                filterParams: {
+                    filterOptions: ["contains", "equals", "startsWith"],
+                    textFormatter: customFilter
+                },
                 filter: true,
                 cellRenderer: renderCell,
                 comparator: customComparator, 
