@@ -128,11 +128,17 @@ function populateGrid() {
             };
         });
         var gridOptions = {
+            defaultColDef: {
+                filterOptions: ["contains", "equals", "startsWith"],
+                filter: true,
+                cellRenderer: renderCell, 
+                flex: 1
+            },
             columnDefs: [
-                {  headerName: "Name", field: "name", filter: true, flex: 1, cellRenderer: renderCell },
-                {  headerName: "Description", field: "description", filter: true, flex: 4, cellRenderer: renderCell },
-                {  headerName: "Author", field: "author", filter: true, flex: 1, cellRenderer: renderCell },
-                {  headerName: "Tags", field: "tags", filter: true, flex: 1, cellRenderer: renderCell }
+                {  headerName: "Name", field: "name"},
+                {  headerName: "Description", field: "description", flex: 4},
+                {  headerName: "Author", field: "author" },
+                {  headerName: "Tags", field: "tags" }
             ],
             rowData: gridData,
             pagination: true,
