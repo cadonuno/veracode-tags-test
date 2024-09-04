@@ -122,27 +122,6 @@ function escapeHTML(str) {
         });
 }
 
-function unescapeHTML(str) {
-    return str.replace(/[&<>"'\/]/g, (char) => {
-        switch (char) {
-            case '&amp;':
-                return '&';
-            case '&lt;':
-                return '<';
-            case '&gt;':
-                return '>';
-            case '&quot;':
-                return '"';
-            case '&#39;':
-                return '\\';
-            case '&#x2F;':
-                return '/';
-            default:
-                return char;
-            }
-        });
-}
-
 function renderCell(cell) {
     return cell.value;
 }
@@ -207,7 +186,7 @@ function trimLinkFromString(value) {
     if (value == null) {
         return value;
     }
-    value = unescapeHTML(value);
+    value = escapeHTML(value);
     let endOfLink = value.indexOf(">");
     return endOfLink > 0 ? value.substring(endOfLink) : value;
 }
