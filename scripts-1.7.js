@@ -166,7 +166,7 @@ function customComparator(valueA, valueB) {
     let indexOfA = valueA.indexOf(">");
     let toCompareA = indexOfA > 0 ? valueA.substring(indexOfA) : valueA;
     let indexOfB = valueB.indexOf(">");
-    let toCompareB = indexOfB > 0 ? valueA.substring(indexOfB) : valueB;
+    let toCompareB = indexOfB > 0 ? valueB.substring(indexOfB) : valueB;
     return toCompareA.toLowerCase().localeCompare(toCompareB.toLowerCase());
 }
 
