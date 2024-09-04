@@ -188,7 +188,7 @@ function populateGrid() {
                 flex: 1
             },
             columnDefs: [
-                {  headerName: "Name", field: "name"},
+                {  headerName: "Name", field: "name", wrapText: true},
                 {  headerName: "Description", field: "description", wrapText: true, autoHeight: true, flex: 4 },
                 {  headerName: "Author", field: "author" },
                 {  headerName: "Tags", field: "tags", wrapText: true, autoHeight: true }
