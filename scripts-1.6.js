@@ -65,18 +65,18 @@ function renderCell(cell) {
 }
 
 async function triggerSearch(field, value, isAdditive) {
-    baseFilterModel = isAdditive ? await api.getColumnFilterModel(field) : [];
+    newFilterModel = isAdditive ? await api.getColumnFilterModel(field) : [];
     if (!baseFilterModel) {
-        baseFilterModel = [];
+        newFilterModel = [];
     }
-    await api.setColumnFilterModel(field, baseFilterModel.push({
-        filterType: 'string',
-        type: 'equals',
+    newFilterModel.push({
+        filterType: 'text',
+        type: 'contains',
         filter: value,
         caseSensitive: false 
-     }));
-
-     api.onFilterChanged();
+    });
+    await api.setColumnFilterModel(field, newFilterModel);
+    api.onFilterChanged();
 }
 
 async function triggerTagSearch(value) {
