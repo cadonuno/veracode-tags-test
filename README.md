@@ -140,7 +140,7 @@ These projects are community contributed and not supported by Veracode. For a li
 - [CircleCI](https://github.com/buzzcode/NodeGoat/blob/master/.circleci/config.yml) ([buzzcode](https://github.com/buzzcode)) - Example configuration for zipping a project, then executing policy scan, agent-based SCA, and pipeline scan in a CircleCI pipeline.
 
 
-- [easy_sast](https://github.com/seisollc/easy_sast) ([docker container](https://hub.docker.com/r/seiso/easy_sast)) - A docker container for use in CI pipelines which integrates with Veracode's static analysis tool.
+- [easy_sast](https://github.com/seisollc/easy_sast) ([docker container](https://hub.docker.com/u/seiso)) - A docker container for use in CI pipelines which integrates with Veracode's static analysis tool.
 
 
 - [Exemplos Veracode](https://github.com/M3Corp-Community/Veracode) ([Ivo Dias](https://github.com/IGDEXE)) - In this repository you will find several examples for Veracode implementations created by the [M3Corp](https://github.com/M3Corp-Community) team. In the [Pipelines](https://github.com/M3Corp-Community/Veracode/tree/main/Pipelines) folder you can find how to implement in the most diverse CI/CD tools, such as [Azure](https://github.com/M3Corp-Community/Veracode/tree/main/Pipelines/Az%20DevOps), [GitLab](https://github.com/M3Corp-Community/Veracode/tree/main/Pipelines/GitLab), [GitHub Actions](https://github.com/M3Corp-Community/Veracode/tree/main/Pipelines/GitHub%20Actions), and [Jenkins](https://github.com/M3Corp-Community/Veracode/tree/main/Pipelines/Jenkins). Other implementation examples such as [running in a terminal](https://github.com/M3Corp-Community/Veracode/tree/main/SOs) and [translating the results](https://github.com/M3Corp-Community/Veracode/tree/main/FreeStyle) are also available. We normally publish in Portuguese, but the examples are completely understandable in other languages.
@@ -181,7 +181,7 @@ These projects are community contributed and not supported by Veracode. For a li
 - [Veracode Azure YML Samples](https://github.com/Clintpollock/VeracodeAzureYMLSamples/) ([Clintpollock](https://github.com/Clintpollock)) - Samples of Azure YML files that work with Veracode scanning
 
 
-- [Veracode Community SCA Azure DevOps Extension](https://github.com/MetLife/VeracodeCommunitySCA) ([MetLife](https://github.com/MetLife/VeracodeCommunitySCA)) - Seamlessly integrate Veracode Agent-Based SCA scans with Azure DevOps build or release pipelines.
+- [Veracode Community SCA Azure DevOps Extension](https://github.com/MetLife/VeracodeCommunitySCA) ([MetLife](https://github.com/MetLife/)) - Seamlessly integrate Veracode Agent-Based SCA scans with Azure DevOps build or release pipelines.
 
 
 - [Veracode Dynamic Analysis Azure Sample](https://github.com/jphillips-vc/Veracode-Dynamic-Analysis-Azure-Example) ([Jphillips-vc](https://github.com/jphillips-vc/)) - Veracode Dynamic Analysis Azure Sample including script based authentication, and ISM configuration (In Portuguese)
@@ -223,7 +223,7 @@ These projects are community contributed and not supported by Veracode. For a li
 
 ### IDEs
 
-- [VSCode-Veracode](https://gitlab.com/buzzcode/VSCode-Veracode) ([Buzzcode](https://gitlab.com/buzzcode/VSCode-Veracode)) - A plugin for Visual Studio Code that enables integration with Veracode Static Analysis. Currently, this only supports flaw download, but will be enhanced to support upload as well in the future.
+- [VSCode-Veracode](https://gitlab.com/buzzcode/VSCode-Veracode) ([Buzzcode](https://gitlab.com/buzzcode/)) - A plugin for Visual Studio Code that enables integration with Veracode Static Analysis. Currently, this only supports flaw download, but will be enhanced to support upload as well in the future.
 
 
 - [vsccode-veracode-sca](https://github.com/Lerer/vscode-veracode-sca) ([Lerer](https://github.com/Lerer/)) - A very simple plugin for Veracode SCA to get agent-base SCA results into VSCode IDE.
@@ -286,7 +286,7 @@ These projects are community contributed and not supported by Veracode. For a li
 - [PipelineResultsCompare](https://github.com/cadonuno/PipelineResultsCompare) ([Cadonuno](https://github.com/cadonuno/)) - Checks if there are any issues present on a pipeline results file that aren't present on another, supporting filtering by severity.
 
 
-- [veracode-pipeline-PR-comment](https://github.com/Lerer/veracode-pipeline-PR-comment) ([Lerer](https://github.com/Lerer/veracode-pipeline-PR-comment)) - Sends output of Pipeline Scan to a comment on a pull request.
+- [veracode-pipeline-PR-comment](https://github.com/Lerer/veracode-pipeline-PR-comment) ([Lerer](https://github.com/Lerer/)) - Sends output of Pipeline Scan to a comment on a pull request.
 
 
 - [veracode-pipeline-with-baseline](https://github.com/runkalicious/veracode-pipeline-with-baseline) ([Runkalicious](https://github.com/runkalicious/)) - GitHub Action to perform a Veracode Pipeline Scan and, optionally, compare the results against a set of baseline results.
@@ -319,10 +319,10 @@ These projects are community contributed and not supported by Veracode. For a li
 
 ## Results collection and display
 
-- [Excel (XLS)](https://github.com/Komiblanka/Veracode2xls) ([Komiblanka](https://github.com/Komiblanka/Veracode2xls)) - Python scripts to format Veracode XML results into Excel workbook formats for easier human consumption.
+- [Excel (XLS)](https://github.com/Komiblanka/Veracode2xls) ([Komiblanka](https://github.com/Komiblanka/)) - Python scripts to format Veracode XML results into Excel workbook formats for easier human consumption.
 
 
-- [Excel (XLSX)](https://github.com/Komiblanka/Veracode2xlsx) ([Komiblanka](https://github.com/Komiblanka/Veracode2xlsx)) - Python scripts to format Veracode XML results into Excel workbook formats for easier human consumption.
+- [Excel (XLSX)](https://github.com/Komiblanka/Veracode2xlsx) ([Komiblanka](https://github.com/Komiblanka/)) - Python scripts to format Veracode XML results into Excel workbook formats for easier human consumption.
 
 
 - [Generate License Notice file](https://github.com/gmdavef/sca-scripts) ([Dave Ferguson](https://github.com/gmdavef)) - Python script that creates a License Notice file, sometimes called an Attribution Report, for an application that has been scanned by Veracode SCA.
@@ -361,10 +361,10 @@ These projects are community contributed and not supported by Veracode. For a li
 - [VeraCustomTriage](https://github.com/sebcoles/VeraCustomTriage) ([Seb Coles](https://github.com/sebcoles)) - App that generates a .xlsx remediation plan from a set of scan results augmented with text from JSON configuration files. Custom text is added when flaw criteria is met (such as a CWE ID, module name, file or line number). This allows custom text such as internal workflows, wiki links, training, code snippets, 2nd party information or other languages into the auto generated remediation plan. Enables app sec teams to triage large volumes of flaws quickly whilst sharing a core advice repository in code.
 
 
-- [Veracode Report Converter (CSV)](https://github.com/dipsylala/VeracodeReportConverter-Windows) ([Dipsylala](https://github.com/dipsylala/VeracodeReportConverter-Windows)) - .NET Framework utility to extract useful data from Detailed Report XML file into CSV format
+- [Veracode Report Converter (CSV)](https://github.com/dipsylala/VeracodeReportConverter-Windows) ([Dipsylala](https://github.com/dipsylala/)) - .NET Framework utility to extract useful data from Detailed Report XML file into CSV format
 
 
-- [Veracode Report Converter Portable (CSV)](https://github.com/dipsylala/VeracodeReportConverter-Portable) ([Dipsylala](https://github.com/dipsylala/VeracodeReportConverter-Portable)) - .NET Core utility to extract useful data from Detailed Report XML file into CSV format
+- [Veracode Report Converter Portable (CSV)](https://github.com/dipsylala/VeracodeReportConverter-Portable) ([Dipsylala](https://github.com/dipsylala/)) - .NET Core utility to extract useful data from Detailed Report XML file into CSV format
 
 
 - [Veracode Bulk Reporting API Import](https://github.com/cadonuno/veracode-reporting-api-bulk-import) ([Cadonuno](https://github.com/cadonuno/)) - Retrieves all the data available from the Veracode Reporting API from a specific start date
@@ -485,7 +485,7 @@ These projects are community contributed and not supported by Veracode. For a li
 - [verapi](https://github.com/fsclyde/verapi) ([Fsclyde](https://github.com/fsclyde/)) - Lambda function for automating Veracode static scans
 
 
-- [veracode-api (Node)](https://github.com/kinichahau87/veracode-api) ([Kinichahau87](https://github.com/kinichahau87/veracode-api)) - Node.js package for automating Veracode scanning from the command line.
+- [veracode-api (Node)](https://github.com/kinichahau87/veracode-api) ([Kinichahau87](https://github.com/kinichahau87/)) - Node.js package for automating Veracode scanning from the command line.
 
 
 - [Veracode-cli](https://github.com/adidas/veracode-cli) ([Adidas](https://github.com/adidas)) - Automated way to check application status and DevSecops compliance.
