@@ -1,11 +1,39 @@
 const GRID_ID = "gridjs";
 const DATABASE_FILE = "/veracode-tags-test/database.txt";
 
+const DARK_MODE_COOKIE = "IsDarkMode";
+const DARK_MODE_GRID_CLASS = "ag-theme-quartz-dark";
+const LIGHT_MODE_GRID_CLASS = "ag-theme-quartz";
+
+
 var api = null;
 var lastFilteredTag = ""
 
+function getIsDarkModeFromCookie() {
+    
+}
+
+function setDarkMode(isDarkMode) {
+    document.getElementById(GRID_ID).setAttribute("class", isDarkMode ? DARK_MODE_GRID_CLASS : LIGHT_MODE_GRID_CLASS);
+}
+
+function setDarkModeCookie(isDarkMode) {
+    var expiration = new Date();
+    expiration.setMonth(expiration.getMonth() + 12);
+    document.cookie = DARK_MODE_COOKIE + "=" + isDarkMode + ";expires=" + expiration;
+}
+
+function toggleDarkMode() {
+    var isDarkMode = document.getElementById("darkSwitch").checked
+    setDarkMode(isDarkMode);
+    if (shouldChangeCookie) {
+        setDarkModeCookie(isDarkMode)
+    }
+    shouldChangeCookie = true;
+}
+
 function loadDarkMode() {
-    isDarkMode = getIsDarkMode();
+    document.getElementById("darkSwitch").checked = getIsDarkModeFromCookie();    
 }
 
 function buildLinkHtml(linkUrl, linkDescription) {
@@ -72,6 +100,9 @@ async function triggerSearch(field, value, isAdditive) {
     newFilterModel = isAdditive ? await api.getColumnFilterModel(field) : [];
     if (!newFilterModel) {
         newFilterModel = [];
+    }
+    if (!Arrays.isArray(newFilterModel)) {
+        newFilterModel = [newFilterModel];
     }
     newFilterModel.push({
         filterType: 'text',
