@@ -65,12 +65,13 @@ function renderCell(cell) {
 }
 
 async function triggerSearch(field, value, isAdditive) {
-    baseFilterModel = isAdditive ? await api.getColumnFilterModel() : {};
-    await api.setColumnFilterModel(field, {
+    baseFilterModel = isAdditive ? await api.getColumnFilterModel(field) : [];
+    await api.setColumnFilterModel(field, baseFilterModel.push({
         filterType: 'string',
         type: 'equals',
         filter: value,
-     });
+        caseSensitive: false 
+     }));
 
      api.onFilterChanged();
 }
