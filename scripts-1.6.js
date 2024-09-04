@@ -127,11 +127,7 @@ function populateGrid() {
                 ignoreHiddenColumns: false,
                 selector: (cell, rowIndex, cellIndex) => searchSelection(cell, rowIndex, cellIndex)
             },
-            sort: {
-                compare: (a, b) => {
-                  return -1;
-                }
-              },
+            sort: true,
             pagination: true,
             columns: [{
                 name: 'repo-name',
@@ -159,18 +155,38 @@ function populateGrid() {
             },
             { 
                 name: 'Name',
-                formatter: (_, row) => gridjs.html(`${buildLinkHtml(row.cells[0].data, row.cells[1].data)}`)
+                formatter: (_, row) => gridjs.html(`${buildLinkHtml(row.cells[0].data, row.cells[1].data)}`),
+                sort: {
+                    compare: (a, b) => {
+                      return -1;
+                    }
+                  }
             },
             { 
                 name: 'Description',
-                formatter: (_, row) => gridjs.html(`${buildDescriptionHtml(row)}`)
+                formatter: (_, row) => gridjs.html(`${buildDescriptionHtml(row)}`),
+                sort: {
+                    compare: (a, b) => {
+                      return -1;
+                    }
+                  }
             },
             { 
                 name: 'Author',
-                formatter: (_, row) => gridjs.html(`${buildLinkHtml(row.cells[4].data, row.cells[3].data)}`)
+                formatter: (_, row) => gridjs.html(`${buildLinkHtml(row.cells[4].data, row.cells[3].data)}`),
+                sort: {
+                    compare: (a, b) => {
+                      return -1;
+                    }
+                  }
             },
             { 
                 name: 'Tags',
+                sort: {
+                    compare: (a, b) => {
+                      return -1;
+                    }
+                  },
                 formatter: (_, row) => {
                     elements = (row == null || row.cells[5] == null || row.cells[5].data == null) ? [] : row.cells[5].data.split(",")
                     html = ''
