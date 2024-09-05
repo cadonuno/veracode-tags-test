@@ -101,25 +101,34 @@ function getIsAdditiveForTags(value) {
     }    
 }
 
+function replaceAll(str, replacementMap){
+    var regexExpression = new RegExp(Object.keys(replacementMap).join("|"),"gi");
+
+    return str.replace(regexExpression, function(matched){
+        return replacementMap[matched.toLowerCase()];
+    });
+}
+
+function unescapeHTML(str) {
+    return replaceAll(str, {
+        '&amp;': '&',
+        '&lt;': '<',
+        '&gt;': '>',
+        '&quot;': '"',
+        '&#39;': '\\',
+        '&#x2F;': '/', 
+    });
+}
+
 function escapeHTML(str) {
-    return str.replace(/[&<>"'\/]/g, (char) => {
-        switch (char) {
-            case '&':
-                return '&amp;';
-            case '<':
-                return '&lt;';
-            case '>':
-                return '&gt;';
-            case '"':
-                return '&quot;';
-            case '\\':
-                return '&#39;';
-            case '/':
-                return '&#x2F;';
-            default:
-                return char;
-            }
-        });
+    return replaceAll(str, {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        '\\': '&#39;',
+        '/': '&#x2F;', 
+    });
 }
 
 function renderCell(cell) {
@@ -234,8 +243,7 @@ function populateGrid() {
                         if (filterText == null) {
                             return true;
                         }
-                        filterText = escapeHTML(filterText);
-                        value = trimAllLinksFromString(value);
+                        value = unescapeHTML(trimAllLinksFromString(value));
                         switch (filterOption) {
                             case 'contains':
                                 return value.indexOf(filterText) >= 0;
