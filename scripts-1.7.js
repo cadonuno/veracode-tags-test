@@ -6,17 +6,14 @@ const MAX_FILTER_CONDITIONS = 10;
 const TOGGLE_CONTAINER = "dark-mode-toggle-container";
 const INSTRUCTIONS_CONTAINER = "instructions-container";
 const COOKIE_NOTICE = "cookie-notice";
-const COOKIE_NOTICE = "cookie-notice";
 const BUTTON_CONTAINER = "reset-filters-container";
 const BUTTON = "button-reset-filters";
 
 const INSTRUCTIONS_DETAILS = "instructions-details";
 const COOKIE_NOTICE_DETAILS = "cookie-notice-details";
-const COOKIE_NOTICE_DETAILS = "cookie-notice-details";
 
 const DARK_MODE_COOKIE = "IsDarkMode";
 const OPEN_INSTRUCTIONS_COOKIE = "IsOpenInstructions";
-const OPEN_COOKIE_NOTICE_COOKIE = "IsOpenCookieNotice";
 const OPEN_COOKIE_NOTICE_COOKIE = "IsOpenCookieNotice";
 
 const DARK_SWITCH = "darkSwitch";
@@ -29,7 +26,7 @@ const DARK_MODE_BUTTON_CLASS = "btn btn-dark btn-sm";
 const LIGHT_MODE_BUTTON_CLASS = "btn btn-light btn-sm";
 
 var api = null;
-var lastFilteredTag = ""
+var lastFilteredTag = "";
 
 function getCookieByName(name) {
     const value = `; ${document.cookie}`;
@@ -56,9 +53,6 @@ function getIsCookieNoticeOpenFromCookie() {
 function setDarkMode(isDarkMode) {
     document.getElementById(TOGGLE_CONTAINER).classList.remove(isDarkMode ? LIGHT_MODE_HEADERS_CLASS : DARK_MODE_HEADERS_CLASS);
     document.getElementById(TOGGLE_CONTAINER).classList.add(isDarkMode ? DARK_MODE_HEADERS_CLASS : LIGHT_MODE_HEADERS_CLASS);
-
-    document.getElementById(COOKIE_NOTICE).classList.remove(isDarkMode ? LIGHT_MODE_HEADERS_CLASS : DARK_MODE_HEADERS_CLASS);
-    document.getElementById(COOKIE_NOTICE).classList.add(isDarkMode ? DARK_MODE_HEADERS_CLASS : LIGHT_MODE_HEADERS_CLASS);
 
     document.getElementById(COOKIE_NOTICE).classList.remove(isDarkMode ? LIGHT_MODE_HEADERS_CLASS : DARK_MODE_HEADERS_CLASS);
     document.getElementById(COOKIE_NOTICE).classList.add(isDarkMode ? DARK_MODE_HEADERS_CLASS : LIGHT_MODE_HEADERS_CLASS);
