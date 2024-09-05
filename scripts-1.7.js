@@ -187,7 +187,7 @@ function trimAllLinksFromString(value) {
     if (value == null) {
         return value;
     }
-    allNodes = value.substring("</a>");
+    allNodes = value.split("</a>");
     if (allNodes.length == 1) {
         return allNodes[0];
     }
