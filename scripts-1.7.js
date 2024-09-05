@@ -182,18 +182,28 @@ function sortGrid(event, field, sortDir) {
     api.applyColumnState(columnState);
   }
 
-function trimLinkFromString(value) {
+
+function trimAllLinksFromString(value) {
     if (value == null) {
         return value;
     }
-    value = escapeHTML(value);
-    let endOfLink = value.indexOf(">");
-    return endOfLink > 0 ? value.substring(endOfLink) : value;
+    allNodes = value.substring("</a>");
+    if (allNodes.length == 1) {
+        return allNodes[0];
+    }
+    newString = "";
+    for (let index = 0; index < allNodes.length; index++) {
+        node = allNodes[index];
+        beforeLink = node.substring(0, node.indexOf("<"));
+        afterLink = node.substring(0, node.indexOf(">"));
+        newString += beforeLink + afterLink;
+    }
+    return newString;
 }
 
 function customComparator(valueA, valueB) {
-    let toCompareA = trimLinkFromString(valueA);
-    let toCompareB = trimLinkFromString(valueB);
+    let toCompareA = trimAllLinksFromString(valueA);
+    let toCompareB = trimAllLinksFromString(valueB);
     return toCompareA.toLowerCase().localeCompare(toCompareB.toLowerCase());
 }
 
@@ -219,13 +229,12 @@ function populateGrid() {
             defaultColDef: {
                 filterParams: {
                     filterOptions: ["contains", "equals", "startsWith"],
-                    textFormatter: trimLinkFromString,
                     maxNumConditions: MAX_FILTER_CONDITIONS,
                     textMatcher:  ({ filterOption, value, filterText }) => {
                         if (filterText == null) {
                             return true;
                         }
-                        value = trimLinkFromString(value);
+                        value = trimAllLinksFromString(value);
                         switch (filterOption) {
                             case 'contains':
                                 return value.indexOf(filterText) >= 0;
