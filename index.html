@@ -15,7 +15,7 @@
 				</div>
 			</div>
 			<div id="instructions-container" class="container-light">
-				<details id="instructions-details" ontoggle="toggleInstructionsOpenClose()">
+				<details id="instructions-details" ontoggle="toggleAllCookies()">
 					<summary>Usage Instructions:</summary>
 					<div class="row">
 						<span>A collection of useful open source projects that integrate with the Veracode APIs to automate scanning, results retrieval and other tasks. </br>
@@ -43,19 +43,26 @@
 							</ul> <br />
 							Most of the content is in English, content in other languages is tagged with the language (i.e. <a href="#" onclick="triggerTagSearch('Portuguese')">Portuguese</a>). </br>
 						</span>
-					</details>
-				</div>
-				<div id="reset-filters-container" class="container-light" style="padding-bottom: 5px; padding-left: 5px;">
-					<button id="button-reset-filters" style="border-radius: .5rem;" type="button" class="btn btn-light btn-sm" onclick="resetFilters()">Reset Filters</button>
-				</div>
-				<div class="row">
-					<div class="ag-theme-quartz" id="gridjs"></div>
-				</div>
-				<div class="row">
-					<div id="cookie-notice" class="container-light">
-						We use cookies to store the latest stage of dark mode and usage instructions. Both cookies only contain a true/false (boolean) and are used to keep those 2 values consistent on page reloads.
 					</div>
-				</div>
+				</details>
+			</div>
+			<div id="cookie-notice" class="container-light">
+				<details id="cookie-notice-details" ontoggle="toggleAllCookies()">
+					<summary>Cookie Notice:</summary>
+					We use cookies to store the latest stage of a few fields in the webpage. All cookies only contain a true/false (boolean) and are used to keep those values consistent on page reloads.<br/>
+					The Stored values are:
+					<ul>
+						<li>Is Dark Mode Enabled</li>
+						<li>Are the Usage Instructions open</li>
+						<li>Is the Cookie Notice open</li>
+					</ul>
+				</details>
+			</div>
+			<div id="reset-filters-container" class="container-light" style="padding-bottom: 5px; padding-left: 5px;">
+				<button id="button-reset-filters" style="border-radius: .5rem;" type="button" class="btn btn-light btn-sm" onclick="resetFilters()">Reset Filters</button>
+			</div>
+			<div class="row">
+				<div class="ag-theme-quartz" id="gridjs"></div>
 			</div>
 		</div>	
 	</body>
