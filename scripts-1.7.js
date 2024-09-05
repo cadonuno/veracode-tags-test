@@ -195,7 +195,7 @@ function trimAllLinksFromString(value) {
     for (let index = 0; index < allNodes.length; index++) {
         node = allNodes[index];
         beforeLink = node.substring(0, node.indexOf("<"));
-        afterLink = node.substring(0, node.indexOf(">"));
+        afterLink = node.substring(node.indexOf(">")+1);
         newString += beforeLink + afterLink;
     }
     return newString;
