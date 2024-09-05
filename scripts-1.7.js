@@ -99,10 +99,6 @@ function toggleDarkMode() {
     setDarkModeCookie(isDarkMode);
 }
 
-function toggleAllCookies() {
-    setAllCookies();
-}
-
 function loadCookieInformation() {
     isDarkMode = getIsDarkModeFromCookie();  
     document.getElementById(DARK_SWITCH).checked = isDarkMode;
