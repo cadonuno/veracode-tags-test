@@ -122,26 +122,6 @@ function escapeHTML(str) {
         });
 }
 
-function filterForElement(filterOption, value, filterText) {
-    if (filterText == null) {
-        return false;
-    }
-    escapedFilterText = unescapeHTML(filterText);
-    escapedValue = unescapeHTML(value);
-    switch (filterOption) {
-        case 'contains':
-            return escapedValue.indexOf(escapedFilterText) >= 0;
-        case 'equals':
-            return escapedValue === escapedFilterText;
-        case 'startsWith':
-            return escapedValue.indexOf(escapedFilterText) === 0;
-        default:
-            // should never happen
-            console.warn('invalid filter type ' + filterOption);
-            return false;
-    }
-}
-
 function renderCell(cell) {
     return cell.value;
 }
@@ -243,24 +223,16 @@ function populateGrid() {
                     maxNumConditions: MAX_FILTER_CONDITIONS,
                     textMatcher:  ({ filterOption, value, filterText }) => {
                         if (filterText == null) {
-                            return false;
+                            return true;
                         }
-                        filterText = escapeHTML(filterText);
-                        value = trimLinkFromString(escapeHTML(value))
+                        value = trimLinkFromString(value);
                         switch (filterOption) {
                             case 'contains':
                                 return value.indexOf(filterText) >= 0;
-                            case 'notContains':
-                                return value.indexOf(filterText) < 0;
                             case 'equals':
                                 return value === filterText;
-                            case 'notEqual':
-                                return value != filterText;
                             case 'startsWith':
                                 return value.indexOf(filterText) === 0;
-                            case 'endsWith':
-                                const index = value.lastIndexOf(filterText);
-                                return index >= 0 && index === (value.length - filterText.length);
                             default:
                                 // should never happen
                                 console.warn('invalid filter type ' + filter);
