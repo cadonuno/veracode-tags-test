@@ -7,6 +7,7 @@ const TOGGLE_CONTAINER = "dark-mode-toggle-container";
 const INSTRUCTIONS_CONTAINER = "instructions-container";
 const BUTTON_CONTAINER = "reset-filters-container";
 const BUTTON = "button-reset-filters";
+const COOKIE_NOTICE = "cookie-notice";
 
 const INSTRUCTIONS_DETAILS = "instructions-details";
 
@@ -48,9 +49,12 @@ function setDarkMode(isDarkMode) {
 
     document.getElementById(BUTTON_CONTAINER).classList.remove(isDarkMode ? LIGHT_MODE_HEADERS_CLASS : DARK_MODE_HEADERS_CLASS);
     document.getElementById(BUTTON_CONTAINER).classList.add(isDarkMode ? DARK_MODE_HEADERS_CLASS : LIGHT_MODE_HEADERS_CLASS);
-
+    
     document.getElementById(BUTTON).setAttribute("class", isDarkMode ? DARK_MODE_BUTTON_CLASS : LIGHT_MODE_BUTTON_CLASS);
     document.getElementById(GRID_ID).setAttribute("class", isDarkMode ? DARK_MODE_GRID_CLASS : LIGHT_MODE_GRID_CLASS);
+
+    document.getElementById(COOKIE_NOTICE).classList.remove(isDarkMode ? LIGHT_MODE_HEADERS_CLASS : DARK_MODE_HEADERS_CLASS);
+    document.getElementById(COOKIE_NOTICE).classList.add(isDarkMode ? DARK_MODE_HEADERS_CLASS : LIGHT_MODE_HEADERS_CLASS);
 }
 
 function getIsDarkModeToggled() {
