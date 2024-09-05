@@ -46,10 +46,6 @@ function getIsCookieNoticeOpenFromCookie() {
     return "true" === getCookieByName(OPEN_COOKIE_NOTICE_COOKIE).toLowerCase();
 }
 
-function getIsCookieNoticeOpenFromCookie() {
-    return "true" === getCookieByName(OPEN_COOKIE_NOTICE_COOKIE).toLowerCase();
-}
-
 function setDarkMode(isDarkMode) {
     document.getElementById(TOGGLE_CONTAINER).classList.remove(isDarkMode ? LIGHT_MODE_HEADERS_CLASS : DARK_MODE_HEADERS_CLASS);
     document.getElementById(TOGGLE_CONTAINER).classList.add(isDarkMode ? DARK_MODE_HEADERS_CLASS : LIGHT_MODE_HEADERS_CLASS);
