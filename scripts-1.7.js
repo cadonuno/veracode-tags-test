@@ -78,12 +78,10 @@ function getIsDarkModeToggled() {
 }
 
 function setCookies(isDarkMode, isInstructionsOpen, isCookieNoticeOpen) {
-function setCookies(isDarkMode, isInstructionsOpen, isCookieNoticeOpen) {
     var expiration = new Date();
     expiration.setMonth(expiration.getMonth() + 12);
     document.cookie = DARK_MODE_COOKIE + "=" + isDarkMode + ";" + ";expires=" + expiration;
     document.cookie = OPEN_INSTRUCTIONS_COOKIE + "=" + isInstructionsOpen + ";expires=" + expiration;
-    document.cookie = OPEN_COOKIE_NOTICE_COOKIE + "=" + isCookieNoticeOpen + ";expires=" + expiration;
     document.cookie = OPEN_COOKIE_NOTICE_COOKIE + "=" + isCookieNoticeOpen + ";expires=" + expiration;
 }
 
@@ -99,17 +97,9 @@ function getIsCookieNoticeOpen() {
 
 function toggleAllCookies() {
     setCookies(getIsDarkModeToggled(), getIsInstructionsOpen(), getIsCookieNoticeOpen())
-function getIsCookieNoticeOpen() {
-    let details = document.getElementById(COOKIE_NOTICE_DETAILS);
-    return details.open;
-}
-
-function toggleAllCookies() {
-    setCookies(getIsDarkModeToggled(), getIsInstructionsOpen(), getIsCookieNoticeOpen())
 }
 
 function setDarkModeCookie(isDarkMode) {
-    setCookies(isDarkMode, getIsInstructionsOpen(), getIsCookieNoticeOpen())
     setCookies(isDarkMode, getIsInstructionsOpen(), getIsCookieNoticeOpen())
 }
 
