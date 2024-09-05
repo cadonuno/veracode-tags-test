@@ -31,4 +31,4 @@ td{word-break: break-word}
 .form-switch{margin-left: 5px}
 .btn-light{ background-color: #DFE0E0; border-color: #DFE0E0;}
 .btn-dark{ background-color: #0b0c0e; border-color: #0b0c0e; }
-details.span { margin-left: 10px}
+details span { margin-left: 10px}
