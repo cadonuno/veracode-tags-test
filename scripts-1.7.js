@@ -60,7 +60,8 @@ function getIsDarkModeToggled() {
 function setCookies(isDarkMode, isInstructionsOpen) {
     var expiration = new Date();
     expiration.setMonth(expiration.getMonth() + 12);
-    document.cookie = DARK_MODE_COOKIE + "=" + isDarkMode + ";" + OPEN_INSTRUCTIONS_COOKIE + "=" + isInstructionsOpen + ";expires=" + expiration;
+    document.cookie = DARK_MODE_COOKIE + "=" + isDarkMode + ";" + ";expires=" + expiration;
+    document.cookie = OPEN_INSTRUCTIONS_COOKIE + "=" + isInstructionsOpen + ";expires=" + expiration;
 }
 
 function getIsInstructionsOpen() {
