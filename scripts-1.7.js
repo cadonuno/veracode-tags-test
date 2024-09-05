@@ -3,12 +3,17 @@ const DATABASE_FILE = "/veracode-tags-test/database.txt";
 
 const MAX_FILTER_CONDITIONS = 10;
 
-const TOGGLE_CONTAINER = "dark-mode-toggle-container"
-const INSTRUCTIONS_CONTAINER = "instructions-container"
-const BUTTON_CONTAINER = "reset-filters-container"
-const BUTTON = "button-reset-filters"
+const TOGGLE_CONTAINER = "dark-mode-toggle-container";
+const INSTRUCTIONS_CONTAINER = "instructions-container";
+const BUTTON_CONTAINER = "reset-filters-container";
+const BUTTON = "button-reset-filters";
+
+const INSTRUCTIONS_DETAILS = "instructions-details";
 
 const DARK_MODE_COOKIE = "IsDarkMode";
+const OPEN_INSTRUCTIONS_COOKIE = "IsOpenInstructions";
+
+const DARK_SWITCH = "darkSwitch";
 
 const DARK_MODE_GRID_CLASS = "ag-theme-quartz-dark";
 const LIGHT_MODE_GRID_CLASS = "ag-theme-quartz";
@@ -17,16 +22,21 @@ const LIGHT_MODE_HEADERS_CLASS = "container-light";
 const DARK_MODE_BUTTON_CLASS = "btn btn-dark btn-sm";
 const LIGHT_MODE_BUTTON_CLASS = "btn btn-light btn-sm";
 
-
 var api = null;
 var lastFilteredTag = ""
 
+function getCookieByName(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    return parts.length === 2 ? parts.pop().split(';').shift() : "";
+  }
+
 function getIsDarkModeFromCookie() {
-    let decodedCookie = decodeURIComponent(document.cookie);
-    if (!decodedCookie || !decodedCookie.includes("=")) {
-        return false;
-    }
-    return (decodedCookie.split(';')[0].split("=")[1]).toLowerCase() == "true";
+    return "true" === getCookieByName(DARK_MODE_COOKIE).toLowerCase();
+}
+
+function getIsInstructionsOpenFromCookie() {
+    return "true" === getCookieByName(OPEN_INSTRUCTIONS_COOKIE).toLowerCase();
 }
 
 function setDarkMode(isDarkMode) {
@@ -43,22 +53,45 @@ function setDarkMode(isDarkMode) {
     document.getElementById(GRID_ID).setAttribute("class", isDarkMode ? DARK_MODE_GRID_CLASS : LIGHT_MODE_GRID_CLASS);
 }
 
-function setDarkModeCookie(isDarkMode) {
+function getIsDarkModeToggled() {
+    return document.getElementById(DARK_SWITCH).checked;
+}
+
+function setCookies(isDarkMode, isInstructionsOpen) {
     var expiration = new Date();
     expiration.setMonth(expiration.getMonth() + 12);
-    document.cookie = DARK_MODE_COOKIE + "=" + isDarkMode + ";expires=" + expiration;
+    document.cookie = DARK_MODE_COOKIE + "=" + isDarkMode + ";" + OPEN_INSTRUCTIONS_COOKIE + "=" + isInstructionsOpen + ";expires=" + expiration;
+}
+
+function getIsInstructionsOpen() {
+    let details = document.getElementById(INSTRUCTIONS_DETAILS);
+    return Object.hasOwn(details, 'open') && details.open;
+}
+
+function setIsInstructionsOpenCookie(isDarkMode) {
+    setCookies(getIsDarkModeToggled(), getIsInstructionsOpen())
+}
+
+function setDarkModeCookie(isDarkMode) {
+    setCookies(isDarkMode, getIsInstructionsOpen())
 }
 
 function toggleDarkMode() {
-    var isDarkMode = document.getElementById("darkSwitch").checked
+    var isDarkMode = getIsDarkModeToggled();
     setDarkMode(isDarkMode);
     setDarkModeCookie(isDarkMode);
 }
 
-function loadDarkMode() {
+function toggleInstructionsOpenClose() {
+    setIsInstructionsOpenCookie(getIsInstructionsOpen());
+}
+
+function loadCookieInformation() {
     isDarkMode = getIsDarkModeFromCookie();  
-    document.getElementById("darkSwitch").checked = isDarkMode;
+    document.getElementById(DARK_SWITCH).checked = isDarkMode;
     setDarkMode(isDarkMode);  
+
+    document.getElementById(INSTRUCTIONS_DETAILS).open = getIsInstructionsOpenFromCookie();
 }
 
 async function resetFilters() {
@@ -274,8 +307,8 @@ function populateGrid() {
             paginationPageSize: 10,
             paginationPageSizeSelector: [5, 10, 25, 50, 100, items.length],
             domLayout: 'autoHeight',
-            onGridReady: function (event) {
-                api = event.api;
+            onGridReady: function (evt) {
+                api = evt.api;
                 sortGrid(event, 'name', 'asc');
             },
         }

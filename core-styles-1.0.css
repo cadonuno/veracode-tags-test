@@ -26,8 +26,8 @@ div.description{background-color: white; border-bottom-left-radius: 10px; border
 .chartruce{background-color: #e2e369;}
 td{word-break: break-word}
 .start{border-top-left-radius: 10px; border-top-right-radius: 10px;}
-.container-light{background-color: white; }
-.container-dark{color: white; background-color: #28313E; }
+.container-light{background-color: white; padding-left: 10px;}
+.container-dark{color: white; background-color: #28313E; padding-left: 10px;}
 .form-switch{margin-left: 5px}
 .btn-light{ background-color: #DFE0E0; border-color: #DFE0E0;}
 .btn-dark{ background-color: #0b0c0e; border-color: #0b0c0e; }

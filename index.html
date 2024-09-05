@@ -15,7 +15,7 @@
 				</div>
 			</div>
 			<div id="instructions-container" class="container-light">
-				<details>
+				<details id="instructions-details" ontoggle="toggleInstructionsOpenClose()">
 					<summary>Usage Instructions:</summary>
 					<div class="row">
 						<span>A collection of useful open source projects that integrate with the Veracode APIs to automate scanning, results retrieval and other tasks. </br>
@@ -23,7 +23,7 @@
 							On filters:
 							<ul>
 								<li>Searching is <b>not</b> case-sensitive.</li>
-								<li>You can filter the grid by using the filter options on each column.</li>
+								<li>You can filter the grid by clicking the filter options on a column header. Those filters only apply to that one column.</li>
 								<li>You can combine filters in any way you like, however, only 10 filters can be applied <b>per column</b>.</li>
 								<li>You can click on a tag to add an additional filter for it. Clicking it again will remove other filters, effectively filtering only by that tag.</li>						
 								<ul>
@@ -56,7 +56,7 @@
 	</body>
 	<script type="text/javascript">
 		populateGrid();
-		loadDarkMode();
+		loadCookieInformation();
 	</script>
 </html>
 			
