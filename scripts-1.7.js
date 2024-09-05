@@ -65,7 +65,7 @@ function setCookies(isDarkMode, isInstructionsOpen) {
 
 function getIsInstructionsOpen() {
     let details = document.getElementById(INSTRUCTIONS_DETAILS);
-    return Object.hasOwn(details, 'open') && details.open;
+    return details.open;
 }
 
 function setIsInstructionsOpenCookie(isDarkMode) {
