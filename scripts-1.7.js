@@ -234,6 +234,7 @@ function populateGrid() {
                         if (filterText == null) {
                             return true;
                         }
+                        filterText = escapeHTML(filterText);
                         value = trimAllLinksFromString(value);
                         switch (filterOption) {
                             case 'contains':
