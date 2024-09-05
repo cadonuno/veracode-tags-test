@@ -262,7 +262,32 @@ function populateGrid() {
                     filterOptions: ["contains", "equals", "startsWith"],
                     textFormatter: trimLinkFromString,
                     maxNumConditions: MAX_FILTER_CONDITIONS,
-                    textMatcher: filterForElement
+                    textMatcher:  ({ filterOption, value, filterText }) => {
+                        if (filterText == null) {
+                            return false;
+                        }
+                        filterText = unescapeHTML(filterText);
+                        value = trimLinkFromString(unescapeHTML(filterText))
+                        switch (filterOption) {
+                            case 'contains':
+                                return value.indexOf(filterText) >= 0;
+                            case 'notContains':
+                                return value.indexOf(filterText) < 0;
+                            case 'equals':
+                                return value === filterText;
+                            case 'notEqual':
+                                return value != filterText;
+                            case 'startsWith':
+                                return value.indexOf(filterText) === 0;
+                            case 'endsWith':
+                                const index = value.lastIndexOf(filterText);
+                                return index >= 0 && index === (value.length - filterText.length);
+                            default:
+                                // should never happen
+                                console.warn('invalid filter type ' + filter);
+                                return false;
+                        }
+                    }
                 },
                 filter: true,
                 cellRenderer: renderCell,
