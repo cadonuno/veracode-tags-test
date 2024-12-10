@@ -107,6 +107,12 @@ These projects are community contributed and not supported by Veracode. For a li
 - [Veracode Bulk CVE Supression](https://github.com/aszaryk/veracode-bulk-cve-suppression) ([aszaryk](https://github.com/aszaryk)) - Allows for bulk suppression of specific CVE across full application portfolio. Script can also be used to reverse the bulk suppression of CVE findings..
 
 
+- [Veracode Credentials Generator](https://github.com/cadonuno/veracode-credentials-generator/) ([Cadonuno](https://github.com/cadonuno)) - This script gives you a basic template to automate the rollout of credentials files for usage in Veracode integrations
+
+
+- [Veracode SCA Agent-Based Scan to Application Profile Link Script](https://github.com/tsaekao/sca-auto-link) ([tsaekao](https://github.com/tsaekao)) - This is a Python script that links Veracode SCA Agent-Based projects to a corresponding application profile. The script automates the process of associating a project scanned by the Veracode SCA agent with its corresponding application profile using the Veracode SCA API
+
+
 ## Developer tools
 
 ### Auto Packagers (for SAST)
