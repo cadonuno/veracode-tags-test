@@ -110,6 +110,9 @@ These projects are community contributed and not supported by Veracode. For a li
 - [Veracode Credentials Generator](https://github.com/cadonuno/veracode-credentials-generator/) ([Cadonuno](https://github.com/cadonuno)) - This script gives you a basic template to automate the rollout of credentials files for usage in Veracode integrations
 
 
+- [Veracode Custom Roles](https://github.com/cadonuno/Veracode-Custom-Roles) ([Cadonuno](https://github.com/cadonuno)) - Allows for the bulk creation of Custom Roles in Veracode
+
+
 - [Veracode SCA Agent-Based Scan to Application Profile Link Script](https://github.com/tsaekao/sca-auto-link) ([tsaekao](https://github.com/tsaekao)) - This is a Python script that links Veracode SCA Agent-Based projects to a corresponding application profile. The script automates the process of associating a project scanned by the Veracode SCA agent with its corresponding application profile using the Veracode SCA API
 
 
