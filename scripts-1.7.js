@@ -1,3 +1,5 @@
+import { themeQuartz } from 'ag-grid-community'
+
 const GRID_ID = "gridjs";
 const DATABASE_FILE = "/veracode-tags-test/database.txt";
 
@@ -60,7 +62,9 @@ function setDarkMode(isDarkMode) {
     document.getElementById(BUTTON_CONTAINER).classList.add(isDarkMode ? DARK_MODE_HEADERS_CLASS : LIGHT_MODE_HEADERS_CLASS);
     
     document.getElementById(BUTTON).setAttribute("class", isDarkMode ? DARK_MODE_BUTTON_CLASS : LIGHT_MODE_BUTTON_CLASS);
-    document.getElementById(GRID_ID).setAttribute("class", isDarkMode ? DARK_MODE_GRID_CLASS : LIGHT_MODE_GRID_CLASS);
+
+    document.body.dataset.agThemeMode = enabled ? "dark" : "light";
+    //document.getElementById(GRID_ID).setAttribute("class", isDarkMode ? DARK_MODE_GRID_CLASS : LIGHT_MODE_GRID_CLASS);
 }
 
 function getIsDarkModeToggled() {
@@ -321,6 +325,7 @@ function populateGrid() {
             paginationPageSize: 10,
             paginationPageSizeSelector: [5, 10, 25, 50, 100, items.length],
             domLayout: 'autoHeight',
+            theme: themeQuartz,
             onGridReady: function (evt) {
                 api = evt.api;
                 sortGrid(event, 'name', 'asc');
