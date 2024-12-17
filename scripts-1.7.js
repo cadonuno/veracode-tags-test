@@ -1,5 +1,3 @@
-import { themeQuartz } from 'ag-grid-community'
-
 const GRID_ID = "gridjs";
 const DATABASE_FILE = "/veracode-tags-test/database.txt";
 
@@ -20,8 +18,8 @@ const OPEN_COOKIE_NOTICE_COOKIE = "IsOpenCookieNotice";
 
 const DARK_SWITCH = "darkSwitch";
 
-const DARK_MODE_GRID_CLASS = "ag-theme-quartz-dark";
-const LIGHT_MODE_GRID_CLASS = "ag-theme-quartz";
+//const DARK_MODE_GRID_CLASS = "ag-theme-quartz-dark";
+//const LIGHT_MODE_GRID_CLASS = "ag-theme-quartz";
 const DARK_MODE_HEADERS_CLASS = "container-dark";
 const LIGHT_MODE_HEADERS_CLASS = "container-light";
 const DARK_MODE_BUTTON_CLASS = "btn btn-dark btn-sm";
@@ -325,7 +323,6 @@ function populateGrid() {
             paginationPageSize: 10,
             paginationPageSizeSelector: [5, 10, 25, 50, 100, items.length],
             domLayout: 'autoHeight',
-            theme: themeQuartz,
             onGridReady: function (evt) {
                 api = evt.api;
                 sortGrid(event, 'name', 'asc');
