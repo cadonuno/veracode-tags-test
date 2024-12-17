@@ -18,8 +18,6 @@ const OPEN_COOKIE_NOTICE_COOKIE = "IsOpenCookieNotice";
 
 const DARK_SWITCH = "darkSwitch";
 
-//const DARK_MODE_GRID_CLASS = "ag-theme-quartz-dark";
-//const LIGHT_MODE_GRID_CLASS = "ag-theme-quartz";
 const DARK_MODE_HEADERS_CLASS = "container-dark";
 const LIGHT_MODE_HEADERS_CLASS = "container-light";
 const DARK_MODE_BUTTON_CLASS = "btn btn-dark btn-sm";
@@ -61,8 +59,7 @@ function setDarkMode(isDarkMode) {
     
     document.getElementById(BUTTON).setAttribute("class", isDarkMode ? DARK_MODE_BUTTON_CLASS : LIGHT_MODE_BUTTON_CLASS);
 
-    document.body.dataset.agThemeMode = enabled ? "dark" : "light";
-    //document.getElementById(GRID_ID).setAttribute("class", isDarkMode ? DARK_MODE_GRID_CLASS : LIGHT_MODE_GRID_CLASS);
+    document.body.dataset.agThemeMode = isDarkMode ? "dark" : "light";
 }
 
 function getIsDarkModeToggled() {
