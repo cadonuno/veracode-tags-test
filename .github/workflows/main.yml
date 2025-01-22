@@ -27,5 +27,5 @@ jobs:
           git config --global user.email "action@github.com"
   
           git add -A || true
-          git commit -m "Updating some file [skip ci]" || true
+          git commit -m "Automation: updating README and database [skip ci]" || true
           git push || true
