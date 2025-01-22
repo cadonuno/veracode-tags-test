@@ -14,11 +14,12 @@ These projects are community contributed and not supported by Veracode. For a li
   - [CI/CD](#ci/cd)
     - [Azure DevOps](#azure-devops)
     - [GitHub](#github)
+    - [Workflow](#workflow)
   - [Build tools](#build-tools)
   - [IDEs](#ides)
   - [API testing tools](#api-testing-tools)
   - [Other](#other)
-- [Pipeline Scan projets](#pipeline-scan-projets)
+- [Pipeline Scan projects](#pipeline-scan-projects)
 - [Dynamic Analysis projets](#dynamic-analysis-projets)
 - [SCA related projects](#sca-related-projects)
 - [Results collection and display](#results-collection-and-display)
@@ -114,6 +115,9 @@ These projects are community contributed and not supported by Veracode. For a li
 
 
 - [Veracode SCA Agent-Based Scan to Application Profile Link Script](https://github.com/tsaekao/sca-auto-link) ([tsaekao](https://github.com/tsaekao)) - This is a Python script that links Veracode SCA Agent-Based projects to a corresponding application profile. The script automates the process of associating a project scanned by the Veracode SCA agent with its corresponding application profile using the Veracode SCA API
+
+
+- [Veracode Create Collection](https://github.com/cadonuno/veracode-create-collection) ([Cadonuno](https://github.com/cadonuno)) - Allows for the creation of a collection in Veracode from the command-line
 
 
 ## Developer tools
@@ -222,6 +226,11 @@ These projects are community contributed and not supported by Veracode. For a li
 - [Veracode Application Sandboxes Helper](https://github.com/marketplace/actions/veracode-application-sandboxes-helper) ([Lerer](https://github.com/Lerer/)) - An Action to handle Sandboxes mainly as a set of clean-up activities such as: deleting a sandbox and promoting Sandbox scan to Policy Scan with or without deleting the sandbox
 
 
+#### Workflow
+
+- [Veracode Scan Workflow Plugin](https://github.com/cadonuno/veracode-start-scan) ([Cadonuno](https://github.com/cadonuno)) - Allows for simple implementation of a Veracode scanning workflow
+
+
 ### Build tools
 
 - [Gradle](https://github.com/calgaryscientific/veracode-gradle-plugin) ([CalgaryScientific](https://github.com/calgaryscientific)) - Set of Gradle tasks, usable either as a command line submission tool or integrated as part of a continuous integration build process, to perform Veracode submission for applications and scan results for flaws.
@@ -281,7 +290,7 @@ These projects are community contributed and not supported by Veracode. For a li
 - [Veracode Upload and Scan Shell Script](https://github.com/christyson/Veracode-Upload-and-Scan-Shell-Script) ([Christyson](https://github.com/christyson/)) - A shell script to upload and scan a application and create the application if necessary. Uses Curl and HMAC headers.
 
 
-## Pipeline Scan projets
+## Pipeline Scan projects
 
 - [Pipeline2DetailedReport](https://github.com/jphillips-vc/pipeline2detailedreport) ([JPhillips-vc](https://github.com/jphillips-vc/)) - Translates Veracode Pipeline Scan results into DetailedReport XML format, allowing you to import them into an IDE plugin for remediation.
 
