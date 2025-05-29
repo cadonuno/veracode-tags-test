@@ -267,6 +267,9 @@ These projects are community contributed and not supported by Veracode. For a li
 - [Veracode-Postman](https://github.com/veracode/veracode-postman) ([Veracode](https://github.com/veracode/)) - Pre-request authentication script and instructions for accessing Veracode APIs from Postman.
 
 
+- [Veracode-Bruno](https://github.com/veracode/veracode-bruno) ([Veracode](https://github.com/veracode/)) - Pre-request authentication script and instructions for accessing Veracode APIs from [Bruno](https://www.usebruno.com/)
+
+
 ### Other
 
 - [Ansible](https://github.com/telusdigital/ansible-veracode-scanner) ([Telus Digital](https://github.com/telusdigital)) - Allows uploading and scanning with Veracode from Ansible, with an option to send results to a Slack channel
