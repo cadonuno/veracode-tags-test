@@ -20,7 +20,7 @@ These projects are community contributed and not supported by Veracode. For a li
   - [API testing tools](#api-testing-tools)
   - [Other](#other)
 - [Pipeline Scan projects](#pipeline-scan-projects)
-- [Dynamic Analysis projets](#dynamic-analysis-projets)
+- [Dynamic Analysis projects](#dynamic-analysis-projects)
 - [SCA related projects](#sca-related-projects)
 - [Results collection and display](#results-collection-and-display)
 - [User provisioning, management and deprovisioning](#user-provisioning,-management-and-deprovisioning)
@@ -118,6 +118,9 @@ These projects are community contributed and not supported by Veracode. For a li
 
 
 - [Veracode Create Collection](https://github.com/cadonuno/veracode-create-collection) ([Cadonuno](https://github.com/cadonuno)) - Allows for the creation of a collection in Veracode from the command-line
+
+
+- [Veracode Custom Roles UI](https://github.com/cadonuno/VeracodeCustomRolesUI) ([Cadonuno](https://github.com/cadonuno)) - Custom UI for Creating, Updating, and Deleting Veracode Custom Roles
 
 
 ## Developer tools
@@ -310,7 +313,7 @@ These projects are community contributed and not supported by Veracode. For a li
 - [veracode-pipeline-with-baseline](https://github.com/runkalicious/veracode-pipeline-with-baseline) ([Runkalicious](https://github.com/runkalicious/)) - GitHub Action to perform a Veracode Pipeline Scan and, optionally, compare the results against a set of baseline results.
 
 
-## Dynamic Analysis projets
+## Dynamic Analysis projects
 
 - [veracode-da-reset-scheduler](https://github.com/dennismedeiros/veracode-da-reset-recheduler) ([dennismedeiros](https://github.com/dennismedeiros)) - Resets all recurrent scheduled analysis jobs configured for one year that have expired.
 
@@ -319,6 +322,9 @@ These projects are community contributed and not supported by Veracode. For a li
 
 
 - [Veracode DAST Add bulk urls to blocklist](https://github.com/AaronButler-Veracode/veracode_DAST_add_to_blocklist) ([aabutler](https://github.com/AaronButler-Veracode)) - Adds a list of urls to the blocklist for an existing DAST scan.
+
+
+- [veracode-ism-container](https://github.com/cadonuno/veracode-ism-container) ([Cadonuno](https://github.com/cadonuno)) - Veracode ISM Container
 
 
 ## SCA related projects
@@ -413,6 +419,15 @@ These projects are community contributed and not supported by Veracode. For a li
 
 
 - [Extract Findings](https://github.com/cadonuno/extractallfindings) ([Cadonuno](https://github.com/cadonuno)) - This is a fork of [Extract All Findings](https://github.com/cadonuno/extract-veracode-findings) modified to save individual finding information instead of totals
+
+
+- [veracode-elearning-report](https://github.com/cadonuno/veracode-elearning-report) ([Cadonuno](https://github.com/cadonuno)) - Veracode eLearning Report
+
+
+- [Generate-SBOM-and-Safe-Versions](https://github.com/tsaekao/Generate-SBOM-and-Safe-Versions/) ([tsaekao](https://github.com/tsaekao)) - A Python script to grab a Veracode application profile's Upload & Scan SCA results, create an SBOM, and return a list of all safe versions for each library.
+
+
+- [Veracode-Agent-SCA-Project-PDF](https://github.com/nazafur/Veracode-Agent-SCA-Project-PDF) ([nazafur](https://github.com/nazafur)) - Generates a PDF report for a Veracode Agent-Based SCA project
 
 
 ## User provisioning, management and deprovisioning
