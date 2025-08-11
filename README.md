@@ -433,6 +433,9 @@ These projects are community contributed and not supported by Veracode. For a li
 - [Veracode-Agent-SCA-Project-PDF](https://github.com/nazafur/Veracode-Agent-SCA-Project-PDF) ([nazafur](https://github.com/nazafur)) - Generates a PDF report for a Veracode Agent-Based SCA project
 
 
+- [Veracode Reporting API Helper](https://github.com/tfahey/veracode-reporting-api-helper) ([Tfahey](https://github.com/tfahey)) - Retrieves Findings or Audit data  from the Veracode Reporting API from a specific start date
+
+
 ## User provisioning, management and deprovisioning
 
 - [Azure AD SAML SSO Autocreating teams](https://dev.azure.com/jtotzek/_git/AD-Veracode-Teams) ([Jtotzek](https://dev.azure.com/jtotzek/)) - Code and documentation on configuring Azure Active Directory to automatically create teams as part of the just-in-time provisioning workflow via SAML.
