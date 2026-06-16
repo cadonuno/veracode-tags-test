@@ -31,6 +31,7 @@ These projects are community contributed and not supported by Veracode. For a li
 - [Secure coding examples](#secure-coding-examples)
 - [Insecure applications](#insecure-applications)
 - [Automating Security Labs tasks](#automating-security-labs-tasks)
+- [LLM Applications](#llm-applications)
 
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -330,6 +331,9 @@ These projects are community contributed and not supported by Veracode. For a li
 - [veracode-ism-container](https://github.com/cadonuno/veracode-ism-container) ([Cadonuno](https://github.com/cadonuno)) - Veracode ISM Container
 
 
+- [Veracode List All DAST Schedules](https://github.com/cadonuno/veracode-list-all-DAST-schedules) ([cadonuno](https://github.com/cadonuno)) - Lists the configured schedule for all DAST scans available to the current user
+
+
 ## SCA related projects
 
 - [Veracode-Get-EPSS-Info](https://github.com/cadonuno/Veracode-Get-EPSS-Info) ([Cadonuno](https://github.com/cadonuno/)) - Gets all the SCA findings available to the user, including EPSS scores and percentiles.
@@ -436,6 +440,24 @@ These projects are community contributed and not supported by Veracode. For a li
 - [Veracode Reporting API Helper](https://github.com/tfahey/veracode-reporting-api-helper) ([Tfahey](https://github.com/tfahey)) - Retrieves Findings or Audit data  from the Veracode Reporting API from a specific start date
 
 
+- [Veracode Get SCA Safe Versions](https://github.com/cadonuno/veracode-get-next-safe-for-all-vulnerable-libraries) ([cadonuno](https://github.com/cadonuno)) - A small plugin which downloads the latest scan for an application/sandbox and saves the SCA results (including a list of safe versions) to a CSV file
+
+
+- [Veracode Bulk SBOM - Python](https://github.com/cadonuno/veracode-bulk-sbom-python) ([cadonuno](https://github.com/cadonuno)) - A small plugin that fetches all SBOMs available to the current user
+
+
+- [Veracode Policy Results to Pipeline JSON](https://github.com/cadonuno/veracode-policy-results-to-pipeline-json) ([cadonuno](https://github.com/cadonuno)) - A small plugin that converts Veracode policy scan results into the equivalent pipeline scan output (for usage with Veracode Fix)
+
+
+- [Veracode Get All Scan Reports](https://github.com/cadonuno/veracode-get-all-scan-reports) ([cadonuno](https://github.com/cadonuno)) - This repository contains get-all-reports.py, a utility script for downloading all available Veracode scan reports
+
+
+- [Veracode Get Sexpiring Grace Periods](https://github.com/cadonuno/veracode-get-expiring-grace-periods-java) ([cadonuno](https://github.com/cadonuno)) - Gets a list of expiring Grace Periods in the next X days (supports multiple intervals)
+
+
+- [Veracode Pipeline Mitigations](https://github.com/tjarrettveracode/veracode-pipeline-mitigation) ([Tjarrettveracode](https://github.com/tjarrettveracode)) -  Retrieves findings with APPROVED mitigations from an application's policy scan (or sandbox) and creates a baseline file for Pipeline Scan. 
+
+
 ## User provisioning, management and deprovisioning
 
 - [Azure AD SAML SSO Autocreating teams](https://dev.azure.com/jtotzek/_git/AD-Veracode-Teams) ([Jtotzek](https://dev.azure.com/jtotzek/)) - Code and documentation on configuring Azure Active Directory to automatically create teams as part of the just-in-time provisioning workflow via SAML.
@@ -513,6 +535,9 @@ These projects are community contributed and not supported by Veracode. For a li
 - [veracode-api-py](https://github.com/tjarrettveracode/veracode-api-py) ([tjarrettveracode](https://github.com/tjarrettveracode)) - Python helper library for working with the Veracode APIs. Handles retries, pagination, and other features of the modern Veracode REST.
 
 
+- [Veracode Terminal User Interface](https://github.com/dipsylala/veracode-tui) ([dipsylala](https://github.com/dipsylala)) - A Terminal User Interface (TUI) application for accessing Veracode's API, built with Go.
+
+
 ## Other integrations
 
 - [Bash shell - ARCHIVED](https://github.com/aparsons/Veracode) ([Aparsons](https://github.com/aparsons/)) - Bash script for scanning a directory of code with the Veracode platform.
@@ -558,5 +583,10 @@ These projects are community contributed and not supported by Veracode. For a li
 ## Automating Security Labs tasks
 
 - [Security Labs Scripts](https://github.com/gmdavef/security-labs-scripts) ([Dave Ferguson](https://github.com/gmdavef)) - Python scripts to automate various administrative tasks in Veracode Security Labs.
+
+
+## LLM Applications
+
+- [Veracode MCP](https://github.com/dipsylala/veracode-mcp) ([dipsylala](https://github.com/dipsylala)) - A Veracode MCP to help with packaging, pipeline scanning, and platform.
 
 
